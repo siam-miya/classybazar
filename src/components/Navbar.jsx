@@ -83,15 +83,15 @@ const Navbar = () => {
                             </button>
                         </div>
                         <div className='flex items-center gap-5 text-black'>
-                            <button>
-                                <Image src={wishlist} height={24} width={24} alt="logo" />
-                            </button>
-                            <button>
+                            <Link href={"/widhlist"} className='cursor-pointer'>
+                                <Image src={wishlist} height={24} width={24} alt="logo" /> 
+                            </Link>
+                            <Link href={"/cart"} className='cursor-pointer'>
                                 <Image src={cart} height={24} width={24} alt="logo" />
-                            </button>
-                            <button>
+                            </Link>
+                            <Link href={"/user"} className='cursor-pointer'>
                                 <Image src={user} height={24} width={24} alt="logo" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
