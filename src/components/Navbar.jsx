@@ -57,7 +57,7 @@ const Navbar = () => {
                         </li>
                     </ul>
                     <div className='flex items-center gap-20'>
-                        <div className="relative max-w-[243px]">
+                        <div className="relative max-w-[700px]">
                             <input
                                 type="text"
                                 placeholder="What are you looking for?"
@@ -65,7 +65,7 @@ const Navbar = () => {
                             />
                             <button
                                 type="submit"
-                                className="absolute right-3 top-1/2 -translate-y-1/2 text-black hover:text-gray-600 transition-colors"
+                                className="absolute cursor-pointer right-3 top-1/2 -translate-y-1/2 text-black hover:text-gray-600 transition-colors"
                             >
                                 <svg
                                     className="w-5 h-5"
