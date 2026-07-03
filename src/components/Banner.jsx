@@ -15,9 +15,9 @@ import Image from 'next/image';
 const Banner = () => {
     return (
         <section>
-            <div className="container">
+            <div className="container border-b">
                 <div className='grid grid-cols-[238px_auto]  gap-10'>
-                    <div className='border-r border-r-[rgba(0,0,0,0.2)] pt-10 pr-4'>
+                    <div className='border-r border-r-[rgba(0,0,0,0.2)] pt-10 pb-10 pr-4'>
                         <ul>
                             <ListItems text={"Woman’s Fashion"} icon />
                             <ListItems text={"Men’s Fashion"} icon />
