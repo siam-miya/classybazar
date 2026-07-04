@@ -79,9 +79,7 @@ const Category = () => {
               </Swiper>
             )}
           </div>
-          <div className='text-center'>
-            <Button TagName={Link} href={"/products"}>View All Products</Button>
-          </div>
+         
         </div>
       </div>
     </section>

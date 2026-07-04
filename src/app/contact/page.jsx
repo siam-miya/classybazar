@@ -1,5 +1,11 @@
-import React from 'react'
 
+export const metadata = {
+  title: "Contact || ClassyBazar",
+  description: "classyBazar contact page",
+    icons: {
+    icon: "/favContact.png", 
+  },
+};
 const Contact = () => {
   return (
     <div>
@@ -9,3 +15,4 @@ const Contact = () => {
 }
 
 export default Contact
+

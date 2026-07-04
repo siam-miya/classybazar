@@ -14,8 +14,8 @@ const Topbar = () => {
       <div className="hidden md:block"></div>
       <div className="flex-1 text-center text-xs md:text-sm tracking-wide max-w-[700px]">
         <span>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</span>
-        <Link href={"/shop"}
-          className="font-semibold underline ml-2 hover:text-gray-300 transition-colors"
+        <Link href={"/products"}
+          className="font-semibold underline ml-2 transition-color hover:text-blue-600 transition-all"
         >
           ShopNow
         </Link>

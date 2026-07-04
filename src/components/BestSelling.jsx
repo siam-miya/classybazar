@@ -34,7 +34,7 @@ const BestSelling = () => {
             </div>
           </div>
           <div className='grid grid-cols-4 gap-8 mt-10 mb-10'>
-            {products.slice(7,16).map((product) => (
+            {products.slice(7,11).map((product) => (
                 <SwiperSlide key={product.id}>
                   <ProductCard product={product} />
                 </SwiperSlide>

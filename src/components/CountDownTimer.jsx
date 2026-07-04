@@ -35,7 +35,7 @@ export default function CountdownTimer() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center font-sans select-none pt-4 bg-white">
+    <div className="flex items-center justify-center font-sans select-none pt-4">
       <div className="flex items-center space-x-2 md:space-x-4">
         
         {/* Days */}

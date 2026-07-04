@@ -9,9 +9,9 @@ export default function ProductCard({product}) {
   return (
     <div className="max-w-[300px]  rounded-md overflow-hidden group font-sans bg-[#F5F5F5]">
       <div className="relative w-full h-[250px]  flex items-center justify-center p-4 rounded-t-md group overflow-hidden">
-        <span className="absolute top-3 left-3 bg-[#DB4444] text-white text-xs font-semibold px-3 py-1 rounded-sm">
+        {/* <span className="absolute top-3 left-3 bg-[#DB4444] text-white text-xs font-semibold px-3 py-1 rounded-sm">
           -40%
-        </span>
+        </span> */}
         <div className="absolute top-3 right-3 flex flex-col space-y-2">
           <button className="bg-white p-2 rounded-full shadow-sm hover:bg-gray-100 transition-colors cursor-pointer">
             <Heart className="w-5 h-5 text-black" strokeWidth={1.5} />

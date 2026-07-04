@@ -1,9 +1,16 @@
-"use client";
+
 import Image from 'next/image'
 import main_logo from "../../../public/main-logo.png"
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
 
+export const metadata = {
+  title: "Login || classyBazar",
+  description: "classybazar Login page",
+  icons: {
+    icon: "/favLogin.svg", 
+  },
+};
 const Login = () => {
   return (
     <div className='flex items-center gap-50'>
