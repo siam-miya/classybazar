@@ -1,7 +1,6 @@
 import NewArrivalsProducts from "./NewArrivalsProducts"
 import SectionHeading from "./SectionHeading"
 
-
 const Featured = () => {
   return (
     <section className="mt-15">

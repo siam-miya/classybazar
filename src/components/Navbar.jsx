@@ -11,7 +11,6 @@ import { usePathname } from 'next/navigation'
 
 const Navbar = () => {
     const pathname = usePathname();
-
     return (
         <nav className='border-b border-b-[rgba(0,0,0,0.2)]'>
             <div className='container'>

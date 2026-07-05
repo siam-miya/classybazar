@@ -53,7 +53,6 @@ const FlashSales = () => {
               modules={[Navigation]} 
               spaceBetween={32}      
               slidesPerView={4}      
-              // ৩. নেভিগেশনে ক্লাসের নামগুলো স্ট্রিং আকারে ধরিয়ে দেওয়া হলো
               navigation={{
                 prevEl: '.flash-prev',
                 nextEl: '.flash-next',

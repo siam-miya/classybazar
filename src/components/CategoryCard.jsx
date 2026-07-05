@@ -1,4 +1,3 @@
-import React from 'react';
 
 const CategoryCard = ({ icon: Icon, text }) => {
   return (

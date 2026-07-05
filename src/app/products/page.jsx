@@ -1,37 +1,22 @@
-"use client"
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { BiSolidRightArrow } from "react-icons/bi";
 
-const ProductsPage = () => {
-  const [allProducts, setAllProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("all");
+const ProductsPage = async ({ searchParams }) => {
+  const resolvedSearchParams = await searchParams;
+  const selectedCategory = resolvedSearchParams.category || "all";
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await fetch("https://dummyjson.com/products");
-        const data = await res.json();
-        setAllProducts(data.products); 
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchProducts();
-  }, []); 
-
-  const uniqueCategories = ["all", ...new Set(allProducts.map(item => item.category))];
-  const filteredProducts = selectedCategory === "all" 
-    ? allProducts 
-    : allProducts.filter(product => product.category === selectedCategory);
+  const res = await fetch("https://dummyjson.com/products");
+  const data = await res.json();
+  const productsData = data.products;
+  const uniqueCategories = ["all", ...new Set(productsData.map((item) => item.category))];
+  const filteredProducts = selectedCategory === "all"
+    ? productsData
+    : productsData.filter((product) => product.category === selectedCategory);
 
   return (
     <section>
       <div className="container mx-auto px-4">
-        
-        {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-2 pt-16 pb-10">
           <Link href={"/"} className="text-black-700 hover:text-blue-700 transition-all font-bold">
             Home
@@ -41,22 +26,23 @@ const ProductsPage = () => {
             Products
           </Link>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 pb-26 items-start"> 
           <div className="border-r border-gray-100 pr-4 md:sticky md:top-24 max-h-[calc(100vh-120px)] overflow-y-auto">
             <h2 className="font-bold leading-5 text-black mb-4">Shop by Category</h2>
             <ul className="flex flex-row md:flex-col flex-wrap gap-2 text-sm">
               {uniqueCategories.map((category) => (
                 <li key={category} className="w-full">
-                  <button
-                    onClick={() => setSelectedCategory(category)}
-                    className={`capitalize w-full text-left px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+                  <Link
+                    href={category === "all" ? "/products" : `/products?category=${category}`}
+                    className={`capitalize block w-full text-left px-3 py-1.5 rounded-lg transition-all ${
                       selectedCategory === category
                         ? "bg-[#DB4444] text-white font-semibold"
                         : "text-gray-600 hover:bg-gray-100"
                     }`}
                   >
                     {category === "all" ? "All Products" : category.replace("-", " ")}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -74,11 +60,10 @@ const ProductsPage = () => {
               )}
             </div>
           </div>
-
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default ProductsPage;

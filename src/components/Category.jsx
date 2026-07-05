@@ -7,8 +7,6 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { FaArrowLeft, FaArrowRight, FaComputer } from 'react-icons/fa6';
-import Button from './Button';
-import Link from 'next/link';
 import CategoryCard from './CategoryCard';
 import { IoIosPhonePortrait } from 'react-icons/io';
 import { BsSmartwatch } from 'react-icons/bs';
