@@ -75,24 +75,24 @@ const ProductDetailsSection = ({ product }) => {
             <div className="flex items-center border border-gray-400 rounded overflow-hidden h-11">
               <button 
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="px-4 hover:bg-gray-100 h-full border-r border-gray-400 flex items-center justify-center text-xl transition-colors"
+                className="px-4 hover:bg-gray-100 h-full border-r border-gray-400 flex items-center justify-center text-xl transition-colors cursor-pointer"
               >
                <HiMinusSmall />
               </button>
               <div className="w-14 text-center font-medium text-lg">{quantity}</div>
               <button 
                 onClick={() => setQuantity(quantity + 1)}
-                className="px-4 bg-[#DB4444] text-white h-full flex items-center justify-center text-xl hover:bg-red-600 transition-colors"
+                className="px-4 bg-[#DB4444] text-white h-full flex items-center justify-center text-xl hover:bg-red-600 transition-colors cursor-pointer"
               >
                 <GoPlus />
               </button>
             </div>
-            <button className="flex-1 bg-[#DB4444] hover:bg-red-600 text-white font-medium h-11 rounded transition-colors active:scale-[0.99]">
+            <button className="flex-1 bg-[#DB4444] hover:bg-red-600 text-white font-medium h-11 rounded transition-colors active:scale-[0.99] cursor-pointer">
               Buy Now
             </button>
             <button 
               onClick={() => setIsWishlist(!isWishlist)}
-              className="w-11 h-11 border border-gray-400 rounded flex items-center justify-center hover:border-black transition-colors active:scale-95"
+              className="w-11 h-11 border border-gray-400 rounded flex items-center justify-center hover:border-black transition-colors active:scale-95 cursor-pointer"
             >
               <svg 
                 className={`w-6 h-6 transition-colors ${isWishlist ? 'fill-red-500 text-red-500' : 'text-black'}`} 
@@ -109,7 +109,7 @@ const ProductDetailsSection = ({ product }) => {
               </svg>
               <div>
                 <h4 className="font-medium text-base mb-1">Free Delivery</h4>
-                <Link href="#" className="text-xs text-black font-medium underline block">
+                <Link href={"/"} className="text-xs text-black font-medium underline block">
                   Enter your postal code for Delivery Availability
                 </Link>
               </div>
@@ -122,7 +122,7 @@ const ProductDetailsSection = ({ product }) => {
               <div>
                 <h4 className="font-medium text-base mb-1">Return Delivery</h4>
                 <p className="text-xs text-gray-800 font-medium">
-                  Free 30 Days Delivery Returns. <Link href="#" className="underline text-black">Details</Link>
+                  Free 30 Days Delivery Returns. <Link href={"/"}className="underline text-black">Details</Link>
                 </p>
               </div>
             </div>
