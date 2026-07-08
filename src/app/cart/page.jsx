@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import useCartStore from '@/store/useCartStore';
+import {useCartStore} from '@/store/useCartStore';
 import Image from 'next/image';
 import Link from 'next/link';
 import { X } from 'lucide-react'; // ইমেজের ওপরের ক্রসের জন্য

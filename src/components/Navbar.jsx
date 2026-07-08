@@ -1,18 +1,31 @@
 'use client'; 
 
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-import React from 'react'
-import logo from "../../public/nav-logo.jpg"
-import wishlist from "../assets/icons/wishlist.svg"
-import cart from "../assets/icons/cart.png"
-import user from "../assets/icons/user.svg"
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useCartStore } from '@/store/useCartStore'
+import { useWishlistStore } from '@/store/useWishlistStore'
+import logo from "../../public/nav-logo.jpg"
+import wishlistIcon from "../assets/icons/wishlist.svg"
+import cartIcon from "../assets/icons/cart.png"
+import userIcon from "../assets/icons/user.svg"
 
 const Navbar = () => {
     const pathname = usePathname();
+    const cart = useCartStore((state) => state.cart);
+    const wishlist = useWishlistStore((state) => state.wishlist);
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+    const wishlistCount = wishlist.length;
+
     return (
-        <nav className='border-b border-b-[rgba(0,0,0,0.2)]'>
+        <nav className='border-b border-b-[rgba(0,0,0,0.2)] bg-white sticky top-0 z-50'>
             <div className='container'>
                 <div className='flex items-center justify-between py-5'>
                     <Link href={"/"}>
@@ -55,6 +68,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                     </ul>
+                    
                     <div className='flex items-center gap-20'>
                         <div className="relative max-w-[700px]">
                             <input
@@ -81,15 +95,26 @@ const Navbar = () => {
                                 </svg>
                             </button>
                         </div>
+                        
                         <div className='flex items-center gap-5 text-black'>
-                            <Link href={"/widhlist"} className='cursor-pointer'>
-                                <Image src={wishlist} height={24} width={24} alt="logo" /> 
+                            <Link href={"/wishlist"} className='cursor-pointer relative group'>
+                                <Image src={wishlistIcon} height={24} width={24} alt="wishlist" /> 
+                                {isMounted && (
+                                    <span className='absolute -top-3 -right-3 bg-[#DB4444] text-white text-[10px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center animate-fade-in'>
+                                        {wishlistCount}
+                                    </span>
+                                )}
                             </Link>
-                            <Link href={"/cart"} className='cursor-pointer'>
-                                <Image src={cart} height={24} width={24} alt="logo" />
+                            <Link href={"/cart"} className='cursor-pointer relative group'>
+                                <Image src={cartIcon} height={24} width={24} alt="cart" />
+                                {isMounted && (
+                                    <span className='absolute -top-3 -right-3 bg-[#DB4444] text-white text-[10px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center animate-fade-in'>
+                                        {cartCount}
+                                    </span>
+                                )}
                             </Link>
                             <Link href={"/user"} className='cursor-pointer'>
-                                <Image src={user} height={24} width={24} alt="logo" />
+                                <Image src={userIcon} height={24} width={24} alt="user" />
                             </Link>
                         </div>
                     </div>

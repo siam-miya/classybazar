@@ -48,7 +48,7 @@ const ProductsPage = async ({ searchParams }) => {
             </ul>
           </div>
           <div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
               {filteredProducts.length > 0 ? (
                 filteredProducts.map((product) => (
                   <ProductCard key={product.id} product={product}/>
