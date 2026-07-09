@@ -1,19 +1,40 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HiMinusSmall } from 'react-icons/hi2';
 import { GoPlus } from 'react-icons/go';
+import { useCartStore } from '@/store/useCartStore'; 
+import { useWishlistStore } from '@/store/useWishlistStore'; 
 
 const ProductDetailsSection = ({ product }) => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [isWishlist, setIsWishlist] = useState(false);
+  const [isMounted, setIsMounted] = useState(false); 
+
+  const addToCart = useCartStore((state) => state.addToCart); 
+  const wishlist = useWishlistStore((state) => state.wishlist);
+  const toggleWishlist = useWishlistStore((state) => state.toggleWishlist);
+
+  const isProductInWishlist = wishlist.some((item) => item.id === product?.id);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const productImages = product?.images?.length ? product.images : [product?.thumbnail];
+  
+  const handleBuyNow = () => {
+    if (product) {
+      for (let i = 0; i < quantity; i++) {
+        addToCart(product);
+      }
+    }
+  };
 
   return (
     <div className="pt-10 pb-20 font-sans text-black select-none">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* বাম পাশ: ইমেজ সেকশন */}
         <div className="lg:col-span-7 flex flex-col-reverse md:flex-row gap-4">
           <div className="flex md:flex-col gap-4 justify-between md:justify-start">
             {productImages.slice(0, 4).map((img, index) => (
@@ -72,14 +93,16 @@ const ProductDetailsSection = ({ product }) => {
             {product?.description}
           </p>
           <div className="flex items-center gap-4 mb-8">
-            <div className="flex items-center border border-gray-400 rounded overflow-hidden h-11">
+            <div className="flex items-center border border-gray-400 rounded overflow-hidden h-11 bg-white">
               <button 
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
                 className="px-4 hover:bg-gray-100 h-full border-r border-gray-400 flex items-center justify-center text-xl transition-colors cursor-pointer"
               >
-               <HiMinusSmall />
+                <HiMinusSmall />
               </button>
-              <div className="w-14 text-center font-medium text-lg">{quantity}</div>
+              <div className="w-14 text-center font-medium text-lg flex items-center justify-center h-full">
+                {String(quantity).padStart(2, '0')}
+              </div>
               <button 
                 onClick={() => setQuantity(quantity + 1)}
                 className="px-4 bg-[#DB4444] text-white h-full flex items-center justify-center text-xl hover:bg-red-600 transition-colors cursor-pointer"
@@ -87,16 +110,25 @@ const ProductDetailsSection = ({ product }) => {
                 <GoPlus />
               </button>
             </div>
-            <button className="flex-1 bg-[#DB4444] hover:bg-red-600 text-white font-medium h-11 rounded transition-colors active:scale-[0.99] cursor-pointer">
+            
+            <Link 
+              href="/checkout"
+              onClick={handleBuyNow}
+              className="flex-1 bg-[#DB4444] hover:bg-black text-white font-medium h-11 rounded transition-colors active:scale-[0.99] cursor-pointer flex items-center justify-center text-center"
+            >
               Buy Now
-            </button>
+            </Link>
             <button 
-              onClick={() => setIsWishlist(!isWishlist)}
+              onClick={() => product && toggleWishlist(product)}
               className="w-11 h-11 border border-gray-400 rounded flex items-center justify-center hover:border-black transition-colors active:scale-95 cursor-pointer"
             >
               <svg 
-                className={`w-6 h-6 transition-colors ${isWishlist ? 'fill-red-500 text-red-500' : 'text-black'}`} 
-                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                className={`w-6 h-6 transition-colors ${
+                  isMounted && isProductInWishlist ? 'fill-red-500 text-red-500' : 'text-black'
+                }`} 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
@@ -122,11 +154,12 @@ const ProductDetailsSection = ({ product }) => {
               <div>
                 <h4 className="font-medium text-base mb-1">Return Delivery</h4>
                 <p className="text-xs text-gray-800 font-medium">
-                  Free 30 Days Delivery Returns. <Link href={"/"}className="underline text-black">Details</Link>
+                  Free 30 Days Delivery Returns. <Link href={"/"} className="underline text-black">Details</Link>
                 </p>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
