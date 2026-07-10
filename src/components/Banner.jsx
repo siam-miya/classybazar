@@ -14,58 +14,41 @@ import Image from 'next/image';
 
 const Banner = () => {
     return (
-        <section>
-            <div className="container border-b">
-                <div className='grid grid-cols-[238px_auto]  gap-10'>
-                    <div className='border-r border-r-[rgba(0,0,0,0.2)] pt-10 pb-10 pr-4'>
-                        <ul>
-                            <ListItems text={"Woman’s Fashion"} icon />
-                            <ListItems text={"Men’s Fashion"} icon />
-                            <ListItems text={"Electronics"} />
-                            <ListItems text={"Home & Lifestyle"} />
-                            <ListItems text={"Medicine"} />
-                            <ListItems text={"Sports & Outdoor"} />
-                            <ListItems text={"Baby’s & Toys"} />
-                            <ListItems text={"Groceries &  "} />
-                            <ListItems text={"Health & Beauty"} />
-                            <ListItems text={"womens fashion"} />
-                            <ListItems text={"womens fashion"} />
-                        </ul>
-                    </div>
-                    <div className='min-w-0 w-full h-[400px] rounded-lg overflow-hidden pt-10 custom-swiper'>
-                        <Swiper
-                            spaceBetween={20}
-                            slidesPerView={1}
-                            loop={true}
-                            pagination={{ clickable: true }}
-                            modules={[Pagination]}
-                            className="w-full h-full"
-                        >
-                            <SwiperSlide className="flex items-center justify-center">
-                                <SliderItem
-                                    image={banner_1}
-                                    brandLogo={apple}
-                                    brandTitle={"iphone 14 seris"}
-                                    discount={"10%"} />
-                            </SwiperSlide>
-                            <SwiperSlide className="flex items-center justify-center">
-                                <SliderItem
-                                    image={banner_2}
-                                    brandLogo={apple}
-                                    brandTitle={"iphone x seris"}
-                                    discount={"40%"} />
-                            </SwiperSlide>
-                            <SwiperSlide className="flex items-center justify-center">
-                                <SliderItem
-                                    image={banner_3}
-                                    brandLogo={apple}
-                                    brandTitle={"iphone 15 seris"}
-                                    discount={"20%"} />
-                            </SwiperSlide>
-
-                        </Swiper>
-                    </div>
+        <section className="w-full">
+            <div>
+                <div className='w-full h-[50vh] rounded-sm overflow-hidden custom-swiper'>
+                    <Swiper
+                        spaceBetween={20}
+                        slidesPerView={1}
+                        loop={true}
+                        pagination={{ clickable: true }}
+                        modules={[Pagination]}
+                        className="w-full h-full"
+                    >
+                        <SwiperSlide className="flex items-center justify-center">
+                            <SliderItem
+                                image={banner_1}
+                                brandLogo={apple}
+                                brandTitle={"iphone 14 seris"}
+                                discount={"10%"} />
+                        </SwiperSlide>
+                        <SwiperSlide className="flex items-center justify-center">
+                            <SliderItem
+                                image={banner_2}
+                                brandLogo={apple}
+                                brandTitle={"iphone x seris"}
+                                discount={"40%"} />
+                        </SwiperSlide>
+                        <SwiperSlide className="flex items-center justify-center">
+                            <SliderItem
+                                image={banner_3}
+                                brandLogo={apple}
+                                brandTitle={"iphone 15 seris"}
+                                discount={"20%"} />
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
+
             </div>
         </section>
     )
@@ -73,24 +56,27 @@ const Banner = () => {
 
 export default Banner
 
-function ListItems({ icon = false, text }) {
-    return <li className='grid grid-cols-[1fr_24px] gap-2 items-center  py-1'>
-        <Link href={"/"} className='text-base text-black'>{text}</Link>
-        {icon && <MdOutlineKeyboardArrowRight className='cursor-pointer' />
-        }
-    </li>
-}
-
 function SliderItem({ image, brandLogo, brandTitle, discount }) {
     return (
-        <div style={{ background: `url(${image.src})` }} className='w-full h-full bg-cover bg-center bg-no-repeat p-12 flex items-center'>
-            <div className='space-y-2'>
-                <p className='flex items-center gap-3 text-white'>
-                    <Image src={brandLogo} height={49} width={40} alt='brandLogo' />
+        // ১ নম্বর ইমেজের মতো রিপিটেশন এড়াতে bg-contain বা নিখুঁত ফিটের জন্য কাস্টমাইজেশন
+        <div
+            style={{ backgroundImage: `url(${image.src})` }}
+            className='w-full h-full bg-cover bg-center bg-no-repeat p-12 flex items-center'
+        >
+            <div className='space-y-4 z-10 max-w-[300px] ml-150'>
+                <p className='flex items-center gap-3 text-white text-sm tracking-wide font-light'>
+                    <Image src={brandLogo} height={30} width={24} alt='brandLogo' className="object-contain" />
                     {brandTitle}
                 </p>
-                <h1 className='text-white font-semibold text-[48px] leading-15'>Up to {discount} <br /> off Voucher</h1>
-                <Link href={"/"} className='flex items-center gap-2 text-white cursor-pointer'><span className='border-b-2'>Shop Now</span> <MdOutlineKeyboardArrowRight size={23}/></Link>
+                <h1 className='text-white font-bold text-[40px] leading-[1.2] font-poppins'>
+                    Up to {discount} <br /> off Voucher
+                </h1>
+                <Link href={"/"} className='inline-flex items-center gap-2 text-white cursor-pointer group mt-2'>
+                    <span className='border-b border-white pb-0.5 group-hover:border-transparent transition-all text-sm font-medium'>
+                        Shop Now
+                    </span>
+                    <MdOutlineKeyboardArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
             </div>
         </div>
     )
