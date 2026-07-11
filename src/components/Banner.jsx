@@ -1,22 +1,22 @@
 "use client"
-import Link from 'next/link'
-import React from 'react'
-import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import Image from "next/image"
+import Link from "next/link"
+import { MdOutlineKeyboardArrowRight } from "react-icons/md"
+// এখানে ফিক্স করা হয়েছে: Swiper এবং SwiperSlide দুটোই এখন swiper/react থেকে আসছে
+import { Swiper, SwiperSlide } from "swiper/react"
+import 'swiper/css'
+import 'swiper/css/pagination'
+import { Pagination } from 'swiper/modules'
 import banner_1 from "../assets/images/banner.jpg"
 import banner_2 from "../assets/images/banner_2.jpg"
 import banner_3 from "../assets/images/banner_3.jpg"
 import apple from "../assets/icons/apple.png"
-import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
-import Image from 'next/image';
 
 const Banner = () => {
     return (
-        <section className="w-full">
-            <div>
-                <div className='w-full h-[50vh] rounded-sm overflow-hidden custom-swiper'>
+        <section className="ml-135">
+            <div className='container'>
+                <div className='rounded-sm overflow-hidden custom-swiper relative w-[1050px]'>
                     <Swiper
                         spaceBetween={20}
                         slidesPerView={1}
@@ -48,22 +48,19 @@ const Banner = () => {
                         </SwiperSlide>
                     </Swiper>
                 </div>
-
             </div>
         </section>
     )
 }
-
 export default Banner
 
 function SliderItem({ image, brandLogo, brandTitle, discount }) {
     return (
-        // ১ নম্বর ইমেজের মতো রিপিটেশন এড়াতে bg-contain বা নিখুঁত ফিটের জন্য কাস্টমাইজেশন
         <div
             style={{ backgroundImage: `url(${image.src})` }}
-            className='w-full h-full bg-cover bg-center bg-no-repeat p-12 flex items-center'
+            className='w-[1050px] h-[386px] bg-cover bg-center bg-no-repeat p-12 flex items-center justify-start'
         >
-            <div className='space-y-4 z-10 max-w-[300px] ml-150'>
+            <div className='space-y-4 z-10 max-w-[300px] pl-6 text-left'>
                 <p className='flex items-center gap-3 text-white text-sm tracking-wide font-light'>
                     <Image src={brandLogo} height={30} width={24} alt='brandLogo' className="object-contain" />
                     {brandTitle}

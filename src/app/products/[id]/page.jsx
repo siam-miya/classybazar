@@ -1,8 +1,7 @@
 import ProductDetailsSection from "@/components/ProductDetailsSection";
 import SectionHeading from "@/components/SectionHeading";
-import Link from "next/link";
 import ProductCard from "@/components/ProductCard"; 
-import { BiSolidRightArrow } from "react-icons/bi";
+import SubBanner from "@/components/SubBanner";
 
 const ProductDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -21,21 +20,12 @@ const ProductDetailsPage = async ({ params }) => {
 
   return (
     <section>
-      <div className="container mx-auto px-4">
+      <div className="container">
         <div>
-          <div className="flex items-center gap-2 pt-15 text-sm mb-6">
-            <Link href={"/"} className="text-gray-600 hover:text-black transition-all font-medium">
-              Home
-            </Link>
-            <BiSolidRightArrow className="text-[10px] text-gray-400" />
-            <Link href={"/products"} className="text-gray-600 hover:text-black transition-all font-medium">
-              Products
-            </Link> 
-            <BiSolidRightArrow className="text-[10px] text-gray-400" />
-            <p className="text-black font-semibold truncate max-w-[200px]">
-              {findData.title}
+          <SubBanner title={"Product Details"} pageName={"Product Details"}/>
+            <p className="text-black font-semibold">
+              <span className="font-bold text-black">Product Name:</span> {findData.title}
             </p>
-          </div>
           <div className="mb-10">
             <ProductDetailsSection product={findData} />
           </div>

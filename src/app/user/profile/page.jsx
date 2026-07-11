@@ -1,3 +1,4 @@
+import SubBanner from '@/components/SubBanner'
 import UserProfileDashboard from '@/components/UserProfileDashboard'
 import Link from 'next/link'
 import React from 'react'
@@ -8,7 +9,7 @@ const UserAccountPage = () => {
    <section>
     <div className="container">
        <div>
-           <div className="flex items-center gap-2 pt-15 text-sm mb-6">
+           {/* <div className="flex items-center gap-2 pt-15 text-sm mb-6">
             <Link href={"/"} className="text-gray-600 hover:text-black transition-all font-medium">
               Home
             </Link>
@@ -16,7 +17,8 @@ const UserAccountPage = () => {
             <Link href={"/products"} className="text-blue-500 transition-all font-medium">
               My Account
             </Link>
-          </div>
+          </div> */}
+          <SubBanner title={"Your Profile"} pageName={"Profile"}/>
             <div>
             <UserProfileDashboard/>
           </div>

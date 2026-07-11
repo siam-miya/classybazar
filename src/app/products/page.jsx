@@ -1,11 +1,10 @@
 import ProductCard from "@/components/ProductCard";
+import SubBanner from "@/components/SubBanner";
 import Link from "next/link";
-import { BiSolidRightArrow } from "react-icons/bi";
 
 const ProductsPage = async ({ searchParams }) => {
   const resolvedSearchParams = await searchParams;
   const selectedCategory = resolvedSearchParams.category || "all";
-
   const res = await fetch("https://dummyjson.com/products");
   const data = await res.json();
   const productsData = data.products;
@@ -16,16 +15,8 @@ const ProductsPage = async ({ searchParams }) => {
 
   return (
     <section>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center gap-2 pt-16 pb-10">
-          <Link href={"/"} className="text-black-700 hover:text-blue-700 transition-all font-bold">
-            Home
-          </Link>
-          <BiSolidRightArrow className="text-xs text-gray-400" />
-          <Link href={"/products"} className="text-blue-700 hover:text-black font-semibold">
-            Products
-          </Link>
-        </div>
+      <div className="container">
+        <SubBanner title={"All Products"} pageName={"Products"}/>
 
         <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 pb-26 items-start"> 
           <div className="border-r border-gray-100 pr-4 md:sticky md:top-24 max-h-[calc(100vh-120px)] overflow-y-auto">
@@ -54,8 +45,8 @@ const ProductsPage = async ({ searchParams }) => {
                   <ProductCard key={product.id} product={product}/>
                 ))
               ) : (
-                <p className="col-span-full text-center text-gray-500 py-10">
-                  No products found in this category.
+                <p className="col-span-full text-center text-gray-500 py-20 flex items-center justify-center mt-9 bg-[#DB4444] text-white text-2xl rounded-2xl">
+                 Stoke Out
                 </p>
               )}
             </div>

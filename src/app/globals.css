@@ -13,3 +13,31 @@
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-in-out forwards;
 }
+
+/* Swiper Custom Dash Pagination Triggers */
+.custom-swiper .swiper-pagination {
+  bottom: 16px !important;
+  left: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+/* সাধারণ ড্যাশগুলোর স্টাইল (---) */
+.custom-swiper .swiper-pagination-bullet {
+  width: 16px !important; /* ড্যাশের দৈর্ঘ্য */
+  height: 4px !important;  /* ড্যাশের পুরুত্ব */
+  border-radius: 2px !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* একটিভ থাকা লম্বা ড্যাশের স্টাইল */
+.custom-swiper .swiper-pagination-bullet-active {
+  width: 32px !important; /* একটিভ হলে ড্যাশটি আরও বড় হবে */
+  background-color: #ffffff !important;
+}

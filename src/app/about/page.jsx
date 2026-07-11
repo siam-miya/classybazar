@@ -1,5 +1,6 @@
 import AboutDetailsSection from "@/components/AboutDetailsSection";
 import OurSupport from "@/components/OurSupport";
+import SubBanner from "@/components/SubBanner";
 import Link from "next/link";
 import { BiSolidRightArrow } from "react-icons/bi";
 
@@ -15,7 +16,7 @@ const About = () => {
    <section>
     <div className="container">
       <div>
-          <div className="flex items-center gap-2 pt-15 text-sm mb-6">
+          {/* <div className="flex items-center gap-2 pt-15 text-sm mb-6">
             <Link href={"/"} className="text-gray-600 hover:text-black transition-all font-medium">
               Home
             </Link>
@@ -23,7 +24,8 @@ const About = () => {
             <Link href={"/about"} className="text-gray-600 hover:text-black transition-all font-medium">
               About
             </Link>        
-          </div>
+          </div> */}
+          <SubBanner title={"About"} pageName={"About"}/>
           <div>
             <AboutDetailsSection/>
           </div>

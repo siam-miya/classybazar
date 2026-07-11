@@ -8,7 +8,6 @@ import { useWishlistStore } from '@/store/useWishlistStore'
 import logo from "../../public/nav-logo.jpg"
 import wishlistIcon from "../assets/icons/wishlist.svg"
 import cartIcon from "../assets/icons/cart.png"
-
 import { FiUser, FiLogOut } from "react-icons/fi";
 import { toast } from 'react-toastify';
 import { RiUser3Line } from 'react-icons/ri';

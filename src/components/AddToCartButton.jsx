@@ -3,8 +3,6 @@
 import React from "react";
 import { useCartStore } from "@/store/useCartStore";
 import { toast } from "react-toastify";
-import { GiShoppingCart } from "react-icons/gi"; // react-icons থেকে আইকন ইম্পোর্ট করা হয়েছে
-import { FaShoppingCart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 
 const AddToCartButton = ({ product }) => {

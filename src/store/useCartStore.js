@@ -5,7 +5,7 @@ export const useCartStore = create(
   persist(
     (set) => ({
       cart: [],
-      shippingMethod: 'inside', // default 'inside' (Inside Dhaka)
+      shippingMethod: 'inside', 
 
       // কার্টে প্রোডাক্ট যোগ করা
       addToCart: (product) => set((state) => {
@@ -32,14 +32,11 @@ export const useCartStore = create(
         ),
       })),
 
-      // শিপিং মেথড আপডেট করা
       setShippingMethod: (method) => set({ shippingMethod: method }),
-      
-      // সম্পূর্ণ কার্ট খালি করার ফাংশন (চেকআউট বা অর্ডারের পর প্রয়োজন হতে পারে)
       clearCart: () => set({ cart: [] }),
     }),
     {
-      name: 'classybazar-shopping-cart', // ২. ব্রাউজারের localStorage-এ এই নামে ডাটা সেভ থাকবে
+      name: 'classybazar-shopping-cart', 
     }
   )
 );

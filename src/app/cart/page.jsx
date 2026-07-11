@@ -4,10 +4,11 @@ import React, { useState, useEffect } from 'react';
 import {useCartStore} from '@/store/useCartStore';
 import Image from 'next/image';
 import Link from 'next/link';
-import { X } from 'lucide-react'; // ইমেজের ওপরের ক্রসের জন্য
-import { FiTrash2 } from 'react-icons/fi'; // রিঅ্যাক্ট আইকন থেকে ডিলিট বাটন
+import { X } from 'lucide-react'; 
+import { FiTrash2 } from 'react-icons/fi'; 
 import { BiSolidRightArrow } from 'react-icons/bi';
 import Button from '@/components/Button';
+import SubBanner from '@/components/SubBanner';
 
 const CartPage = () => {
   const { cart, removeFromCart, updateQuantity, shippingMethod, setShippingMethod } = useCartStore();
@@ -27,7 +28,7 @@ const CartPage = () => {
   return (
     <section>
       <div className="container font-sans text-black">
-         <div className="flex items-center gap-2 pt-8 text-sm mb-6">
+         {/* <div className="flex items-center gap-2 pt-8 text-sm mb-6">
             <Link href={"/"} className="text-gray-600 hover:text-black transition-all font-medium">
               Home
             </Link>
@@ -39,7 +40,8 @@ const CartPage = () => {
             <p className="text-blue-500 font-semibold truncate max-w-[200px]">
               Cart
             </p>
-          </div>
+          </div> */}
+          <SubBanner title={"Cart"} pageName={"Cart"}/>
         {cart.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-[50vh] text-center py-16">
             <p className="text-gray-500 text-4xl mb-7">Your cart is empty!</p>
