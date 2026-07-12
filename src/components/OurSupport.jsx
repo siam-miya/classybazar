@@ -33,8 +33,8 @@ const OurSupport = () => {
                                         <Image src={support.icon} width={90} height={90} alt="icon" className="bg-black rounded-full p-5 border-10 border-gray-300 mx-auto" />
                                     </div>
                                     <div className="text-center">
-                                        <h2 className="font-semibold text-[20px] leading-7 text-black pt-6 pb-2">{support.text}</h2>
-                                        <p className="text-[14px] leading-5">{support.description}</p>
+                                        <h2 className="font-semibold font-poppins text-[20px] leading-7 text-black pt-6 pb-2">{support.text}</h2>
+                                        <p className="text-[14px] leading-5 font-poppins">{support.description}</p>
                                     </div>
                                 </div>
                             })

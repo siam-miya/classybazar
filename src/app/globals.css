@@ -5,6 +5,28 @@
   max-width: 1320px;
   margin: auto;
 }
+
+@theme {
+  --font-poppins: var(--font-poppins), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+}
+
+/* flash sales section */
+.mySwiper {
+  overflow: hidden !important; 
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+  margin-top: -24px !important;
+  margin-bottom: calc(51px - 24px) !important;
+}
+.mySwiper .swiper-wrapper {
+  overflow: visible !important;
+}
+
+.mySwiper .swiper-slide {
+  overflow: visible !important;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
@@ -25,19 +47,16 @@
   gap: 6px !important;
 }
 
-/* সাধারণ ড্যাশগুলোর স্টাইল (---) */
 .custom-swiper .swiper-pagination-bullet {
-  width: 16px !important; /* ড্যাশের দৈর্ঘ্য */
-  height: 4px !important;  /* ড্যাশের পুরুত্ব */
+  width: 16px !important; 
+  height: 4px !important;  
   border-radius: 2px !important;
   background-color: rgba(255, 255, 255, 0.5) !important;
   opacity: 1 !important;
   margin: 0 !important;
   transition: all 0.3s ease !important;
 }
-
-/* একটিভ থাকা লম্বা ড্যাশের স্টাইল */
 .custom-swiper .swiper-pagination-bullet-active {
-  width: 32px !important; /* একটিভ হলে ড্যাশটি আরও বড় হবে */
+  width: 32px !important; 
   background-color: #ffffff !important;
 }

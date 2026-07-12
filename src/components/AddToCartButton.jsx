@@ -30,7 +30,7 @@ const AddToCartButton = ({ product }) => {
   return (
     <button
       onClick={handleAddToCart}
-      className="group/cart relative flex items-center justify-center py-2 px-4 w-full text-white bg-black hover:bg-gray-800 cursor-pointer transition-all duration-300 rounded-sm text-sm font-medium h-9 overflow-hidden"
+      className="group/cart relative flex items-center justify-center py-2 px-4 w-full text-white bg-black hover:bg-gray-800 cursor-pointer transition-all duration-300 rounded-sm text-[16px] font-medium font-poppins h-9 overflow-hidden leading-6"
     >
       <span className="inline-block transition-all duration-300 transform group-hover/cart:-translate-y-10 group-hover/cart:opacity-0">
         Add To Cart

@@ -64,6 +64,14 @@ const UserProfileDashboard = () => {
               >
                 My Cancellations
               </li>
+                 <li 
+                onClick={() => setActiveMenu("Order Track")}
+                className={`cursor-pointer transition-colors ${
+                  activeMenu === "Order Track" ? "text-red-500 font-medium" : "hover:text-black"
+                }`}
+              >
+                Order Track
+              </li>
             </ul>
           </div>
 

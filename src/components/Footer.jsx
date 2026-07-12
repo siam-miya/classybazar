@@ -1,6 +1,6 @@
 
 import Image from 'next/image'
-import footer_icon from "../../public/nav-logo.jpg"
+import footer_icon from "../../public/navbarLogo.png"
 import arrow_right from "../assets/icons/arrow_right.svg"
 import Link from 'next/link'
 
@@ -11,7 +11,7 @@ const Footer = () => {
         <div className='grid grid-cols-4 gap-30'>
           <div className='space-y-2'>
             <div>
-              <Image src={footer_icon} height={50} width={50} alt='logo' />
+              <Image className='bg-white' src={footer_icon} height={50} width={50} alt='logo' />
             </div>
             <h2 className='text-white font-medium text-[20px] leading-7'>Subscribe</h2>
             <p className='text-white text-4 leading-6'>Get 10% off your first order</p>

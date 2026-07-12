@@ -29,12 +29,12 @@ export default function ProductCard({ product }) {
           />
         </div>
         <div className="pt-4 pb-2 flex flex-col space-y-2 pl-3 pr-3">
-          <h3 className="text-base font-bold text-black tracking-wide leading-tight truncate pr-2">
+          <h3 className="text-base font-medium text-black tracking-wide leading-tight truncate pr-2 font-poppins leading-6">
             {product.title}
           </h3>
           <div className="flex items-center space-x-3">
-            <span className="text-[#DB4444] text-base font-bold">
-              ${product.price}
+            <span className="text-[#DB4444] text-base font-medium text-[16px] leading-6">
+              <span className="font-bold text-md font-inter text-black">৳</span>{product.price}
             </span>
           </div>
           <div className="flex items-center space-x-2">

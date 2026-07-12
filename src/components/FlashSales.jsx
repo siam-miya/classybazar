@@ -31,7 +31,7 @@ const FlashSales = () => {
   return (
     <section>
       <div className="container border-b">
-        <div className='mt-25 mb-15'>
+        <div className='mt-20 mb-15'>
           <div className="flex items-end justify-between mb-6">
             <SectionHeading subHeading={"today's"} heading={"Flash Sales"} countDown={true}/> 
             <div className="flex gap-2">

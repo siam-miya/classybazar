@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { IoChevronDown } from "react-icons/io5";
- 
 const Topbar = () => {
   const [lang, setLang] = useState("English")
   const [open, setOpen] = useState(false)
@@ -14,8 +13,7 @@ const Topbar = () => {
     setLang(selected)
     setOpen(false)
   }
- 
-  // dropdown er baire click korle bondho hoye jabe
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -27,9 +25,10 @@ const Topbar = () => {
   }, [])
  
   return (
-    <div className="w-full bg-black text-[#FAFAFA] py-3 px-4 md:px-12 flex items-center justify-between font-poppins">
-      <div className="hidden md:block"></div>
-      <div className="flex-1 text-center text-xs md:text-sm tracking-wide max-w-[700px]">
+    <section className="w-full bg-black text-[#FAFAFA] py-3 font-poppins">
+      <div className="container flex items-center justify-end">
+        <div className="hidden md:block"></div>
+      <div className="flex-1 text-center text-xs md:text-sm tracking-wide  leading-5">
         <span>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</span>
         <Link href={"/products"}
           className="font-semibold underline ml-2 transition-color hover:text-blue-600 transition-all"
@@ -40,7 +39,7 @@ const Topbar = () => {
       <div className="relative flex items-center gap-1" ref={dropdownRef}>
         <button
           onClick={() => setOpen(!open)}
-          className="cursor-pointer flex items-center gap-1 text-xs md:text-sm"
+          className="cursor-pointer flex items-center justify-end gap-1 text-xs md:text-sm"
         >
           <span>{lang}</span>
           <IoChevronDown
@@ -50,7 +49,7 @@ const Topbar = () => {
         </button>
  
         {open && (
-          <div className="absolute right-0 top-full mt-2 bg-white text-black rounded-md shadow-lg overflow-hidden min-w-[110px] z-50">
+          <div className="absolute z-10000 -right-20 top-full mt-2 bg-white text-black rounded-md shadow-lg overflow-hidden min-w-[110px] z-50">
             {languages.map((item) => (
               <button
                 key={item}
@@ -65,7 +64,8 @@ const Topbar = () => {
           </div>
         )}
       </div>
-    </div>
+      </div>
+    </section>
   )
 }
  

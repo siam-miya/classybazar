@@ -4,6 +4,7 @@ import SectionHeading from './SectionHeading'
 import Button from './Button'
 import { SwiperSlide } from 'swiper/react';
 import ProductCard from './ProductCard';
+import Link from 'next/link';
 
 const BestSelling = () => {
      const [products, setProducts] = useState([]);
@@ -30,7 +31,7 @@ const BestSelling = () => {
                   <SectionHeading subHeading={"This Month"} heading={"Best Selling Products"} countDown={false}/>
             </div>
             <div>
-                <Button TagName={"button"}>View All</Button>
+                <Button TagName={Link} href={"/products"}>View All</Button>
             </div>
           </div>
           <div className='grid grid-cols-4 gap-8 mt-10 mb-10'>

@@ -25,7 +25,7 @@ const About = () => {
               About
             </Link>        
           </div> */}
-          <SubBanner title={"About"} pageName={"About"}/>
+          <SubBanner title={"About Us"} pageName={"About"}/>
           <div>
             <AboutDetailsSection/>
           </div>

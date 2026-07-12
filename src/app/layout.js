@@ -1,5 +1,4 @@
-
-import { Geist } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import Topbar from "@/components/Topbar";
 import Navbar from "@/components/Navbar";
@@ -7,12 +6,17 @@ import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 import MenuBar from "@/components/MenuBar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -21,10 +25,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html suppressHydrationWarning
+    <html 
+      suppressHydrationWarning
       data-theme="light"
       lang="en"
-      className={`${geistSans.variable} h-full antialiased`}
+
+      className={`${poppins.variable} ${inter.variable} h-full antialiased`}
     >
       <body suppressHydrationWarning className="min-h-full flex flex-col">
         <Topbar/>
@@ -33,7 +39,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer/>
         <ToastContainer position="top-center" autoClose={3000} />
-        </body>
+      </body>
     </html>
   );
 }

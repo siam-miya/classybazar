@@ -9,15 +9,6 @@ const UserAccountPage = () => {
    <section>
     <div className="container">
        <div>
-           {/* <div className="flex items-center gap-2 pt-15 text-sm mb-6">
-            <Link href={"/"} className="text-gray-600 hover:text-black transition-all font-medium">
-              Home
-            </Link>
-            <BiSolidRightArrow className="text-[10px] text-gray-400" />
-            <Link href={"/products"} className="text-blue-500 transition-all font-medium">
-              My Account
-            </Link>
-          </div> */}
           <SubBanner title={"Your Profile"} pageName={"Profile"}/>
             <div>
             <UserProfileDashboard/>

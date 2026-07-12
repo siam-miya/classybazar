@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 const MenuSection = () => {
     const pathname = usePathname();
     return (
-        <ul className='flex items-center gap-10'>
+        <ul className='flex items-center gap-10 font-poppins'>
             <li className='text-base leading-6 text-black hover:text-[#DB4444]'>
                 <Link
                     href="/"

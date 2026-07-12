@@ -15,7 +15,7 @@ const FlashSales = async () => {
   return (
     <section>
       <div className="container border-b">
-        <div className='mt-25 mb-15'>
+        <div className='mt-20 mb-15'>
           <div className="flex items-end justify-between mb-6">
             <SectionHeading subHeading={"Our Products"} heading={"Explore Our Products"} countDown={false} />
           </div>

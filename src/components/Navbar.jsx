@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useCartStore } from '@/store/useCartStore'
 import { useWishlistStore } from '@/store/useWishlistStore'
-import logo from "../../public/nav-logo.jpg"
+import logo from "../../public/navbarLogo.png"
 import wishlistIcon from "../assets/icons/wishlist.svg"
 import cartIcon from "../assets/icons/cart.png"
 import { FiUser, FiLogOut } from "react-icons/fi";
@@ -21,7 +21,6 @@ const Navbar = () => {
         setIsMounted(true);
     }, []);
 
-    // যদি মাউন্ট না হয় তাহলে ডিফল্ট ০ দেখাবে, মাউন্ট হলে অরিজিনাল কাউন্ট দেখাবে
     const cartCount = isMounted ? cart.reduce((total, item) => total + item.quantity, 0) : 0;
     const wishlistCount = isMounted ? wishlist.length : 0;
 
@@ -30,16 +29,13 @@ const Navbar = () => {
     }
 
     return (
-        // এখানে relative z-[60] দেওয়া হয়েছে যাতে ড্রপডাউন MenuBar বা অন্য এলিমেন্টের নিচে না যায়
         <nav className='border-b border-b-[rgba(0,0,0,0.2)] bg-white relative z-[60]'>
             <div className='container'>
                 <div className='flex items-center justify-between py-5 gap-8'>
-                    
-                    {/* ১. লোগো সেকশন */}
                     <Link href={"/"} className="flex-shrink-0">
                         <div className='flex items-center gap-2'>
-                            <Image className='rounded-full' src={logo} height={50} width={50} alt='logo' />
-                            <span className='text-2xl font-semibold text-black'>Classy Bazar</span>
+                            <Image className='rounded-full' src={logo} height={55} width={55} alt='logo' />
+                            <span className='text-xl font-bold text-black'>Classy <span className='text-[#ff6308]'>Bazar</span></span>
                         </div>
                     </Link>
 

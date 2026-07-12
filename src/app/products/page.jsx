@@ -17,7 +17,6 @@ const ProductsPage = async ({ searchParams }) => {
     <section>
       <div className="container">
         <SubBanner title={"All Products"} pageName={"Products"}/>
-
         <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 pb-26 items-start"> 
           <div className="border-r border-gray-100 pr-4 md:sticky md:top-24 max-h-[calc(100vh-120px)] overflow-y-auto">
             <h2 className="font-bold leading-5 text-black mb-4">Shop by Category</h2>

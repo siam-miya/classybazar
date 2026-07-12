@@ -31,7 +31,7 @@ const Category = () => {
   return (
     <section className='mb-10'>
       <div className="container border-b">
-        <div className='mt-25 mb-15'>
+        <div className='mt-15 mb-15'>
           <div className="flex items-end justify-between mb-6">
             <SectionHeading subHeading={"Categories"} heading={"Browse By Category"} countDown={false} />
             <div className="flex gap-2">

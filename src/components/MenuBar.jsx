@@ -6,7 +6,7 @@ import Link from "next/link"
 import Image from 'next/image'
 import { RxHamburgerMenu } from "react-icons/rx"
 import { usePathname } from 'next/navigation'
-import logo from "../../public/nav-logo.jpg"
+import logo from "../../public/navbarLogo.png"
 import wishlistIcon from "../assets/icons/wishlist.svg"
 import cartIcon from "../assets/icons/cart.png"
 import { RiUser3Line } from 'react-icons/ri'
@@ -33,7 +33,7 @@ const MenuBar = () => {
             try {
                 const res = await fetch('https://dummyjson.com/products/categories');
                 const data = await res.json();
-                setCategories(data.slice(0, 10));
+                setCategories(data.slice(0, 9));
             } catch (error) {
                 console.error("Failed to fetch categories:", error);
             } finally {
@@ -65,13 +65,12 @@ const MenuBar = () => {
     return (
         <section className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm transition-all duration-300">
             <div className="container">
-
                 <div className={`flex items-center justify-between relative transition-all duration-300 ${isScrolled ? "py-4" : ""}`}>
                     <div className="w-[270px] flex-shrink-0">
                         {!isScrolled ? (
-                            <div className="w-[270px] z-20 group relative self-start">
-                                <h2 className="bg-[#DB4444] text-white py-4 px-4 flex items-center justify-between gap-2 font-medium text-sm select-none cursor-pointer">
-                                    <span className="flex items-center gap-2">
+                            <div className="max-w-[270px] z-20 group relative self-start">
+                                <h2 className="bg-[#DB4444] text-white py-4 px-4 flex items-center justify-between gap-2 font-bold text-sm select-none cursor-pointer ">
+                                    <span className="flex items-center gap-2 font-poppins">
                                         <RxHamburgerMenu size={18} />
                                         Browse Categories
                                     </span>
@@ -83,10 +82,7 @@ const MenuBar = () => {
                                     </span>
                                 </h2>
 
-                                <ul className={`
-    w-[270px] bg-white border border-gray-200 shadow-lg p-2 flex flex-col transition-all duration-200 rounded-b-md absolute left-0 top-[52px] z-[999] max-h-[450px] overflow-y-auto scrollbar-none
-    ${isHomePage ? 'block' : 'hidden group-hover:flex'}
-`}>
+                                <ul className={`w-[270px] bg-white border border-gray-200 shadow-lg p-2 flex flex-col transition-all duration-200 rounded-b-md absolute left-0 top-[52px] z-[999] max-h-[450px] overflow-y-auto scrollbar-none ${isHomePage ? 'block' : 'hidden group-hover:flex'}`}>
                                     {loading ? (
                                         <div className="flex flex-col items-center gap-2">
                                             <Spinner size="md" color="danger" />
@@ -107,7 +103,7 @@ const MenuBar = () => {
                         ) : (
                             <Link href={"/"} className="flex items-center gap-2 animate-fadeIn">
                                 <Image className='rounded-full' src={logo} height={40} width={40} alt='logo' />
-                                <span className='text-xl font-semibold text-black'>Classy Bazar</span>
+                                <span className='text-xl font-semibold text-black'>Classy <span className='text-[#ff6308]'>Bazar</span></span>
                             </Link>
                         )}
                     </div>
@@ -118,9 +114,11 @@ const MenuBar = () => {
 
                     <div className="flex-shrink-0 min-w-[120px] flex justify-end">
                         {!isScrolled ? (
-                            <button className="text-white font-medium text-sm hover:bg-black transition-colors cursor-pointer py-2.5 px-5 bg-[#DB4444] rounded-md animate-fadeIn">
+                        <Link href={"/user/profile"}>
+                            <button className="text-white font-bold text-sm hover:bg-black transition-colors cursor-pointer py-2.5 px-5 bg-[#DB4444] rounded-md animate-fadeIn font-poppins">
                                 Order Track
                             </button>
+                        </Link>
                         ) : (
                             <div className="flex items-center gap-6 text-black animate-fadeIn relative z-[999]">
                                 <Link href={"/wishlist"} className='cursor-pointer relative group'>
@@ -166,12 +164,12 @@ export default MenuBar
 
 function ListItems({ icon = false, text, slug }) {
     return (
-        <li className="w-full text-black hover:text-white hover:bg-[#DB4444] border-b border-b-gray-100">
+        <li className="w-full text-black hover:text-white hover:bg-[#DB4444] border-b border-b-gray-100  leading-6">
             <Link
                 href={`/products?category=${slug}`}
-                className='grid grid-cols-[1fr_24px] gap-2 items-center py-2 px-3 text-sm transition-colors'
+                className='grid grid-cols-[1fr_24px] gap-2 items-center py-2 px-3 transition-colors'
             >
-                <span className='font-semibold capitalize'>{text}</span>
+                <span className='font-sm capitalize font-poppins'>{text}</span>
                 {icon && <MdOutlineKeyboardArrowRight size={18} />}
             </Link>
         </li>
