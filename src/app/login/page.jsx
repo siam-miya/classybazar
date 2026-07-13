@@ -19,11 +19,11 @@ const Login = () => {
      </div>
      <div>
        <div className="w-full max-w-[500px]">
-      <h2 className="text-4xl font-medium text-black">
+      <h2 className="text-4xl font-medium text-black font-inter leading-7">
        Log in to Classy Bazar
       </h2>
 
-      <p className="mt-4 text-base text-black">
+      <p className="mt-4 text-base text-black font-poppins leading-6">
         Enter your details below
       </p>
 
@@ -47,7 +47,7 @@ const Login = () => {
 
         <button
           type="submit"
-          className="cursor-pointer w-full bg-[#DB4444] text-white py-4 rounded hover:bg-[#c53b3b] transition"
+          className="cursor-pointer text-[16px] leading-6 w-full bg-[#eb6e1b] text-white py-4 rounded hover:bg-black font-poppins transition"
         >
           Log In
         </button>
@@ -60,9 +60,8 @@ const Login = () => {
           Sign In with Google
         </button>
         <p className="text-center text-gray-600">
-         I have no account?{" "}
-          <Link href={"/signup"} className="font-semibold text-black underline">
-            Sign Up
+          <Link href={"/"} className="font-semibold text-[#eb6e1b] hover:text-black underline">
+            Forget Password ?
           </Link>
         </p>
       </form>

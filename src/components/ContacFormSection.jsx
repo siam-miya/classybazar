@@ -44,7 +44,7 @@ const ContactFormSection = () => {
           {/* কল সেকশন */}
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-[#DB4444] rounded-full flex items-center justify-center text-white text-xl">
+              <div className="w-10 h-10 bg-[#eb6e1b] rounded-full flex items-center justify-center text-white text-xl">
                 <FiPhone />
               </div>
               <h3 className="font-medium text-base">Call To Us</h3>
@@ -60,7 +60,7 @@ const ContactFormSection = () => {
           {/* ইমেইল সেকশন */}
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-[#DB4444] rounded-full flex items-center justify-center text-white text-xl">
+              <div className="w-10 h-10 bg-[#eb6e1b] rounded-full flex items-center justify-center text-white text-xl">
                 <TfiEmail />
               </div>
               <h3 className="font-medium text-base">Write To Us</h3>
@@ -83,7 +83,7 @@ const ContactFormSection = () => {
               placeholder="Your Name *"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full bg-[#F5F5F5] rounded p-3 text-sm focus:outline-none border border-transparent focus:border-gray-300 transition-all"
+              className="w-full bg-[#F5F5F5] rounded p-3 text-sm focus:outline-none border border-transparent focus:border-[#eb6e1b] transition-all"
               required
             />
             <input
@@ -92,7 +92,7 @@ const ContactFormSection = () => {
               placeholder="Your Email *"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full bg-[#F5F5F5] rounded p-3 text-sm focus:outline-none border border-transparent focus:border-gray-300 transition-all"
+              className="w-full bg-[#F5F5F5] rounded p-3 text-sm focus:outline-none border border-transparent focus:border-[#eb6e1b] transition-all"
               required
             />
             <input
@@ -101,7 +101,7 @@ const ContactFormSection = () => {
               placeholder="Your Phone *"
               value={formData.phone}
               onChange={handleInputChange}
-              className="w-full bg-[#F5F5F5] rounded p-3 text-sm focus:outline-none border border-transparent focus:border-gray-300 transition-all"
+              className="w-full bg-[#F5F5F5] rounded p-3 text-sm focus:outline-none border border-transparent focus:border-[#eb6e1b] transition-all"
               required
             />
           </div>
@@ -114,19 +114,13 @@ const ContactFormSection = () => {
               rows="6"
               value={formData.message}
               onChange={handleInputChange}
-              className="w-full bg-[#F5F5F5] rounded p-3 text-sm focus:outline-none border border-transparent focus:border-gray-300 transition-all resize-none h-full min-h-[150px]"
+              className="w-full bg-[#F5F5F5] rounded p-3 text-sm focus:outline-none border border-transparent focus:border-[#eb6e1b] transition-all resize-none h-full min-h-[150px]"
               required
             ></textarea>
           </div>
 
           {/* সাবমিট বাটন */}
           <div className="flex justify-end pt-2">
-            {/* <button
-              type="submit"
-              className="w-full sm:w-auto bg-[#DB4444] text-white px-10 py-4 rounded font-medium text-sm hover:bg-black transition-colors cursor-pointer text-center"
-            >
-              Send Message
-            </button> */}
             <Button TagName={"button"} type='submit'>Send Message</Button>
           </div>
         </form>

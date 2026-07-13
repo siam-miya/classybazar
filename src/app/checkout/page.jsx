@@ -12,7 +12,7 @@ const CheckoutPage = () => {
   return (
     <section className="font-sans text-black pb-20">
   <SubBanner title={"Checkout"} pageName={"Checkout"}/>
-      <div className='container'>
+      <div className='container pt-5'>
         <h1 className="text-3xl font-bold mb-10 tracking-wide">Billing Details</h1>
       <CheckoutForm />
       </div>

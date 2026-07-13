@@ -1,14 +1,15 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import {useCartStore} from '@/store/useCartStore';
+import { useCartStore } from '@/store/useCartStore';
 import Image from 'next/image';
 import Link from 'next/link';
-import { X } from 'lucide-react'; 
-import { FiTrash2 } from 'react-icons/fi'; 
+import { X } from 'lucide-react';
+import { FiTrash2 } from 'react-icons/fi';
 import { BiSolidRightArrow } from 'react-icons/bi';
 import Button from '@/components/Button';
 import SubBanner from '@/components/SubBanner';
+import { IoBagCheckOutline } from 'react-icons/io5';
 
 const CartPage = () => {
   const { cart, removeFromCart, updateQuantity, shippingMethod, setShippingMethod } = useCartStore();
@@ -28,9 +29,9 @@ const CartPage = () => {
   return (
     <section>
       <div>
-        <SubBanner title={"Cart"} pageName={"Cart"}/>
+        <SubBanner title={"Cart"} pageName={"Cart"} />
       </div>
-      <div className="container font-sans text-black">          
+      <div className="container font-sans text-black">
         {cart.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-[50vh] text-center py-16">
             <p className="text-gray-500 text-4xl mb-7">Your cart is empty!</p>
@@ -57,7 +58,7 @@ const CartPage = () => {
                       <td className="py-6 px-4 flex items-center space-x-4 relative">
                         <div className="relative">
                           {/* ইমেজের ওপরের ক্রস বাটন */}
-                          <button 
+                          <button
                             onClick={() => removeFromCart(item.id)}
                             className="absolute -top-2 -left-2 bg-[#DB4444] text-white rounded-full p-0.5 z-10 cursor-pointer"
                           >
@@ -92,7 +93,7 @@ const CartPage = () => {
                           {/* প্লাস (+) বাটন */}
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="px-4 h-full bg-[#DB4444] text-white hover:bg-red-600 transition-colors font-medium flex items-center justify-center cursor-pointer text-lg"
+                            className="px-4 h-full bg-[#eb6e1b] text-white hover:bg-red-600 transition-colors font-medium flex items-center justify-center cursor-pointer text-lg"
                           >
                             +
                           </button>
@@ -106,7 +107,7 @@ const CartPage = () => {
 
                       {/* রিঅ্যাক্ট আইকন ডিলিট বাটন (একদম ডান পাশে) */}
                       <td className="py-6 px-4 text-center">
-                        <button 
+                        <button
                           onClick={() => removeFromCart(item.id)}
                           className="text-gray-400 hover:text-[#DB4444] transition-colors p-2 cursor-pointer"
                           title="Remove Item"
@@ -121,63 +122,63 @@ const CartPage = () => {
             </div>
 
             {/* Return To Shop বাটন */}
-         <div className='grid grid-cols-2 my-5'>
-                 <div>
-              <Button TagName={Link} href={"/products"}>Return To Shop</Button>
-            </div>
+            <div className='grid grid-cols-2 my-5'>
+              <div>
+                <Button TagName={Link} href={"/products"}>Return To Shop</Button>
+              </div>
 
-            {/* কার্ট টোটাল এবং শিপিং এরিয়া */}
-            <div className="flex justify-end">
-              <div className="w-full max-w-[450px] border-2 border-black rounded-md p-6 bg-white">
-                <h2 className="text-xl font-bold mb-4">Cart Total</h2>
-                
-                <div className="flex justify-between border-b pb-3 mb-3 text-sm">
-                  <span>Subtotal:</span>
-                  <span>${subtotal.toFixed(2)}</span>
-                </div>
+              {/* কার্ট টোটাল এবং শিপিং এরিয়া */}
+              <div className="flex justify-end">
+                <div className="w-full max-w-[450px] border-2 border-black rounded-md p-6 bg-white">
+                  <h2 className="text-xl font-bold mb-4">Cart Total</h2>
 
-                {/* শিপিং সিলেকশন */}
-                <div className="border-b pb-3 mb-3 text-sm">
-                  <span className="block mb-2 font-medium">Shipping Location:</span>
-                  <div className="space-y-2 pl-2">
-                    <label className="flex items-center space-x-2 cursor-pointer">
-                      <input 
-                        type="radio" 
-                        name="shipping" 
-                        checked={shippingMethod === 'inside'} 
-                        onChange={() => setShippingMethod('inside')}
-                        className="accent-[#DB4444]"
-                      />
-                      <span>Inside Dhaka (৳60)</span>
-                    </label>
-                    <label className="flex items-center space-x-2 cursor-pointer">
-                      <input 
-                        type="radio" 
-                        name="shipping" 
-                        checked={shippingMethod === 'outside'} 
-                        onChange={() => setShippingMethod('outside')}
-                        className="accent-[#DB4444]"
-                      />
-                      <span>Outside Dhaka (৳120)</span>
-                    </label>
+                  <div className="flex justify-between border-b pb-3 mb-3 text-sm">
+                    <span>Subtotal:</span>
+                    <span>${subtotal.toFixed(2)}</span>
                   </div>
-                </div>
 
-                <div className="flex justify-between font-bold text-base mb-6">
-                  <span>Total:</span>
-                  <span>${totalCost.toFixed(2)}</span>
-                </div>
+                  {/* শিপিং সিলেকশন */}
+                  <div className="border-b pb-3 mb-3 text-sm">
+                    <span className="block mb-2 font-medium">Shipping Location:</span>
+                    <div className="space-y-2 pl-2">
+                      <label className="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="shipping"
+                          checked={shippingMethod === 'inside'}
+                          onChange={() => setShippingMethod('inside')}
+                          className="accent-[#eb6e1b]"
+                        />
+                        <span>Inside Dhaka (৳60)</span>
+                      </label>
+                      <label className="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="shipping"
+                          checked={shippingMethod === 'outside'}
+                          onChange={() => setShippingMethod('outside')}
+                          className="accent-[#eb6e1b]"
+                        />
+                        <span>Outside Dhaka (৳120)</span>
+                      </label>
+                    </div>
+                  </div>
 
-                <div className="text-center">
-                  <Link href={"/checkout"}>
-                  <button className="w-full bg-[#DB4444] text-white py-3 rounded-md font-medium hover:bg-red-600 transition-colors cursor-pointer">
-                    Proceed to checkout
-                  </button>
-                  </Link>
+                  <div className="flex justify-between font-bold text-base mb-6">
+                    <span>Total:</span>
+                    <span>${totalCost.toFixed(2)}</span>
+                  </div>
+
+                  <div className="text-center">
+                    <Link href={"/checkout"}>
+                      <button className="w-full flex items-center justify-center gap-2 bg-[#eb6e1b] text-white py-3 rounded-md font-medium hover:bg-black transition-colors cursor-pointer">
+                      <IoBagCheckOutline size={20}/>Proceed to checkout
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-         </div>
           </div>
         )}
       </div>

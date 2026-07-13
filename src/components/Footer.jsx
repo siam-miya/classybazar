@@ -1,21 +1,22 @@
 
 import Image from 'next/image'
-import footer_icon from "../../public/navbarLogo.png"
+import footer_icon from "../../public/footerLogo.png"
 import arrow_right from "../assets/icons/arrow_right.svg"
 import Link from 'next/link'
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
-    <footer className='bg-black pt-20 pb-15'>
+    <footer className='bg-black pt-20 pb-6'>
       <div className="container">
         <div className='grid grid-cols-4 gap-30'>
-          <div className='space-y-2'>
+          <div>
             <div>
-              <Image className='bg-white' src={footer_icon} height={50} width={50} alt='logo' />
+              <Image src={footer_icon} height={120} width={240} alt='logo' />
             </div>
-            <h2 className='text-white font-medium text-[20px] leading-7'>Subscribe</h2>
+            <h2 className='text-white font-medium font-inter text-[20px] leading-7 py-4'>Subscribe</h2>
             <p className='text-white text-4 leading-6'>Get 10% off your first order</p>
-            <div>
+            <div className='py-4'>
               <form action="">
                 <div className='flex items-center gap-3 border border-white rounded-md py-3 px-4'>
                   <input className='focus:outline-none placeholder:text-white text-white' type="email" name="" id="" placeholder='enter your email' /><span>
@@ -77,50 +78,62 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h2 className='font-medium text-[20px] leading-7 text-white pb-2'>Support</h2>
-            <div className='space-y-1'>
-              <p className='text-[16px] leading-6 text-white'>111 Bijoy sarani, Dhaka,  DH 1515, Bangladesh.</p>
-              <Link className='text-[16px] leading-6 text-white' href={"/"}>exclusive@gmail.com</Link>
-              <p className='text-[16px] leading-6 text-white'>+88015-88888-9999</p>
+            <h2 className='text-white font-medium font-poppins text-[20px] leading-7'>Support</h2>
+            <div>
+              <p className='text-[16px] leading-6 text-white pt-6 pb-4 font-poppins '>Gulshan-2, Dhaka, Bangladesh</p>
+              <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/"}>classybazar@gmail.com</Link>
+              <p className='text-[16px] leading-6 text-white font-poppins pt-4 hover:text-[#eb6e1b] hover:font-semibold transition-all cursor-pointer'>01925909902</p>
             </div>
           </div>
           <div>
-            <h2 className='font-medium text-[20px] leading-7 text-white pb-2'>Account</h2>
-            <ul className='space-y-1'>
+            <h2 className='text-white font-medium font-poppins text-[20px] leading-7'>Account</h2>
+            <ul>
+              <li className='pt-6'>
+                <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/"}>My Account</Link>
+              </li>
+           <div className='flex items-center gap-2'>
+               <li className='py-4'>
+                <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/login"}>Login</Link>
+              </li>
+              <span className='text-white'>/</span>
+              <li className='py-4'>
+                <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/login"}>Register</Link>
+              </li>
+           </div>
               <li>
-                <Link className='text-[16px] leading-6 text-white' href={"/"}>My Account</Link>
+                <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/cart"}>Cart</Link>
+              </li>
+              <li className=' py-4'>
+                <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/Wishlist"}>Wishlist</Link>
               </li>
               <li>
-                <Link className='text-[16px] leading-6 text-white' href={"/login"}>Login / Register</Link>
-              </li>
-              <li>
-                <Link className='text-[16px] leading-6 text-white' href={"/cart"}>Cart</Link>
-              </li>
-              <li>
-                <Link className='text-[16px] leading-6 text-white' href={"/Wishlist"}>Wishlist</Link>
-              </li>
-              <li>
-                <Link className='text-[16px] leading-6 text-white' href={"/Shop"}>Shop</Link>
+                <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/Shop"}>Shop</Link>
               </li>
             </ul>
           </div>
           <div>
-            <h2 className='font-medium text-[20px] leading-7 text-white pb-2'>Quick Link</h2>
-            <ul className='space-y-1'>
-              <li>
-                <Link className='text-[16px] leading-6 text-white' href={"/"}>Privacy Policy</Link>
+            <h2 className='text-white font-medium font-poppins text-[20px] leading-7'>Quick Link</h2>
+            <ul>
+              <li className='pt-6'>
+                <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/"}>Privacy Policy</Link>
+              </li>
+              <li className='py-4'>
+                <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/"}>Terms Of Use</Link>
               </li>
               <li>
-                <Link className='text-[16px] leading-6 text-white' href={"/"}>Terms Of Use</Link>
+                <Link className='text-[16px] leading-6 text-white hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/"}>FAQ</Link>
               </li>
-              <li>
-                <Link className='text-[16px] leading-6 text-white' href={"/"}>FAQ</Link>
-              </li>
-              <li>
-                <Link className='text-[16px] leading-6 text-white' href={"/Contact"}>Contact</Link>
+              <li className='pt-4'>
+                <Link className='text-[16px] leading-6 text-white hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/Contact"}>Contact</Link>
               </li>
             </ul>
+          
           </div>
+        </div>
+          <div className="flex items-center justify-center gap-1 order-2 md:order-1 tracking-wide mt-20 font-poppins">
+          <span className='text-gray-500'>&copy;</span>
+          <span className='text-gray-500 text-[16px] leading-6 '>Copyright <Link className={'text-text-[#eb6e1b] hover:text-white'} href={"/"}>Classy Bazar</Link> {currentYear}.</span>
+          <span className="text-gray-500 text-[16px] leading-6 ml-1">All rights reserved.</span>
         </div>
       </div>
     </footer>

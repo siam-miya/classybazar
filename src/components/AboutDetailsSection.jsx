@@ -70,7 +70,7 @@ const AboutDetailsSection = () => {
       </div>
 
       <div className="bg-gray-100 rounded-2xl p-8 md:p-12 text-center w-full mx-auto space-y-4">
-        <h3 className="text-xl font-bold text-red-500">Our Promise</h3>
+        <h3 className="text-xl font-bold text-[#eb6e1b]">Our Promise</h3>
         <p className="text-black max-w-xl mx-auto text-sm md:text-base">
           Authentic products, fair pricing, timely delivery, and respect for our customers. Your trust is our greatest asset. We strive to deliver your products across Bangladesh in the fastest possible time.
         </p>

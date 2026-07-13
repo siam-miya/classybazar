@@ -86,16 +86,11 @@ const Navbar = () => {
         <nav className='border-b border-b-[rgba(0,0,0,0.2)] bg-white relative z-[60]'>
             <div className='container'>
                 <div className='flex items-center justify-between py-5 gap-8'>
-
-                    {/* ১. লোগো সেকশন */}
                     <Link href={"/"} className="flex-shrink-0">
                         <div className='flex items-center gap-2'>
-                            <Image className='rounded-full' src={logo} height={55} width={55} alt='logo' />
-                            <span className='text-xl font-bold text-black'>Classy <span className='text-[#ff6308]'>Bazar</span></span>
+                            <Image src={logo} height={120} width={240} alt='logo'/>
                         </div>
                     </Link>
-
-                    {/* ২. সার্চবার ও লাইভ ড্রপডাউন সেকশন */}
                     <div ref={dropdownRef} className="relative flex-1 max-w-[650px] ml-2">
                         <form onSubmit={handleSearchSubmit}>
                             <input
@@ -104,11 +99,11 @@ const Navbar = () => {
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 onFocus={() => searchQuery.trim().length > 1 && setIsOpen(true)}
                                 placeholder="Search for product"
-                                className="w-full bg-[#F5F5F5] text-sm text-black pl-5 pr-10 py-3 rounded-xl focus:outline-red-900 placeholder:text-[rgba(0,0,0,0.5)] placeholder:font-bold font-poppins border-2"
+                                className="w-full bg-[#F5F5F5] text-sm text-black pl-5 pr-10 py-3 rounded-xl focus:outline-[#FFAD33] placeholder:text-[rgba(0,0,0,0.5)] placeholder:font-bold font-poppins border-2"
                             />
                             <button
                                 type="submit"
-                                className="absolute cursor-pointer right-3 top-1/2 -translate-y-1/2 text-black hover:text-[#DB4444] transition-colors"
+                                className="absolute cursor-pointer right-3 top-1/2 -translate-y-1/2 bg-[#eb6e1b] text-white hover:bg-black font-bold p-2 rounded-full transition-colors"
                             >
                                 <svg
                                     className="w-5 h-5"
@@ -126,7 +121,6 @@ const Navbar = () => {
                             </button>
                         </form>
 
-                        {/* প্রফেশনাল ইনস্ট্যান্ট সার্চ ড্রপডাউন বক্স */}
                         {isOpen && (
                             <div className="absolute left-0 right-0 top-full mt-2 bg-white text-black border border-gray-200 rounded-xl shadow-2xl z-[9999] overflow-hidden max-h-[480px] flex flex-col">
                                 {loading ? (
@@ -135,7 +129,6 @@ const Navbar = () => {
                                     </div>
                                 ) : searchResults.length > 0 ? (
                                     <>
-                                        {/* প্রোডাক্ট গ্রিড/লিস্ট ড্রপডাউন (২টি কলামে সুন্দর দেখানোর জন্য গ্রিড করা হয়েছে) */}
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-100 p-2 overflow-y-auto">
                                             {searchResults.map((product) => (
                                                 <Link
@@ -179,21 +172,21 @@ const Navbar = () => {
                     <div className='flex items-center gap-8 text-black flex-shrink-0'>
                         <Link href={"/wishlist"} className='cursor-pointer relative group'>
                             <Image src={wishlistIcon} height={24} width={24} alt="wishlist" />
-                            <span className='absolute -top-3/5 -right-2/5 bg-[#DB4444] text-white text-[10px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center'>
+                            <span className='absolute -top-3/5 -right-2/5 bg-[#eb6e1b] text-white text-[10px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center'>
                                 {wishlistCount}
                             </span>
                         </Link>
 
                         <Link href={"/cart"} className='cursor-pointer relative group'>
                             <Image src={cartIcon} height={25} width={25} alt="cart" />
-                            <span className='absolute -top-3 -right-2 bg-[#DB4444] text-white text-[10px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center'>
+                            <span className='absolute -top-3 -right-2 bg-[#eb6e1b] text-white text-[10px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center'>
                                 {cartCount}
                             </span>
                         </Link>
 
                         {/* ইউজার প্রোফাইল */}
                         <div className='relative group pt-2 pb-2 -my-2'>
-                            <Link href={"/user/profile"} className='cursor-pointer block rounded-full hover:bg-[#DB4444] hover:text-white transition-all p-2 border'>
+                            <Link href={"/user/profile"} className='cursor-pointer block rounded-full hover:bg-[#eb6e1b] hover:text-white transition-all p-2 border'>
                                 <RiUser3Line size={22} />
                             </Link>
                             <div className='absolute right-0 top-10 mt-1 w-64 bg-black/80 backdrop-blur-md text-white rounded-lg p-4 shadow-xl opacity-0 scale-95 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-200 z-[999] flex flex-col gap-3'>

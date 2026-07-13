@@ -22,7 +22,7 @@ const BuyNowButton = ({ product }) => {
   return (
     <button
       onClick={handleBuyNow}
-      className="w-full bg-[#DB4444] text-white font-poppins py-2 px-4 rounded-sm text-[16px] leading-6 font-medium hover:bg-[#b83535] transition-colors cursor-pointer"
+      className="w-full bg-[#eb6e1b] text-white font-poppins py-2 px-4 rounded-sm text-[16px] leading-6 font-medium hover:bg-black transition-colors cursor-pointer"
     >
       Buy Now
     </button>

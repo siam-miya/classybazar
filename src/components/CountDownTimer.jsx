@@ -45,7 +45,7 @@ export default function CountdownTimer() {
         </div>
 
         {/* Separator */}
-        <div className="text-xl md:text-3xl font-bold text-red-400 self-end mb-1 md:mb-2">:</div>
+        <div className="text-xl md:text-3xl font-bold text-[#FFAD33] self-end mb-1 md:mb-2">:</div>
 
         {/* Hours */}
         <div className="flex flex-col items-center">
@@ -54,7 +54,7 @@ export default function CountdownTimer() {
         </div>
 
         {/* Separator */}
-        <div className="text-xl md:text-3xl font-bold text-red-400 self-end mb-1 md:mb-2">:</div>
+        <div className="text-xl md:text-3xl font-bold text-[#FFAD33] self-end mb-1 md:mb-2">:</div>
 
         {/* Minutes */}
         <div className="flex flex-col items-center">
@@ -63,7 +63,7 @@ export default function CountdownTimer() {
         </div>
 
         {/* Separator */}
-        <div className="text-xl md:text-3xl font-bold text-red-400 self-end mb-1 md:mb-2">:</div>
+        <div className="text-xl md:text-3xl font-bold text-[#FFAD33] self-end mb-1 md:mb-2">:</div>
 
         {/* Seconds */}
         <div className="flex flex-col items-center">

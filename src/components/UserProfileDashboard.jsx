@@ -40,7 +40,7 @@ const UserProfileDashboard = () => {
   };
 
   return (
-    <div className="container py-10 mx-auto px-4">
+    <div className="container py-10 mx-auto px-4 font-poppins">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="space-y-6">
           <div>
@@ -49,7 +49,7 @@ const UserProfileDashboard = () => {
               <li 
                 onClick={() => setActiveMenu("My Profile")}
                 className={`cursor-pointer transition-colors ${
-                  activeMenu === "My Profile" ? "text-red-500 font-medium" : "hover:text-black"
+                  activeMenu === "My Profile" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
                 }`}
               >
                 My Profile
@@ -64,7 +64,7 @@ const UserProfileDashboard = () => {
               <li 
                 onClick={() => setActiveMenu("My Returns")}
                 className={`cursor-pointer transition-colors ${
-                  activeMenu === "My Returns" ? "text-red-500 font-medium" : "hover:text-black"
+                  activeMenu === "My Returns" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
                 }`}
               >
                 My Returns
@@ -72,7 +72,7 @@ const UserProfileDashboard = () => {
               <li 
                 onClick={() => setActiveMenu("My Cancellations")}
                 className={`cursor-pointer transition-colors ${
-                  activeMenu === "My Cancellations" ? "text-red-500 font-medium" : "hover:text-black"
+                  activeMenu === "My Cancellations" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
                 }`}
               >
                 My Cancellations
@@ -82,7 +82,7 @@ const UserProfileDashboard = () => {
               <li 
                 onClick={() => setActiveMenu("Order Track")}
                 className={`cursor-pointer transition-colors ${
-                  activeMenu === "Order Track" ? "text-red-500 font-medium" : "hover:text-black"
+                  activeMenu === "Order Track" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
                 }`}
               >
                 Order Track
@@ -95,7 +95,7 @@ const UserProfileDashboard = () => {
             <h3 
               onClick={() => setActiveMenu("My WishList")}
               className={`font-semibold cursor-pointer transition-colors ${
-                activeMenu === "My WishList" ? "text-red-500" : "text-black hover:text-red-500"
+                activeMenu === "My WishList" ? "text-[#eb6e1b]" : "text-black hover:text-[#eb6e1b]"
               }`}
             >
               My WishList
@@ -108,7 +108,7 @@ const UserProfileDashboard = () => {
           {/* প্রোফাইল ট্যাব অ্যাক্টিভ থাকলে এই ফর্মটি দেখাবে */}
           {activeMenu === "My Profile" && (
             <>
-              <h2 className="text-xl font-medium text-red-500 mb-6">Edit Your Profile</h2>
+              <h2 className="text-xl font-medium text-black mb-6">Edit Your Profile</h2>
               <form onSubmit={handleSubmit} className="space-y-6 w-full">
                 {/* First Name & Last Name */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -198,7 +198,7 @@ const UserProfileDashboard = () => {
                   </button>
                   <button
                     type="submit"
-                    className="bg-[#DB4444] cursor-pointer text-white px-8 py-3 text-sm font-medium rounded hover:bg-black transition-colors"
+                    className="bg-[#eb6e1b] cursor-pointer text-white px-8 py-3 text-sm font-medium rounded hover:bg-black transition-colors"
                   >
                     Save Changes
                   </button>

@@ -24,11 +24,11 @@ const ProductDetailsPage = async ({ params }) => {
          <SubBanner title={"Product Details"} pageName={"Product Details"}/>
       </div>
       <div className="container">
-        <div>
+        <div className="pt-2">
             <p className="text-black font-semibold">
               <span className="font-bold text-black">Product Name:</span> {findData.title}
             </p>
-          <div className="mb-10">
+          <div className="mb-5">
             <ProductDetailsSection product={findData} />
           </div>
           {relatedProducts.length > 0 && (

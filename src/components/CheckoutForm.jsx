@@ -159,7 +159,7 @@ const CheckoutForm = () => {
 
         {/* সাবমিট বাটন */}
         <div className="pt-2">
-          <button type='submit' className='bg-[#DB4444] text-white py-2 px-7 w-full cursor-pointer rounded-br-3xl rounded-tl-3xl hover:bg-black transition-all font-semibold'>
+          <button type='submit' className='bg-[#eb6e1b] text-white py-2 px-7 w-full cursor-pointer rounded-br-3xl rounded-tl-3xl hover:bg-black transition-all font-semibold'>
             Order now
           </button>
         </div>

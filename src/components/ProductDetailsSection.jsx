@@ -6,6 +6,7 @@ import { HiMinusSmall } from 'react-icons/hi2';
 import { GoPlus } from 'react-icons/go';
 import { useCartStore } from '@/store/useCartStore'; 
 import { useWishlistStore } from '@/store/useWishlistStore'; 
+import { FaBangladeshiTakaSign } from 'react-icons/fa6';
 
 const ProductDetailsSection = ({ product }) => {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -32,7 +33,7 @@ const ProductDetailsSection = ({ product }) => {
   };
 
   return (
-    <div className="pt-10 pb-20 font-sans text-black select-none">
+    <div className="pt-10 pb-20 text-black select-none font-poppins">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* বাম পাশ: ইমেজ সেকশন */}
         <div className="lg:col-span-7 flex flex-col-reverse md:flex-row gap-4">
@@ -88,7 +89,8 @@ const ProductDetailsSection = ({ product }) => {
               {product?.stock > 0 ? 'In Stock' : 'Out of Stock'}
             </span>
           </div>
-          <div className="text-2xl font-semibold tracking-wider mb-4">${product?.price}</div>
+          <div className="flex text-2xl font-semibold tracking-wider mb-4"><FaBangladeshiTakaSign />
+{product?.price}</div>
           <p className="text-sm text-gray-700 leading-relaxed mb-6 border-b border-gray-300 pb-6">
             {product?.description}
           </p>
@@ -114,7 +116,7 @@ const ProductDetailsSection = ({ product }) => {
             <Link 
               href="/checkout"
               onClick={handleBuyNow}
-              className="flex-1 bg-[#DB4444] hover:bg-black text-white font-medium h-11 rounded transition-colors active:scale-[0.99] cursor-pointer flex items-center justify-center text-center"
+              className="flex-1 bg-[#eb6e1b] hover:bg-black text-white font-medium h-11 rounded transition-colors active:scale-[0.99] cursor-pointer flex items-center justify-center text-center"
             >
               Buy Now
             </Link>
