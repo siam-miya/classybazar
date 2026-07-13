@@ -1,8 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+// 🆕 পরিবর্তন ১: URL এর Query Parameter (?tab=...) রিড করার জন্য useSearchParams ইম্পোর্ট করা হয়েছে
+import { useSearchParams } from "next/navigation"; 
 import { toast } from "react-toastify";
 
 const UserProfileDashboard = () => {
+  // 🆕 পরিবর্তন ২: searchParams হুকটি ইনিশিয়ালাইজ করা হয়েছে
+  const searchParams = useSearchParams();
+
   const [formData, setFormData] = useState({
     firstName: "Md",
     lastName: "Rimel",
@@ -14,6 +19,14 @@ const UserProfileDashboard = () => {
   });
 
   const [activeMenu, setActiveMenu] = useState("My Profile");
+
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    // যদি URL-এ tab এর ভ্যালু থাকে (যেমন: ?tab=Order Track), তবে activeMenu স্টেট সেটি দিয়ে আপডেট হবে
+    if (tab) {
+      setActiveMenu(tab);
+    }
+  }, [searchParams]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,7 +77,9 @@ const UserProfileDashboard = () => {
               >
                 My Cancellations
               </li>
-                 <li 
+              
+              {/* 🎯 মেনুবার বা অন্য কোথাও থেকে <Link href="/user/profile?tab=Order Track"> এ ক্লিক করে আসলে এটি সরাসরি লাল কালারে মার্কড হবে */}
+              <li 
                 onClick={() => setActiveMenu("Order Track")}
                 className={`cursor-pointer transition-colors ${
                   activeMenu === "Order Track" ? "text-red-500 font-medium" : "hover:text-black"
@@ -90,6 +105,7 @@ const UserProfileDashboard = () => {
 
         <div className="md:col-span-3 bg-white p-6 md:p-10 rounded shadow-sm border border-gray-50 flex flex-col justify-center min-h-[400px]">
           
+          {/* প্রোফাইল ট্যাব অ্যাক্টিভ থাকলে এই ফর্মটি দেখাবে */}
           {activeMenu === "My Profile" && (
             <>
               <h2 className="text-xl font-medium text-red-500 mb-6">Edit Your Profile</h2>
@@ -194,9 +210,19 @@ const UserProfileDashboard = () => {
           {activeMenu !== "My Profile" && (
             <div className="text-center py-12">
               <h2 className="text-xl font-medium text-black mb-2">{activeMenu}</h2>
-              <p className="text-gray-400 text-sm bg-gray-50 py-8 rounded-lg border border-dashed border-gray-200">
-                No data found
-              </p>
+              
+          
+              {activeMenu === "Order Track" ? (
+                <div className="bg-gray-50 py-8 rounded-lg border border-dashed border-gray-200">
+                  <p className="text-gray-600 text-sm font-poppins">
+                   Empty Order 
+                  </p>
+                </div>
+              ) : (
+                <p className="text-gray-400 text-sm bg-gray-50 py-8 rounded-lg border border-dashed border-gray-200">
+                  No data found
+                </p>
+              )}
             </div>
           )}
 

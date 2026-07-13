@@ -6,16 +6,16 @@ import { BiSolidRightArrow } from 'react-icons/bi'
 
 const UserAccountPage = () => {
   return (
-   <section>
-    <div className="container">
-       <div>
-          <SubBanner title={"Your Profile"} pageName={"Profile"}/>
-            <div>
-            <UserProfileDashboard/>
-          </div>
-       </div>
-    </div>
-   </section>
+    <section>
+      <div>
+        <SubBanner title={"Your Profile"} pageName={"Profile"} />
+      </div>
+      <div className="container">
+        <div>
+          <UserProfileDashboard />
+        </div>
+      </div>
+    </section>
   )
 }
 

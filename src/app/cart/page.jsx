@@ -27,21 +27,10 @@ const CartPage = () => {
 
   return (
     <section>
-      <div className="container font-sans text-black">
-         {/* <div className="flex items-center gap-2 pt-8 text-sm mb-6">
-            <Link href={"/"} className="text-gray-600 hover:text-black transition-all font-medium">
-              Home
-            </Link>
-            <BiSolidRightArrow className="text-[10px] text-gray-400" />
-            <Link href={"/products"} className="text-gray-600 hover:text-black transition-all font-medium">
-              Products
-            </Link> 
-            <BiSolidRightArrow className="text-[10px] text-gray-400" />
-            <p className="text-blue-500 font-semibold truncate max-w-[200px]">
-              Cart
-            </p>
-          </div> */}
-          <SubBanner title={"Cart"} pageName={"Cart"}/>
+      <div>
+        <SubBanner title={"Cart"} pageName={"Cart"}/>
+      </div>
+      <div className="container font-sans text-black">          
         {cart.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-[50vh] text-center py-16">
             <p className="text-gray-500 text-4xl mb-7">Your cart is empty!</p>

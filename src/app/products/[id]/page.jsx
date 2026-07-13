@@ -20,9 +20,11 @@ const ProductDetailsPage = async ({ params }) => {
 
   return (
     <section>
+      <div>
+         <SubBanner title={"Product Details"} pageName={"Product Details"}/>
+      </div>
       <div className="container">
         <div>
-          <SubBanner title={"Product Details"} pageName={"Product Details"}/>
             <p className="text-black font-semibold">
               <span className="font-bold text-black">Product Name:</span> {findData.title}
             </p>

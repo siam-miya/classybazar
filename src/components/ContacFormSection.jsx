@@ -36,7 +36,7 @@ const ContactFormSection = () => {
   };
 
   return (
-    <section className="container mx-auto px-4 py-16 font-sans text-black">
+    <section className="container mx-auto px-4 py-10 font-sans text-black">
       <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-8 items-stretch">
         
         {/* বাম পাশ: কন্টাক্ট ইনফরমেশন কার্ড */}

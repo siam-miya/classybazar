@@ -25,7 +25,7 @@ export default function ProductCard({ product }) {
             height={250}
             width={250}
             alt={product.title || "image"}
-            className="object-contain w-full h-full"
+            className="object-contain w-full h-full rounded-md"
           />
         </div>
         <div className="pt-4 pb-2 flex flex-col space-y-2 pl-3 pr-3">

@@ -6,7 +6,7 @@ const SubBanner = ({ title, pageName }) => {
   return (
     <section 
       style={{ backgroundImage: `url(${subBanner.src})` }}
-      className="w-full max-h-[40vh] md:max-h-[200px] bg-cover bg-center bg-no-repeat relative flex items-center justify-center border-b border-gray-100 mb-10"
+      className="w-full max-h-[40vh] md:max-h-[200px] bg-cover bg-center bg-no-repeat relative flex items-center justify-center border-b border-gray-100"
     >
       <div className="absolute inset-0 bg-white/50 backdrop-blur-[1px]"></div>
       <div className="relative z-10 text-center space-y-2 py-10">

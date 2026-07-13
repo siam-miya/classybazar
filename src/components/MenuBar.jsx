@@ -114,7 +114,7 @@ const MenuBar = () => {
 
                     <div className="flex-shrink-0 min-w-[120px] flex justify-end">
                         {!isScrolled ? (
-                        <Link href={"/user/profile"}>
+                        <Link href={"/user/profile?tab=Order Track"}>
                             <button className="text-white font-bold text-sm hover:bg-black transition-colors cursor-pointer py-2.5 px-5 bg-[#DB4444] rounded-md animate-fadeIn font-poppins">
                                 Order Track
                             </button>
