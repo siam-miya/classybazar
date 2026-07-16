@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import aboutImage from "../assets/images/about.png";
-import { MdLocalOffer } from "react-icons/md";
 import { BiSolidOffer } from "react-icons/bi";
 import { FaStar } from "react-icons/fa";
 import { AiFillFire } from "react-icons/ai";

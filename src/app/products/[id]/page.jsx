@@ -1,7 +1,7 @@
 import ProductDetailsSection from "@/components/ProductDetailsSection";
 import SectionHeading from "@/components/SectionHeading";
-import ProductCard from "@/components/ProductCard"; 
 import SubBanner from "@/components/SubBanner";
+import RelatedProductsSlider from "@/components/RelatedProductsSlider"; // নতুন স্লাইডার ইমপোর্ট
 
 const ProductDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -25,39 +25,20 @@ const ProductDetailsPage = async ({ params }) => {
       </div>
       <div className="container">
         <div className="pt-2">
-            <p className="text-black font-semibold">
-              <span className="font-bold text-black">Product Name:</span> {findData.title}
-            </p>
-          <div className="mb-5">
+          <p className="text-black font-semibold mb-4">
+            <span className="font-bold text-black">Product Name:</span> {findData.title}
+          </p>
+          <div className="mb-2">
             <ProductDetailsSection product={findData} />
           </div>
+          
           {relatedProducts.length > 0 && (
             <div className="pb-10 w-full overflow-hidden">
-              <div className="mb-6">
+              <div className="mb-4">
                 <SectionHeading subHeading={"Related Item"} countDown={false}/>
               </div>
-              <div 
-                className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-thin scroll-smooth snap-x snap-mandatory pb-4"
-                style={{
-                  scrollbarWidth: 'none', 
-                  msOverflowStyle: 'none' 
-                }}
-              >
-                <style>{`
-                  div::-webkit-scrollbar {
-                    display: none; /* Chrome, Safari ebong Opera-r scrollbar lukate */
-                  }
-                `}</style>
 
-                {relatedProducts.map((product) => (
-                  <div 
-                    key={product.id} 
-                    className="min-w-[260px] sm:min-w-[280px] md:min-w-[300px] flex-shrink-0 snap-start"
-                  >
-                    <ProductCard product={product} />
-                  </div>
-                ))}
-              </div>
+              <RelatedProductsSlider relatedProducts={relatedProducts} />
             </div>
           )}
         </div>

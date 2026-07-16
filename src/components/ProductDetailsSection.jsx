@@ -35,7 +35,6 @@ const ProductDetailsSection = ({ product }) => {
   return (
     <div className="pt-10 pb-20 text-black select-none font-poppins">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* বাম পাশ: ইমেজ সেকশন */}
         <div className="lg:col-span-7 flex flex-col-reverse md:flex-row gap-4">
           <div className="flex md:flex-col gap-4 justify-between md:justify-start">
             {productImages.slice(0, 4).map((img, index) => (
@@ -43,7 +42,7 @@ const ProductDetailsSection = ({ product }) => {
                 key={index}
                 onClick={() => setSelectedImage(index)}
                 className={`w-24 h-24 bg-[#F5F5F5] p-2 rounded flex items-center justify-center border-2 transition-all relative overflow-hidden ${
-                  selectedImage === index ? 'border-[#DB4444]' : 'border-transparent hover:border-gray-300'
+                  selectedImage === index ? 'border-[#eb6e1b]' : 'border-transparent hover:border-gray-300'
                 }`}
               >
                 <Image 
@@ -107,7 +106,7 @@ const ProductDetailsSection = ({ product }) => {
               </div>
               <button 
                 onClick={() => setQuantity(quantity + 1)}
-                className="px-4 bg-[#DB4444] text-white h-full flex items-center justify-center text-xl hover:bg-red-600 transition-colors cursor-pointer"
+                className="px-4 bg-[#eb6e1b] text-white h-full flex items-center justify-center text-xl hover:bg-black transition-colors cursor-pointer"
               >
                 <GoPlus />
               </button>

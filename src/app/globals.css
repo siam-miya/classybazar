@@ -60,3 +60,8 @@
   width: 32px !important; 
   background-color: #ffffff !important;
 }
+
+/* related items */
+.swiper-button-lock {
+  display: flex !important;
+}

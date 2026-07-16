@@ -13,7 +13,7 @@ const NewArrivalsProducts = async () => {
   if (!p1 || !p2 || !p3 || !p4) return null;
 
   return (
-    <div className="bg-white py-12 px-4 max-w-7xl mx-auto">
+    <div className="bg-white py-12 container">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 auto-rows-[180px] sm:auto-rows-[220px] md:auto-rows-[240px]">
         <div className="relative bg-black rounded-xl overflow-hidden flex flex-col justify-end p-4 md:p-6 col-span-2 row-span-2">
           <div className="absolute inset-0 w-full h-full z-0">

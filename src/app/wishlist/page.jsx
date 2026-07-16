@@ -32,7 +32,7 @@ const WishList = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 font-poppins">
+    <div className="container py-8 font-poppins">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-xl md:text-2xl font-bold text-black">
           Wishlist ({wishlist.length})

@@ -11,7 +11,7 @@ export default function ProductCard({ product }) {
   if (!imageSrc) return null;
 
   return (
-    <div className="w-full max-w-[300px] rounded-md overflow-hidden font-sans bg-[#F5F5F5] hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.01] transition-all duration-300 border border-transparent hover:border-gray-200">
+    <div className="w-full max-w-[300px] rounded-md overflow-hidden font-poppins bg-[#F5F5F5] hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-gray-200 will-change-transform">
       <Link href={`/products/${product.id}`} className="block">
         <div className="relative w-full h-[250px] flex items-center justify-center p-1 rounded-t-md overflow-hidden">
           <div className="absolute top-3 right-3 flex flex-col space-y-2 z-10">
