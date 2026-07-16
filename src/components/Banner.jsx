@@ -13,9 +13,10 @@ import apple from "../assets/icons/apple.png"
 
 const Banner = () => {
     return (
-        <section className="ml-135">
-            <div className='container'>
-                <div className='rounded-sm overflow-hidden custom-swiper relative w-[1050px]'>
+        <section className="ml-0 lg:ml-67 px-1 md:px-3 lg:px-0">
+            <div className='container mx-auto'>
+                {/* w-full (মোবাইল), md:w-[768px] (ট্যাবলেট), lg:w-[1050px] (ডেক্সটপ) */}
+                <div className='rounded-sm overflow-hidden custom-swiper relative w-full md:w-[720px] lg:w-[1050px] mx-auto'>
                     <Swiper
                         spaceBetween={20}
                         slidesPerView={1}
@@ -57,21 +58,24 @@ function SliderItem({ image, brandLogo, brandTitle, discount }) {
     return (
         <div
             style={{ backgroundImage: `url(${image.src})` }}
-            className='w-[1050px] h-[386px] bg-cover bg-center bg-no-repeat p-12 flex items-center justify-start'
+            // মোবাইলে হাইট কিছুটা কমিয়ে h-[260px] এবং ট্যাবে h-[320px] করা হয়েছে যেন দেখতে সুন্দর লাগে
+            className='w-full lg:w-[1050px] h-[260px] sm:h-[300px] md:h-[340px] lg:h-[386px] bg-cover bg-center bg-no-repeat p-6 sm:p-8 lg:p-12 flex items-center justify-start'
         >
-            <div className='space-y-4 z-10 max-w-[300px] pl-6 text-left'>
-                <p className='flex items-center gap-3 text-white text-sm tracking-wide font-poppins'>
-                    <Image src={brandLogo} height={30} width={24} alt='brandLogo' className="object-contain" />
+            {/* মোবাইলের স্ক্রিন অনুযায়ী প্যাডিং ও টেক্সটের ম্যাক্সিমাম উইডথ অ্যাডজাস্ট করা হয়েছে */}
+            <div className='space-y-2 sm:space-y-4 z-10 max-w-[240px] sm:max-w-[300px] pl-2 sm:pl-6 text-left'>
+                <p className='flex items-center gap-2 sm:gap-3 text-white text-xs sm:text-sm tracking-wide font-poppins capitalize'>
+                    <Image src={brandLogo} height={24} width={20} alt='brandLogo' className="object-contain sm:h-[30px] sm:w-[24px]" />
                     {brandTitle}
                 </p>
-                <h1 className='text-white font-bold text-[40px] leading-[1.2] font-poppins'>
+                {/* ডেক্সটপে text-[40px] থাকবে, কিন্তু মোবাইলে text-[24px] এবং ট্যাবে text-[32px] হবে */}
+                <h1 className='text-white font-bold text-[24px] sm:text-[32px] lg:text-[40px] leading-[1.2] font-poppins'>
                     Up to {discount} <br /> off Voucher
                 </h1>
-                <Link href={"/"} className='inline-flex items-center gap-2 text-white cursor-pointer group mt-2'>
-                    <span className='border-b border-white pb-0.5 group-hover:border-transparent transition-all text-sm font-medium'>
+                <Link href={"/"} className='inline-flex items-center gap-2 text-white cursor-pointer group mt-1 sm:mt-2'>
+                    <span className='border-b border-white pb-0.5 group-hover:border-transparent transition-all text-xs sm:text-sm font-medium'>
                         Shop Now
                     </span>
-                    <MdOutlineKeyboardArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    <MdOutlineKeyboardArrowRight size={18} className="group-hover:translate-x-1 transition-transform sm:size-[20px]" />
                 </Link>
             </div>
         </div>

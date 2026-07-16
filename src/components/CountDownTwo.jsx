@@ -34,25 +34,37 @@ export default function CountdownTwo() {
 
     return () => clearInterval(timer);
   }, [targetDate]);
+
   const timerItems = [
-    { value: timeLeft.hours, label: 'Hours' },
     { value: timeLeft.days, label: 'Days' },
+    { value: timeLeft.hours, label: 'Hours' },
     { value: timeLeft.minutes, label: 'Minutes' },
     { value: timeLeft.seconds, label: 'Seconds' },
   ];
 
   return (
-    <div className="flex items-center min-h-[20px] bg-black">
-      <div className="flex gap-4 md:gap-6">
+    <div className="flex items-center justify-center md:justify-start bg-transparent">
+      {/* মোবাইলে gap-3 এবং বড় স্ক্রিনে gap-4 বা 6 */}
+      <div className="flex gap-3 sm:gap-4 md:gap-5">
         {timerItems.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center w-6 h-6 md:w-10 md:h-10 bg-white rounded-full text-black font-sans shadow-lg p-7"
+            className="
+              flex flex-col items-center justify-center 
+              /* মোবাইলে নিখুঁত গোলাকার বৃত্ত (56px) এবং ডেস্কটপে আপনার ডিজাইনে (80px) রূপান্তর হবে */
+              w-[56px] h-[56px] 
+              sm:w-[70px] sm:h-[70px] 
+              md:w-[80px] md:h-[80px] 
+              bg-white rounded-full text-black 
+              shadow-lg transition-all duration-300
+            "
           >
-            <span className="text-[14px] md:text-[14px] font-sm leading-4.2">
+            {/* সংখ্যা */}
+            <span className="text-sm sm:text-base md:text-lg font-bold leading-none text-black">
               {item.value}
             </span>
-            <span className="text-[10px] md:text-xs text-gray-800 font-sm">
+            {/* লেবেল */}
+            <span className="text-[8px] sm:text-[9px] md:text-[10px] text-gray-500 font-medium uppercase mt-0.5 tracking-wider">
               {item.label}
             </span>
           </div>

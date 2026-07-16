@@ -1,11 +1,12 @@
 "use client"
+
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const MenuSection = () => {
     const pathname = usePathname();
     return (
-        <ul className='flex items-center gap-10 font-poppins'>
+        <ul className='hidden lg:flex items-center gap-10 font-poppins'>
             <li className='text-base leading-6 text-black hover:text-[#DB4444]'>
                 <Link
                     href="/"
@@ -19,7 +20,7 @@ const MenuSection = () => {
                     href="/products"
                     className={`pb-1 transition-all ${pathname === '/products' ? 'border-b-2 border-black font-medium' : ''}`}
                 >
-                   All Products
+                    All Products
                 </Link>
             </li>
             <li className='text-base leading-6 text-black hover:text-[#DB4444]'>
@@ -49,5 +50,4 @@ const MenuSection = () => {
         </ul>
     )
 }
-
 export default MenuSection

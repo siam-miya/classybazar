@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 export default function CountdownTimer() {
-  const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate() + 3);
+  const [targetDate] = useState(() => {
+    const date = new Date();
+    date.setDate(date.getDate() + 3);
+    return date;
+  });
 
   const calculateTimeLeft = () => {
     const difference = +targetDate - +new Date();
@@ -25,6 +27,7 @@ export default function CountdownTimer() {
     }
     return timeLeft;
   };
+
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft);
 
   useEffect(() => {
@@ -32,43 +35,44 @@ export default function CountdownTimer() {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [targetDate]);
 
   return (
-    <div className="flex items-center justify-center font-sans select-none pt-4">
-      <div className="flex items-center space-x-2 md:space-x-4">
+    <div className="flex items-center justify-start font-sans select-none w-full my-2">
+      {/* মোবাইলে space-x-1.5 এবং ট্যাবলেট/ডেস্কটপে space-x-4 বা gap-4 ব্যবহার করা হয়েছে */}
+      <div className="flex items-center gap-2 sm:gap-4 md:gap-5">
         
         {/* Days */}
         <div className="flex flex-col items-center">
-          <span className="text-xs md:text-sm font-medium text-gray-800 mb-1">Days</span>
-          <span className="text-3xl md:text-[32px] font-bold text-black tracking-tight">{timeLeft.days}</span>
+          <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-800 mb-0.5 sm:mb-1 uppercase tracking-wider">Days</span>
+          <span className="text-xl sm:text-2xl md:text-[32px] font-bold text-black tracking-tight leading-none">{timeLeft.days}</span>
         </div>
 
         {/* Separator */}
-        <div className="text-xl md:text-3xl font-bold text-[#FFAD33] self-end mb-1 md:mb-2">:</div>
+        <div className="text-lg sm:text-xl md:text-3xl font-bold text-[#FFAD33] self-center pt-3 sm:pt-4">:</div>
 
         {/* Hours */}
         <div className="flex flex-col items-center">
-          <span className="text-xs md:text-sm font-medium text-gray-800 mb-1">Hours</span>
-          <span className="text-3xl md:text-[32px] font-bold text-black tracking-tight">{timeLeft.hours}</span>
+          <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-800 mb-0.5 sm:mb-1 uppercase tracking-wider">Hours</span>
+          <span className="text-xl sm:text-2xl md:text-[32px] font-bold text-black tracking-tight leading-none">{timeLeft.hours}</span>
         </div>
 
         {/* Separator */}
-        <div className="text-xl md:text-3xl font-bold text-[#FFAD33] self-end mb-1 md:mb-2">:</div>
+        <div className="text-lg sm:text-xl md:text-3xl font-bold text-[#FFAD33] self-center pt-3 sm:pt-4">:</div>
 
         {/* Minutes */}
         <div className="flex flex-col items-center">
-          <span className="text-xs md:text-sm font-medium text-gray-800 mb-1">Minutes</span>
-          <span className="text-3xl md:text-[32px] font-bold text-black tracking-tight">{timeLeft.minutes}</span>
+          <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-800 mb-0.5 sm:mb-1 uppercase tracking-wider">Minutes</span>
+          <span className="text-xl sm:text-2xl md:text-[32px] font-bold text-black tracking-tight leading-none">{timeLeft.minutes}</span>
         </div>
 
         {/* Separator */}
-        <div className="text-xl md:text-3xl font-bold text-[#FFAD33] self-end mb-1 md:mb-2">:</div>
+        <div className="text-lg sm:text-xl md:text-3xl font-bold text-[#FFAD33] self-center pt-3 sm:pt-4">:</div>
 
         {/* Seconds */}
         <div className="flex flex-col items-center">
-          <span className="text-xs md:text-sm font-medium text-gray-800 mb-1">Seconds</span>
-          <span className="text-3xl md:text-[32px] font-bold text-black tracking-tight">{timeLeft.seconds}</span>
+          <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-800 mb-0.5 sm:mb-1 uppercase tracking-wider">Seconds</span>
+          <span className="text-xl sm:text-2xl md:text-[32px] font-bold text-[#eb6e1b] tracking-tight leading-none">{timeLeft.seconds}</span>
         </div>
 
       </div>

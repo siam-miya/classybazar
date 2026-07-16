@@ -6,7 +6,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { X } from 'lucide-react';
 import { FiTrash2 } from 'react-icons/fi';
-import { BiSolidRightArrow } from 'react-icons/bi';
 import Button from '@/components/Button';
 import SubBanner from '@/components/SubBanner';
 import { IoBagCheckOutline } from 'react-icons/io5';

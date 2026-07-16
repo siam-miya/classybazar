@@ -1,4 +1,3 @@
-
 import Image from 'next/image'
 import footer_icon from "../../public/footerLogo.png"
 import arrow_right from "../assets/icons/arrow_right.svg"
@@ -7,25 +6,42 @@ import Link from 'next/link'
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className='bg-black pt-20 pb-6'>
-      <div className="container">
-        <div className='grid grid-cols-4 gap-30'>
-          <div>
+    <footer className='bg-black pt-12 md:pt-20 pb-6'>
+      {/* মোবাইলে দুই পাশে সুন্দর স্পেসিং এর জন্য px-4 ব্যবহার করা হয়েছে */}
+      <div className="container px-4 sm:px-6 md:px-0">
+        
+        {/* রেসপন্সিভ গ্রিড: মোবাইলে ১ কলাম, ট্যাবলেটে ২ কলাম, এবং ডেস্কটপে ৪ কলাম */}
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 xl:gap-20'>
+          
+          {/* Section 1: Brand & Subscribe */}
+          <div className="flex flex-col">
             <div>
-              <Image src={footer_icon} height={120} width={240} alt='logo' />
+              <Image 
+                src={footer_icon} 
+                height={120} 
+                width={240} 
+                alt='logo' 
+                className="max-w-[200px] md:max-w-[240px] h-auto"
+              />
             </div>
             <h2 className='text-white font-medium font-inter text-[20px] leading-7 py-4'>Subscribe</h2>
-            <p className='text-white text-4 leading-6'>Get 10% off your first order</p>
-            <div className='py-4'>
+            <p className='text-white text-[16px] leading-6'>Get 10% off your first order</p>
+            <div className='py-4 max-w-[280px] sm:max-w-full'>
               <form action="">
                 <div className='flex items-center gap-3 border border-white rounded-md py-3 px-4'>
-                  <input className='focus:outline-none placeholder:text-white text-white' type="email" name="" id="" placeholder='enter your email' /><span>
+                  <input 
+                    className='focus:outline-none placeholder:text-white text-white bg-transparent w-full' 
+                    type="email" 
+                    placeholder='enter your email' 
+                  />
+                  <span className="shrink-0">
                     <Image src={arrow_right} height={24} width={24} alt='icon' />
                   </span>
                 </div>
               </form>
             </div>
-            <div className='flex items-center justify-start gap-8 pt-2'>
+            {/* Social Icons */}
+            <div className='flex items-center justify-start gap-6 pt-2'>
               <svg
                 width="24"
                 height="24"
@@ -77,33 +93,37 @@ const Footer = () => {
               </svg>
             </div>
           </div>
+
+          {/* Section 2: Support */}
           <div>
-            <h2 className='text-white font-medium font-poppins text-[20px] leading-7'>Support</h2>
-            <div>
-              <p className='text-[16px] leading-6 text-white pt-6 pb-4 font-poppins '>Gulshan-2, Dhaka, Bangladesh</p>
-              <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/"}>classybazar@gmail.com</Link>
+            <h2 className='text-white font-medium font-poppins text-[20px] leading-7 border-b border-gray-800 pb-2 md:border-b-0 md:pb-0'>Support</h2>
+            <div className="pt-4 md:pt-6">
+              <p className='text-[16px] leading-6 text-white pb-4 font-poppins'>Gulshan-2, Dhaka, Bangladesh</p>
+              <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all break-all' href={"/"}>classybazar@gmail.com</Link>
               <p className='text-[16px] leading-6 text-white font-poppins pt-4 hover:text-[#eb6e1b] hover:font-semibold transition-all cursor-pointer'>01925909902</p>
             </div>
           </div>
+
+          {/* Section 3: Account */}
           <div>
-            <h2 className='text-white font-medium font-poppins text-[20px] leading-7'>Account</h2>
-            <ul>
-              <li className='pt-6'>
+            <h2 className='text-white font-medium font-poppins text-[20px] leading-7 border-b border-gray-800 pb-2 md:border-b-0 md:pb-0'>Account</h2>
+            <ul className="pt-4 md:pt-6">
+              <li>
                 <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/"}>My Account</Link>
               </li>
-           <div className='flex items-center gap-2'>
-               <li className='py-4'>
-                <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/login"}>Login</Link>
-              </li>
-              <span className='text-white'>/</span>
-              <li className='py-4'>
-                <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/login"}>Register</Link>
-              </li>
-           </div>
+              <div className='flex items-center gap-2 py-4'>
+                <li>
+                  <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/login"}>Login</Link>
+                </li>
+                <span className='text-white'>/</span>
+                <li>
+                  <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/login"}>Register</Link>
+                </li>
+              </div>
               <li>
                 <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/cart"}>Cart</Link>
               </li>
-              <li className=' py-4'>
+              <li className='py-4'>
                 <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/Wishlist"}>Wishlist</Link>
               </li>
               <li>
@@ -111,10 +131,12 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+
+          {/* Section 4: Quick Links */}
           <div>
-            <h2 className='text-white font-medium font-poppins text-[20px] leading-7'>Quick Link</h2>
-            <ul>
-              <li className='pt-6'>
+            <h2 className='text-white font-medium font-poppins text-[20px] leading-7 border-b border-gray-800 pb-2 md:border-b-0 md:pb-0'>Quick Link</h2>
+            <ul className="pt-4 md:pt-6">
+              <li>
                 <Link className='text-[16px] leading-6 text-white font-poppins hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/"}>Privacy Policy</Link>
               </li>
               <li className='py-4'>
@@ -127,14 +149,19 @@ const Footer = () => {
                 <Link className='text-[16px] leading-6 text-white hover:text-[#eb6e1b] hover:font-semibold transition-all' href={"/Contact"}>Contact</Link>
               </li>
             </ul>
-          
           </div>
+
         </div>
-          <div className="flex items-center justify-center gap-1 order-2 md:order-1 tracking-wide mt-20 font-poppins">
-          <span className='text-gray-500'>&copy;</span>
-          <span className='text-gray-500 text-[16px] leading-6 '>Copyright <Link className={'text-text-[#eb6e1b] hover:text-white'} href={"/"}>Classy Bazar</Link> {currentYear}.</span>
-          <span className="text-gray-500 text-[16px] leading-6 ml-1">All rights reserved.</span>
+
+        {/* Bottom Copyright Section */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-1 mt-12 md:mt-20 pt-6 border-t border-gray-900 text-center font-poppins">
+          <span className='text-gray-500 hidden sm:inline'>&copy;</span>
+          <span className='text-gray-500 text-[14px] sm:text-[16px] leading-6'>
+            Copyright <span className="sm:hidden">&copy;</span> <Link className={'text-[#eb6e1b] hover:text-white'} href={"/"}>Classy Bazar</Link> {currentYear}.
+          </span>
+          <span className="text-gray-500 text-[14px] sm:text-[16px] leading-6 sm:ml-1">All rights reserved.</span>
         </div>
+
       </div>
     </footer>
   )

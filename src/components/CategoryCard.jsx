@@ -1,11 +1,37 @@
+import React from 'react';
 
 const CategoryCard = ({ icon: Icon, text }) => {
   return (
-    <div className="group flex flex-col items-center justify-center border border-gray-300 rounded-[4px] cursor-pointer select-none transition-all duration-300 ease-in-out p-6 w-full h-[145px] bg-white hover:bg-[#eb6e1b] hover:border-[#eb6e1b]">
-      <div className="flex items-center justify-center text-black group-hover:text-white transition-colors duration-300 mb-4">
-        {Icon && <Icon className="w-14 h-14" />}
+    <div className="
+      group 
+      flex flex-col items-center justify-center 
+      border border-gray-300 rounded-[4px] 
+      cursor-pointer select-none 
+      transition-all duration-300 ease-in-out 
+      /* মোবাইলে প্যাডিং এবং হাইট একটু কম, ডেস্কটপে আপনার আগের ডিজাইন (h-[145px] ও p-6) ঠিক থাকবে */
+      p-4 md:p-6 
+      w-full 
+      h-[110px] md:h-[145px] 
+      bg-white 
+      hover:bg-[#eb6e1b] hover:border-[#eb6e1b]
+    ">
+      <div className="flex items-center justify-center text-black group-hover:text-white transition-colors duration-300 mb-2 md:mb-4">
+        {Icon && (
+          <Icon className="
+            /* আইকন মোবাইলে একটু ছোট এবং ডেস্কটপে বড় হবে */
+            w-10 h-10 
+            md:w-14 md:h-14 
+          " />
+        )}
       </div>
-      <p className="font-poppins text-base font-normal text-black group-hover:text-white transition-colors duration-300">
+      <p className="
+        font-poppins 
+        text-xs md:text-base 
+        font-normal 
+        text-black group-hover:text-white 
+        transition-colors duration-300
+        text-center
+      ">
         {text}
       </p>
     </div>

@@ -1,8 +1,8 @@
-
 import Image from "next/image"
 import img_1 from "../assets/icons/support_1.png"
 import img_2 from "../assets/icons/support_2.png"
 import img_3 from "../assets/icons/support_3.png"
+
 const OurSupport = () => {
     const supportData = [
         {
@@ -18,28 +18,40 @@ const OurSupport = () => {
         {
             icon: img_3,
             text: "MONEY BACK GUARANTEE",
-            description: "We reurn money within 30 days"
+            description: "We return money within 30 days" 
         }
     ]
+
     return (
-        <section className="mt-[20px] mb-[10px]">
-            <div className="container">
-                <div>
-                    <div className="grid grid-cols-3 pt-10 pb-14">
-                        {
-                            supportData.map((support, index) => {
-                                return <div key={index}>
-                                    <div>
-                                        <Image src={support.icon} width={90} height={90} alt="icon" className="bg-black rounded-full p-5 border-10 border-gray-300 mx-auto" />
+        <section className="my-10 md:my-20 w-full">
+            <div className="container mx-auto px-4 md:px-0">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8 pt-6 pb-10 md:pt-10 md:pb-14">
+                    {
+                        supportData.map((support, index) => {
+                            return (
+                                <div key={index} className="flex flex-col items-center justify-center">
+                                    <div className="flex justify-center">
+                                        {/* আইকনের সাইজ মোবাইলে সামান্য ছোট (width/height 80) এবং ডেস্কটপে আপনার ডিজাইনে (90) রাখা হয়েছে */}
+                                        <Image 
+                                            src={support.icon} 
+                                            width={90} 
+                                            height={90} 
+                                            alt="support icon" 
+                                            className="w-[75px] h-[75px] md:w-[90px] md:h-[90px] bg-black rounded-full p-4 md:p-5 border-[8px] md:border-[10px] border-[#C1C1C1]/30 mx-auto" 
+                                        />
                                     </div>
                                     <div className="text-center">
-                                        <h2 className="font-semibold font-poppins text-[20px] leading-7 text-black pt-6 pb-2">{support.text}</h2>
-                                        <p className="text-[14px] leading-5 font-poppins">{support.description}</p>
+                                        <h2 className="font-semibold font-poppins text-lg md:text-[20px] leading-7 text-black pt-4 md:pt-6 pb-2">
+                                            {support.text}
+                                        </h2>
+                                        <p className="text-sm md:text-[14px] leading-5 font-poppins text-gray-600">
+                                            {support.description}
+                                        </p>
                                     </div>
                                 </div>
-                            })
-                        }
-                    </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </section>

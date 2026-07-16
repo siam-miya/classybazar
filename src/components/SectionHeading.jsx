@@ -1,18 +1,36 @@
 import React from 'react'
 import CountdownTimer from './CountDownTimer'
 
-const SectionHeading = ({subHeading, heading, countDown=false}) => {
+const SectionHeading = ({ subHeading, heading, countDown = false, navigationButtons }) => {
   return (
-    <div>
-      <h3 className='text-[#eb6e1b] font-semibold font-poppins relative pl-[40px] text-[16px] leading-5 after:content-[""] after:absolute after:w-[20px] after:h-[40px] after:left-0 after:bg-[#eb6e1b] after:rounded-md after"top-1/2 after:translate-y-[-22%]'>{subHeading}</h3>
-    <div className={`flex ${countDown && "gap-[87px] items-end"}`}>
-         <div>
-         <h3 className='pt-7 font-semibold text-[36px] leading-12 text-black font-inter'>{heading}</h3>
-     </div>
-     <div>
-         {countDown &&  <CountdownTimer/>}
-     </div>
-    </div>
+    <div className="w-full">
+      {/* হেডিং এবং সাব-হেডিং সেন্টারে */}
+      <div className="flex flex-col items-center text-center mb-6">
+        <div className="flex items-center gap-2 mb-1.5">
+          <span className="w-2 md:w-3 h-5 md:h-6 bg-[#eb6e1b] rounded-[4px]"></span>
+          <span className="text-[#eb6e1b] font-bold text-xs md:text-sm tracking-wider uppercase font-poppins">
+            {subHeading}
+          </span>
+        </div>
+        <h2 className="text-2xl md:text-[32px] font-bold text-black font-inter tracking-tight">
+          {heading}
+        </h2>
+      </div>
+
+      {/* টাইমার এবং অ্যারো বাটনগুলো দুই পাশে (space-between) */}
+      {countDown && (
+        <div className="flex items-center justify-between border-t border-gray-100 pt-4 md:pt-5 gap-2">
+          <div className="flex-1 flex justify-start">
+            <CountdownTimer />
+          </div>
+          {/* FlashSales থেকে পাঠানো Swiper বাটনগুলো এখানে রেন্ডার হবে */}
+          {navigationButtons && (
+            <div className="shrink-0">
+              {navigationButtons}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   )
 }
