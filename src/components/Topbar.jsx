@@ -24,9 +24,8 @@ const Topbar = () => {
     document.addEventListener("mousedown", handleClickOutside)
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
- 
   return (
-    <section className="w-full bg-black text-[#FAFAFA] py-3 font-poppins md:px-8">
+    <section className="w-full bg-black text-[#FAFAFA] p-1 px-2 md:py-3 font-poppins md:px-8">
       <div className="container flex items-center justify-between">
         <div className="hidden md:block w-20"></div>
         

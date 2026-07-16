@@ -30,12 +30,13 @@ const FlashSales = () => {
 
   return (
     <section className="w-full overflow-hidden">
-      {/* px-4 যোগ করা হয়েছে যাতে মোবাইলে স্লাইডারটি দুই পাশের দেয়ালের সাথে একদম লেপ্টে না থাকে */}
-      <div className="container mx-auto px-4 md:px-0 border-b pb-12 md:pb-16">
-        <div className='mt-10 md:mt-20'>
+      {/* মোবাইলের জন্য pb-12 কমিয়ে pb-6 করা হয়েছে */}
+      <div className="container mx-auto px-4 md:px-0 border-b pb-6 md:pb-16">
+        {/* মোবাইলের জন্য mt-10 কমিয়ে mt-6 করা হয়েছে */}
+        <div className='mt-6 md:mt-20'>
           
           {/* লেআউট কন্ট্রোল বক্স */}
-          <div className="mb-6 md:mb-8">
+          <div className="mb-4 md:mb-8">
             <SectionHeading 
               subHeading={"today's"} 
               heading={"Flash Sales"} 
@@ -58,10 +59,8 @@ const FlashSales = () => {
           </div>
           
           {/* Swiper Slider Section */}
-          {/* - মোবাইলে overflow-x স্ক্রলিং বা স্ক্রিন ভেঙে যাওয়া রুখতে w-full overflow-hidden করা হয়েছে।
-            - md:mb-14 দিয়ে ডেস্কটপে বাটন থেকে চমৎকার দূরত্ব বজায় রাখা হয়েছে।
-          */}
-          <div className='mt-6 md:mt-10 mb-10 md:mb-14 w-full overflow-hidden'>
+          {/* মোবাইলে বটম মার্জিন mb-10 কমিয়ে mb-2 করা হয়েছে যাতে বাটনের সাথে গ্যাপ কমে যায় */}
+          <div className='mt-4 md:mt-10 mb-2 sm:mb-6 md:mb-14 w-full overflow-hidden'>
             <Swiper
               modules={[Navigation]} 
               spaceBetween={16}     
@@ -76,12 +75,11 @@ const FlashSales = () => {
                 768: { slidesPerView: 3, spaceBetween: 20 },
                 1024: { slidesPerView: 4, spaceBetween: 30 },
               }}
-              // !overflow-visible দিয়ে মোবাইলের সাইড স্ক্রল ভাঙা প্রতিরোধ করে !overflow-hidden ব্যবহার করা হয়েছে
               className="mySwiper !overflow-hidden"
             >
               {products.slice(0, 8).map((product) => (
                 <SwiperSlide key={product.id}>
-                  <div className="pb-2"> {/* কার্ডের নিচের শ্যাডো যেন কেটে না যায় */}
+                  <div className="pb-2"> {/* কার্ডের নিচের শ্যাডো যেন কেটে না যায় */}
                     <ProductCard product={product} />
                   </div>
                 </SwiperSlide>
@@ -90,8 +88,8 @@ const FlashSales = () => {
           </div>
 
           {/* View All Button */}
-          {/* মোবাইলে স্পেসিং সুন্দর রাখতে mt-4 md:mt-8 করা হয়েছে */}
-          <div className='text-center mt-4 md:mt-8'>
+          {/* মোবাইলে টপ মার্জিন mt-4 কমিয়ে mt-2 করা হয়েছে */}
+          <div className='text-center mt-2 md:mt-8'>
             <Button TagName={Link} href={"/products"}>View All Products</Button>
           </div>
         </div>

@@ -6,8 +6,9 @@ import Link from 'next/link'
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className='bg-black pt-12 md:pt-20 pb-6'>
-      {/* মোবাইলে দুই পাশে সুন্দর স্পেসিং এর জন্য px-4 ব্যবহার করা হয়েছে */}
+    // মোবাইলে ফিক্সড বটম মেনুবারের জন্য pb-24 এবং ডেস্কটপে pb-6 দেওয়া হয়েছে
+    <footer className='bg-black pt-12 md:pt-20 pb-24 md:pb-6'>
+      {/* মোবাইলে দুই পাশে সুন্দর স্পেসিং এর জন্য px-4 ব্যবহার করা হয়েছে */}
       <div className="container px-4 sm:px-6 md:px-0">
         
         {/* রেসপন্সিভ গ্রিড: মোবাইলে ১ কলাম, ট্যাবলেটে ২ কলাম, এবং ডেস্কটপে ৪ কলাম */}
@@ -154,7 +155,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Copyright Section */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-1 mt-12 md:mt-20 pt-6 border-t border-gray-900 text-center font-poppins">
+        {/* মোবাইলের জন্য মার্জিন mt-12 থেকে কমিয়ে mt-8 করা হয়েছে */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-1 mt-8 md:mt-20 pt-6 border-t border-gray-900 text-center font-poppins">
           <span className='text-gray-500 hidden sm:inline'>&copy;</span>
           <span className='text-gray-500 text-[14px] sm:text-[16px] leading-6'>
             Copyright <span className="sm:hidden">&copy;</span> <Link className={'text-[#eb6e1b] hover:text-white'} href={"/"}>Classy Bazar</Link> {currentYear}.
