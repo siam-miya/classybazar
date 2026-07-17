@@ -1,11 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
-// 🆕 পরিবর্তন ১: URL এর Query Parameter (?tab=...) রিড করার জন্য useSearchParams ইম্পোর্ট করা হয়েছে
 import { useSearchParams } from "next/navigation"; 
 import { toast } from "react-toastify";
 
 const UserProfileDashboard = () => {
-  // 🆕 পরিবর্তন ২: searchParams হুকটি ইনিশিয়ালাইজ করা হয়েছে
   const searchParams = useSearchParams();
 
   const [formData, setFormData] = useState({
@@ -22,7 +20,6 @@ const UserProfileDashboard = () => {
 
   useEffect(() => {
     const tab = searchParams.get("tab");
-    // যদি URL-এ tab এর ভ্যালু থাকে (যেমন: ?tab=Order Track), তবে activeMenu স্টেট সেটি দিয়ে আপডেট হবে
     if (tab) {
       setActiveMenu(tab);
     }
@@ -77,8 +74,6 @@ const UserProfileDashboard = () => {
               >
                 My Cancellations
               </li>
-              
-              {/* 🎯 মেনুবার বা অন্য কোথাও থেকে <Link href="/user/profile?tab=Order Track"> এ ক্লিক করে আসলে এটি সরাসরি লাল কালারে মার্কড হবে */}
               <li 
                 onClick={() => setActiveMenu("Order Track")}
                 className={`cursor-pointer transition-colors ${

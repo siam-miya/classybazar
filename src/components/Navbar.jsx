@@ -26,18 +26,13 @@ const Navbar = () => {
     const [searchResults, setSearchResults] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(false);
-
-    // ১. স্ক্রল ট্র্যাকিং স্টেট
     const [isScrolled, setIsScrolled] = useState(false);
-
     const dropdownRef = useRef(null);
 
     useEffect(() => {
         setIsMounted(true);
-
-        // ২. স্ক্রল ডিটেক্ট করার জন্য ফাংশন
         const handleScroll = () => {
-            if (window.scrollY > 30) { // ৩০ পিক্সেলের বেশি স্ক্রল করলেই সার্চবার হাইড হবে এবং প্যাডিং কমবে
+            if (window.scrollY > 30) { 
                 setIsScrolled(true);
             } else {
                 setIsScrolled(false);
@@ -98,12 +93,9 @@ const Navbar = () => {
         <nav className={`sticky top-0 w-full border-b border-b-[rgba(0,0,0,0.1)] bg-white/95 backdrop-blur-md z-[99] shadow-sm transition-all duration-300 ${isScrolled ? 'py-1.5 md:py-2.5' : 'py-3 md:py-5'
             }`}>
             <div className='container mx-auto px-4 md:px-0'>
-                {/* স্ক্রল অবস্থায় মোবাইলের গ্যাপ 'gap-0' করা হয়েছে যাতে অতিরিক্ত স্পেস না থাকে */}
                 <div className={`flex flex-col md:flex-row items-center justify-between transition-all duration-300 ${isScrolled ? 'gap-0' : 'gap-4'} md:gap-8`}>
 
                     <div className="relative flex items-center justify-between w-full px-1 mr-1 md:w-auto min-h-[45px] md:min-h-0">
-
-                        {/* ১. বামে: Hamburger Menu */}
                         <button
                             onClick={openDrawer}
                             className="block lg:hidden text-black p-1 hover:bg-gray-100 rounded-md transition-colors z-10"
@@ -204,14 +196,14 @@ const Navbar = () => {
                     <div className='hidden md:flex items-center gap-6 lg:gap-8 text-black flex-shrink-0'>
                         <Link href={"/wishlist"} className='cursor-pointer relative group'>
                             <Image src={wishlistIcon} height={24} width={24} alt="wishlist" />
-                            <span className='absolute -top-2 -right-2 bg-[#eb6e1b] text-white text-[10px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center'>
+                            <span className='absolute -top-3 -right-3 bg-[#eb6e1b] text-white text-[10px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center'>
                                 {wishlistCount}
                             </span>
                         </Link>
 
                         <Link href={"/cart"} className='cursor-pointer relative group'>
                             <Image src={cartIcon} height={25} width={25} alt="cart" />
-                            <span className='absolute -top-2 -right-2 bg-[#eb6e1b] text-white text-[10px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center'>
+                            <span className='absolute -top-3 -right-3 bg-[#eb6e1b] text-white text-[10px] font-bold rounded-full w-4.5 h-4.5 flex items-center justify-center'>
                                 {cartCount}
                             </span>
                         </Link>

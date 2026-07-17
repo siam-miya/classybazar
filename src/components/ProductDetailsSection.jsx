@@ -45,7 +45,7 @@ const ProductDetailsSection = ({ product }) => {
                 key={index}
                 onClick={() => setSelectedImage(index)}
                 className={`w-20 h-20 md:w-24 md:h-24 bg-[#F5F5F5] p-2 rounded border-2 transition-all ${
-                  selectedImage === index ? 'border-[#eb6e1b]' : 'border-transparent hover:border-gray-200'
+                  selectedImage === index ? 'border-[#eb6e1b]' : 'border-transparent hover:border-gray-200 cursor-pointer'
                 }`}
               >
                 <Image src={img} alt="thumb" width={80} height={80} className="object-contain" />

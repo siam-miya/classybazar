@@ -1,4 +1,3 @@
-
 import Image from 'next/image'
 import main_logo from "../../../public/main-logo.png"
 import Link from 'next/link';
@@ -11,69 +10,83 @@ export const metadata = {
     icon: "/favSignup.svg",
   },
 };
+
 const SignUp = () => {
   return (
-    <div className='flex items-center gap-50'>
-      <div>
-        <Image src={main_logo} height={781} width={950} alt='logo' />
-      </div>
-      <div>
-        <div className="w-full max-w-[500px]">
-          <h2 className="text-4xl font-medium text-black font-inter text-[36px] leading-7">
-            Create an account
-          </h2>
-          <p className="mt-4 text-base text-black font-poppins text-[16px] leading-6">
-            Enter your details below
-          </p>
-          <form className="mt-10 space-y-8">
-            <div>
-              <input
-                type="text"
-                placeholder="Name"
-                className="w-full border-b border-gray-300 pb-2 outline-none placeholder:text-gray-400"
-              />
-            </div>
+    <section className="px-5"> {/* এখানে px-5 যোগ করেছি যাতে একদম লেগে না যায় */}
+      <div className="container mx-auto">
+        {/* lg:gap-[50px] ডেস্কটপে বড় গ্যাপ রাখবে, ছোট স্ক্রিনে gap-10 কাজ করবে */}
+        <div className='flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-[50px] py-10'>
+          
+          {/* ইমেজ সেকশন */}
+          <div className='w-full lg:w-[950px] flex justify-center'>
+            <Image 
+              src={main_logo} 
+              height={781} 
+              width={950} 
+              alt='logo' 
+              className="w-full h-auto object-contain" 
+            />
+          </div>
 
-            <div>
-              <input
-                type="email"
-                placeholder="Email or Phone Number"
-                className="w-full border-b border-gray-300 pb-2 outline-none placeholder:text-gray-400"
-              />
-            </div>
-
-            <div>
-              <input
-                type="password"
-                placeholder="Password"
-                className="w-full border-b border-gray-300 pb-2 outline-none placeholder:text-gray-400"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="cursor-pointer w-full bg-[#eb6e1b]  text-white py-4 rounded hover:bg-black transition font-poppins"
-            >
-              Create Account
-            </button>
-
-            <button
-              type="button"
-              className="cursor-pointer w-full border border-gray-300 py-4 rounded flex items-center font-poppins justify-center gap-3 hover:bg-gray-50 transition"
-            >
-              <FcGoogle size={25} />
-              Sign up with Google
-            </button>
-            <p className="text-center text-gray-600">
-              Already have account?{" "}
-              <Link href={"/login"} className="font-semibold text-[#eb6e1b] hover:text-black transition-all underline">
-                Log in
-              </Link>
+          {/* ফর্ম সেকশন */}
+          <div className='w-full max-w-[500px]'>
+            <h2 className="text-[36px] font-medium text-black font-inter leading-7">
+              Create an account
+            </h2>
+            <p className="mt-4 text-[16px] text-black font-poppins leading-6">
+              Enter your details below
             </p>
-          </form>
+            <form className="mt-10 space-y-8">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="w-full border-b border-gray-300 pb-2 outline-none placeholder:text-gray-400"
+                />
+              </div>
+
+              <div>
+                <input
+                  type="email"
+                  placeholder="Email or Phone Number"
+                  className="w-full border-b border-gray-300 pb-2 outline-none placeholder:text-gray-400"
+                />
+              </div>
+
+              <div>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className="w-full border-b border-gray-300 pb-2 outline-none placeholder:text-gray-400"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="cursor-pointer w-full bg-[#eb6e1b] text-white py-4 rounded hover:bg-black transition font-poppins"
+              >
+                Create Account
+              </button>
+
+              <button
+                type="button"
+                className="cursor-pointer w-full border border-gray-300 py-4 rounded flex items-center font-poppins justify-center gap-3 hover:bg-gray-50 transition"
+              >
+                <FcGoogle size={25} />
+                Sign up with Google
+              </button>
+              <p className="text-center text-gray-600">
+                Already have account?{" "}
+                <Link href={"/login"} className="font-semibold text-[#eb6e1b] hover:text-black transition-all underline">
+                  Log in
+                </Link>
+              </p>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
