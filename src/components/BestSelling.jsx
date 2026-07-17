@@ -25,19 +25,14 @@ const BestSelling = () => {
   return (
     <section className="w-full py-8 md:py-12">
       <div className="container px-4 md:px-0">
-        
-        {/* হেডিং এবং বাটন: মোবাইলে উপর-নিচে (flex-col) এবং ডেস্কটপে পাশাপাশি (md:flex-row) হবে */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
             <SectionHeading subHeading={"This Month"} heading={"Best Selling Products"} countDown={false} />
           </div>
-          {/* বাটনটি মোবাইলে ডান পাশে এলাইন থাকবে */}
           <div className="flex justify-end shrink-0">
             <Button TagName={Link} href={"/products"}>View All</Button>
           </div>
         </div>
-
-        {/* প্রোডাক্ট গ্রিড: মোবাইলে ২টি এবং ডেস্কটপে ৪টি কলাম দেখাবে */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-6 md:mt-10 mb-10">
           {products.slice(7, 11).map((product) => (
             <div key={product.id} className="w-full">

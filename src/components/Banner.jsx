@@ -5,7 +5,8 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md"
 import { Swiper, SwiperSlide } from "swiper/react"
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { Pagination } from 'swiper/modules'
+import 'swiper/css/autoplay' 
+import { Pagination, Autoplay } from 'swiper/modules' 
 import banner_1 from "../assets/images/banner.jpg"
 import banner_2 from "../assets/images/banner_2.jpg"
 import banner_3 from "../assets/images/banner_3.jpg"
@@ -21,7 +22,11 @@ const Banner = () => {
                         slidesPerView={1}
                         loop={true}
                         pagination={{ clickable: true }}
-                        modules={[Pagination]}
+                        autoplay={{
+                            delay: 2000, 
+                            disableOnInteraction: false,
+                        }}
+                        modules={[Pagination, Autoplay]}
                         className="w-full h-full"
                     >
                         <SwiperSlide className="flex items-center justify-center font-poppins text-[16px] leading-6">
@@ -51,22 +56,20 @@ const Banner = () => {
         </section>
     )
 }
+
 export default Banner
 
 function SliderItem({ image, brandLogo, brandTitle, discount }) {
     return (
         <div
             style={{ backgroundImage: `url(${image.src})` }}
-            // মোবাইলে হাইট কিছুটা কমিয়ে h-[260px] এবং ট্যাবে h-[320px] করা হয়েছে যেন দেখতে সুন্দর লাগে
             className='w-full lg:w-[1050px] h-[260px] sm:h-[300px] md:h-[340px] lg:h-[386px] bg-cover bg-center bg-no-repeat p-6 sm:p-8 lg:p-12 flex items-center justify-start'
         >
-            {/* মোবাইলের স্ক্রিন অনুযায়ী প্যাডিং ও টেক্সটের ম্যাক্সিমাম উইডথ অ্যাডজাস্ট করা হয়েছে */}
             <div className='space-y-2 sm:space-y-4 z-10 max-w-[240px] sm:max-w-[300px] pl-2 sm:pl-6 text-left'>
                 <p className='flex items-center gap-2 sm:gap-3 text-white text-xs sm:text-sm tracking-wide font-poppins capitalize'>
                     <Image src={brandLogo} height={24} width={20} alt='brandLogo' className="object-contain sm:h-[30px] sm:w-[24px]" />
                     {brandTitle}
                 </p>
-                {/* ডেক্সটপে text-[40px] থাকবে, কিন্তু মোবাইলে text-[24px] এবং ট্যাবে text-[32px] হবে */}
                 <h1 className='text-white font-bold text-[24px] sm:text-[32px] lg:text-[40px] leading-[1.2] font-poppins'>
                     Up to {discount} <br /> off Voucher
                 </h1>

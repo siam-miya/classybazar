@@ -21,8 +21,6 @@ const ContactFormSection = () => {
 
   const handleSendMessage = (e) => {
     e.preventDefault();
-    
-    // ভ্যালিডেশন চেক
     if (!formData.name || !formData.email || !formData.phone || !formData.message) {
       toast.error('Please fill in all required (*) fields.');
       return;
@@ -30,18 +28,13 @@ const ContactFormSection = () => {
 
     toast.success('Message sent successfully!');
     console.log('Contact Form Submitted:', formData);
-    
-    // ফর্ম রিসেট
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
   return (
     <section className="container mx-auto px-4 py-10 font-sans text-black">
       <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-8 items-stretch">
-        
-        {/* বাম পাশ: কন্টাক্ট ইনফরমেশন কার্ড */}
         <div className="bg-white p-8 rounded shadow-[0_1px_13px_rgba(0,0,0,0.05)] flex flex-col justify-between space-y-8">
-          {/* কল সেকশন */}
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 bg-[#eb6e1b] rounded-full flex items-center justify-center text-white text-xl">
@@ -56,8 +49,6 @@ const ContactFormSection = () => {
           </div>
 
           <hr className="border-gray-300" />
-
-          {/* ইমেইল সেকশন */}
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 bg-[#eb6e1b] rounded-full flex items-center justify-center text-white text-xl">
@@ -73,9 +64,7 @@ const ContactFormSection = () => {
           </div>
         </div>
 
-        {/* ডান পাশ: মেসেজ ফর্ম */}
         <form onSubmit={handleSendMessage} className="bg-white p-8 rounded shadow-[0_1px_13px_rgba(0,0,0,0.05)] flex flex-col justify-between space-y-6">
-          {/* প্রথম ৩টি ইনপুট গ্রিড */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <input
               type="text"
@@ -105,8 +94,6 @@ const ContactFormSection = () => {
               required
             />
           </div>
-
-          {/* মেসেজ টেক্সটএরিয়া */}
           <div className="flex-1">
             <textarea
               name="message"
@@ -118,8 +105,6 @@ const ContactFormSection = () => {
               required
             ></textarea>
           </div>
-
-          {/* সাবমিট বাটন */}
           <div className="flex justify-end pt-2">
             <Button TagName={"button"} type='submit'>Send Message</Button>
           </div>

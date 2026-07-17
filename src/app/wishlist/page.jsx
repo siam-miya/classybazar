@@ -32,21 +32,20 @@ const WishList = () => {
   };
 
   return (
-    <div className="container py-8 font-poppins">
-      <div className="flex justify-between items-center mb-8">
+    <div className="container py-8 font-poppins px-4 md:px-0">
+      <div className="flex justify-between  items-center mb-8">
         <h1 className="text-xl md:text-2xl font-bold text-black">
           Wishlist ({wishlist.length})
         </h1>
         {wishlist.length > 0 && (
           <button
             onClick={handleMoveAllToBag}
-            className="border border-black text-black px-6 py-3 rounded text-sm font-medium hover:bg-black hover:text-white transition duration-300 cursor-pointer"
+            className="border rounded-tr-2xl rounded-bl-2xl text-black px-6 py-3 rounded text-sm font-medium hover:bg-black hover:text-white transition duration-300 cursor-pointer"
           >
             Move All To Cart
           </button>
         )}
       </div>
-
       {wishlist.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 text-gray-400">
           <HeartCrack size={64} strokeWidth={1} className="mb-4 text-gray-300" />

@@ -18,19 +18,20 @@ const WishListButton = ({ product }) => {
     };
 
     return (
-        <button
-            onClick={handleWishlistToggle}
-            className={`p-2 rounded-full shadow-sm transition-colors cursor-pointer border ${isWishlisted
-                ? "bg-[#DB4444] text-white border-[#DB4444]"
-                : "bg-white text-black border-transparent hover:bg-gray-100"
-            }`}
-        >
-            <Heart
-                className="w-5 h-5"
-                strokeWidth={1.5}
-                fill={isWishlisted ? "currentColor" : "transparent"}
-            />
-        </button>
+   <button
+    onClick={handleWishlistToggle}
+    className={`w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-full shadow-sm transition-colors cursor-pointer border shrink-0 ${
+        isWishlisted
+            ? "bg-[#DB4444] text-white border-[#DB4444]"
+            : "bg-white text-black border-transparent hover:bg-gray-100"
+    }`}
+>
+    <Heart
+        className="w-3.5 h-3.5 sm:w-4 sm:h-4"
+        strokeWidth={1.5}
+        fill={isWishlisted ? "currentColor" : "transparent"}
+    />
+</button>
     );
 };
 

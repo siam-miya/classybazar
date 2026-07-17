@@ -39,10 +39,7 @@ export default function CountdownTimer() {
 
   return (
     <div className="flex items-center justify-start font-sans select-none w-full my-2">
-      {/* মোবাইলে space-x-1.5 এবং ট্যাবলেট/ডেস্কটপে space-x-4 বা gap-4 ব্যবহার করা হয়েছে */}
       <div className="flex items-center gap-2 sm:gap-4 md:gap-5">
-        
-        {/* Days */}
         <div className="flex flex-col items-center">
           <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-800 mb-0.5 sm:mb-1 uppercase tracking-wider">Days</span>
           <span className="text-xl sm:text-2xl md:text-[32px] font-bold text-black tracking-tight leading-none">{timeLeft.days}</span>

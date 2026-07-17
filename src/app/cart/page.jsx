@@ -9,6 +9,7 @@ import { FiTrash2 } from 'react-icons/fi';
 import Button from '@/components/Button';
 import SubBanner from '@/components/SubBanner';
 import { IoBagCheckOutline } from 'react-icons/io5';
+import { GrCart } from 'react-icons/gr';
 
 const CartPage = () => {
   const { cart, removeFromCart, updateQuantity, shippingMethod, setShippingMethod } = useCartStore();
@@ -33,10 +34,12 @@ const CartPage = () => {
       
       <div className="container pt-3 md:pt-5 px-4 md:px-6 font-sans text-black mt-6 md:mt-10">
         {cart.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-[50vh] text-center bg-white rounded-md border p-6 shadow-sm">
-            <p className="text-gray-500 text-2xl md:text-4xl mb-6 font-medium">Your cart is empty!</p>
-            <Button TagName={Link} href={"/products"}>Return To Shop</Button>
-          </div>
+        <div className="flex flex-col items-center justify-center py-20 text-gray-400">
+          <GrCart size={64} strokeWidth={1} className="mb-4 text-gray-300" />
+          <p className="text-lg font-medium">Your cart is empty!</p>
+          <p className="text-sm pb-4 md:pb-6">Add some items to your cart to see them here.</p>
+          <Button TagName={Link} href={"/products"}>back to Shop</Button>
+        </div>
         ) : (
           <div className="flex flex-col gap-6">
             

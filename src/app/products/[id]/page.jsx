@@ -1,7 +1,7 @@
 import ProductDetailsSection from "@/components/ProductDetailsSection";
 import SectionHeading from "@/components/SectionHeading";
 import SubBanner from "@/components/SubBanner";
-import RelatedProductsSlider from "@/components/RelatedProductsSlider"; // নতুন স্লাইডার ইমপোর্ট
+import RelatedProductsSlider from "@/components/RelatedProductsSlider"; 
 
 const ProductDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -23,18 +23,20 @@ const ProductDetailsPage = async ({ params }) => {
       <div>
          <SubBanner title={"Product Details"} pageName={"Product Details"}/>
       </div>
-      <div className="container">
-        <div className="pt-2">
-          <p className="text-black font-semibold mb-4">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="pt-6">
+          <p className="hidden md:block text-black font-semibold mb-6">
             <span className="font-bold text-black">Product Name:</span> {findData.title}
           </p>
-          <div className="mb-2">
+          
+          <div className="mb-10">
             <ProductDetailsSection product={findData} />
           </div>
           
+          {/* রিলেটেড প্রডাক্ট সেকশন */}
           {relatedProducts.length > 0 && (
-            <div className="pb-10 w-full overflow-hidden">
-              <div className="mb-4">
+            <div className="pb-16 w-full overflow-hidden">
+              <div className="mb-8">
                 <SectionHeading subHeading={"Related Item"} countDown={false}/>
               </div>
 

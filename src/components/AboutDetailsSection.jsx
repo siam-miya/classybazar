@@ -8,10 +8,7 @@ import { AiFillFire } from "react-icons/ai";
 const AboutDetailsSection = () => {
   return (
     <div className="container mx-auto px-4 py-12 space-y-20 max-w-7xl">
-      
-      {/* --- SECTION 1: HERO LAYOUT (2nd Photo Style) --- */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        {/* Left Content */}
         <div className="space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-black">
             Our Story

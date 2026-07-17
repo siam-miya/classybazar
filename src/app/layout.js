@@ -4,6 +4,7 @@ import Topbar from "@/components/Topbar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'; // সিএসএস ইমপোর্ট করা না থাকলে এটি যুক্ত করে নিন
 import MenuBar from "@/components/MenuBar";
 
 const poppins = Poppins({
@@ -29,7 +30,6 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       data-theme="light"
       lang="en"
-
       className={`${poppins.variable} ${inter.variable} h-full antialiased`}
     >
       <body suppressHydrationWarning className="min-h-full flex flex-col">
@@ -38,7 +38,19 @@ export default function RootLayout({ children }) {
         <MenuBar/>
         {children}
         <Footer/>
-        <ToastContainer position="top-center" autoClose={3000} />
+        <ToastContainer 
+  position="top-center" 
+  autoClose={3000} 
+  style={{ 
+    width: "max-content", 
+    maxWidth: "75vw",
+    left: "50%", 
+    transform: "translateX(-50%)", 
+    marginTop: "10px", 
+    display: "flex",
+    justifyContent: "center"
+  }} 
+/>
       </body>
     </html>
   );

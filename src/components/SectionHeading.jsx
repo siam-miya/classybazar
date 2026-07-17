@@ -4,7 +4,6 @@ import CountdownTimer from './CountDownTimer'
 const SectionHeading = ({ subHeading, heading, countDown = false, navigationButtons }) => {
   return (
     <div className="w-full">
-      {/* হেডিং এবং সাব-হেডিং সেন্টারে */}
       <div className="flex flex-col items-center text-center mb-6">
         <div className="flex items-center gap-2 mb-1.5">
           <span className="w-2 md:w-3 h-5 md:h-6 bg-[#eb6e1b] rounded-[4px]"></span>
@@ -16,8 +15,6 @@ const SectionHeading = ({ subHeading, heading, countDown = false, navigationButt
           {heading}
         </h2>
       </div>
-
-      {/* টাইমার এবং অ্যারো বাটনগুলো দুই পাশে (space-between) */}
       {countDown && (
         <div className="flex items-center justify-between border-t border-gray-100 pt-4 md:pt-5 gap-2">
           <div className="flex-1 flex justify-start">
