@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation"; 
 import { toast } from "react-toastify";
+import { FiLogOut } from "react-icons/fi"; 
 
 const UserProfileDashboard = () => {
   const searchParams = useSearchParams();
@@ -36,76 +37,92 @@ const UserProfileDashboard = () => {
     toast.success("Changes saved successfully!");
   };
 
+  
+  const handleLogout = () => {
+    toast.info("Logged out successfully!");
+   
+  };
+
   return (
     <div className="container py-10 mx-auto px-4 font-poppins">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div className="space-y-6">
-          <div>
-            <h3 className="font-semibold text-black mb-2">Manage My Account</h3>
-            <ul className="pl-4 space-y-2 text-sm text-gray-500">
-              <li 
-                onClick={() => setActiveMenu("My Profile")}
-                className={`cursor-pointer transition-colors ${
-                  activeMenu === "My Profile" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
+        <div className="flex flex-col justify-between space-y-6 md:min-h-[400px]">
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold text-black mb-2">Manage My Account</h3>
+              <ul className="pl-4 space-y-2 text-sm text-gray-500">
+                <li 
+                  onClick={() => setActiveMenu("My Profile")}
+                  className={`cursor-pointer transition-colors ${
+                    activeMenu === "My Profile" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
+                  }`}
+                >
+                  My Profile
+                </li>
+              </ul>
+            </div>
+
+            {/* My Orders */}
+            <div>
+              <h3 className="font-semibold text-black mb-2">My Orders</h3>
+              <ul className="pl-4 space-y-2 text-sm text-gray-500">
+                <li 
+                  onClick={() => setActiveMenu("My Returns")}
+                  className={`cursor-pointer transition-colors ${
+                    activeMenu === "My Returns" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
+                  }`}
+                >
+                  My Returns
+                </li>
+                <li 
+                  onClick={() => setActiveMenu("My Cancellations")}
+                  className={`cursor-pointer transition-colors ${
+                    activeMenu === "My Cancellations" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
+                  }`}
+                >
+                  My Cancellations
+                </li>
+                <li 
+                  onClick={() => setActiveMenu("Order Track")}
+                  className={`cursor-pointer transition-colors ${
+                    activeMenu === "Order Track" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
+                  }`}
+                >
+                  Order Track
+                </li>
+              </ul>
+            </div>
+
+            {/* My WishList */}
+            <div>
+              <h3 
+                onClick={() => setActiveMenu("My WishList")}
+                className={`font-semibold cursor-pointer transition-colors ${
+                  activeMenu === "My WishList" ? "text-[#eb6e1b]" : "text-black hover:text-[#eb6e1b]"
                 }`}
               >
-                My Profile
-              </li>
-            </ul>
+                My WishList
+              </h3>
+            </div>
           </div>
 
-          {/* My Orders */}
-          <div>
-            <h3 className="font-semibold text-black mb-2">My Orders</h3>
-            <ul className="pl-4 space-y-2 text-sm text-gray-500">
-              <li 
-                onClick={() => setActiveMenu("My Returns")}
-                className={`cursor-pointer transition-colors ${
-                  activeMenu === "My Returns" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
-                }`}
-              >
-                My Returns
-              </li>
-              <li 
-                onClick={() => setActiveMenu("My Cancellations")}
-                className={`cursor-pointer transition-colors ${
-                  activeMenu === "My Cancellations" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
-                }`}
-              >
-                My Cancellations
-              </li>
-              <li 
-                onClick={() => setActiveMenu("Order Track")}
-                className={`cursor-pointer transition-colors ${
-                  activeMenu === "Order Track" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
-                }`}
-              >
-                Order Track
-              </li>
-            </ul>
-          </div>
-
-          {/* My WishList */}
-          <div>
-            <h3 
-              onClick={() => setActiveMenu("My WishList")}
-              className={`font-semibold cursor-pointer transition-colors ${
-                activeMenu === "My WishList" ? "text-[#eb6e1b]" : "text-black hover:text-[#eb6e1b]"
-              }`}
+          <div className="pt-4 border-t border-gray-100 md:pt-6">
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 text-sm font-semibold text-red-500 hover:text-red-700 transition-colors cursor-pointer group w-full pt-2"
             >
-              My WishList
-            </h3>
+              <FiLogOut className="text-lg group-hover:translate-x-0.5 transition-transform" />
+              <span>Log Out</span>
+            </button>
           </div>
         </div>
 
         <div className="md:col-span-3 bg-white p-6 md:p-10 rounded shadow-sm border border-gray-50 flex flex-col justify-center min-h-[400px]">
           
-          {/* প্রোফাইল ট্যাব অ্যাক্টিভ থাকলে এই ফর্মটি দেখাবে */}
           {activeMenu === "My Profile" && (
             <>
               <h2 className="text-xl font-medium text-black mb-6">Edit Your Profile</h2>
               <form onSubmit={handleSubmit} className="space-y-6 w-full">
-                {/* First Name & Last Name */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-black mb-2">First Name</label>
@@ -128,8 +145,6 @@ const UserProfileDashboard = () => {
                     />
                   </div>
                 </div>
-
-                {/* Email & Address */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-black mb-2">Email</label>
@@ -152,8 +167,6 @@ const UserProfileDashboard = () => {
                     />
                   </div>
                 </div>
-
-                {/* Password Changes */}
                 <div className="space-y-4">
                   <label className="block text-sm font-medium text-black">Password Changes</label>
                   <input
@@ -205,8 +218,7 @@ const UserProfileDashboard = () => {
           {activeMenu !== "My Profile" && (
             <div className="text-center py-12">
               <h2 className="text-xl font-medium text-black mb-2">{activeMenu}</h2>
-              
-              {/* প্রোফাইল ড্যাশবোর্ডের ভেতরে অর্ডার ট্র্যাক বাটনে ক্লিক করলে এটি দেখাবে */}
+ 
               {activeMenu === "Order Track" ? (
                 <div className="bg-gray-50 py-8 rounded-lg border border-dashed border-gray-200">
                   <p className="text-gray-600 text-sm font-poppins">
@@ -222,7 +234,6 @@ const UserProfileDashboard = () => {
           )}
 
         </div>
-
       </div>
     </div>
   );

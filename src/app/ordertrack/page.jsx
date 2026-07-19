@@ -6,8 +6,8 @@ import { Truck, Calendar, Clock, ChevronRight } from "lucide-react";
 import { CiDeliveryTruck } from "react-icons/ci";
 
 const MOCK_ORDERS = {
-  "ORD-12345": {
-    id: "ORD-12345",
+  "CB-12345": {
+    id: "CB-12345",
     status: "In Transit",
     date: "July 18, 2026",
     eta: "July 22, 2026",
@@ -19,8 +19,8 @@ const MOCK_ORDERS = {
       { title: "Out for Delivery", desc: "Courier partner will deliver today", time: "Pending", completed: false },
     ]
   },
-  "ORD-67890": {
-    id: "ORD-67890",
+  "CB-67890": {
+    id: "CB-67890",
     status: "Delivered",
     date: "July 15, 2026",
     eta: "Delivered",
@@ -80,7 +80,7 @@ const OrderTrack = () => {
                 Track Your  <span className="text-[#eb6e1b] relative inline-block">Order<span className="absolute left-0 bottom-1 w-full h-[4px] bg-[#eb6e1b]/20 rounded"></span></span>
               </h1>
               <p className="text-xs text-gray-400 mt-2 font-medium">
-                Enter your order serial key below. Try testing with <span className="text-slate-700 font-bold underline cursor-pointer" onClick={() => setOrderNumber("ORD-12345")}>ORD-12345</span> or <span className="text-slate-700 font-bold underline cursor-pointer" onClick={() => setOrderNumber("ORD-67890")}>ORD-67890</span>.
+                Enter your order serial key below. Try testing with <span className="text-slate-700 font-bold underline cursor-pointer" onClick={() => setOrderNumber("CB-12345")}>CB-12345</span> or <span className="text-slate-700 font-bold underline cursor-pointer" onClick={() => setOrderNumber("CB-67890")}>CB-67890</span>.
               </p>
             </div>
 
