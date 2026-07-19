@@ -6,14 +6,14 @@ import Link from "next/link"
 import Image from 'next/image'
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx"
 import { usePathname } from 'next/navigation'
-import { useDrawerStore } from '@/store/useDrawerStore' 
+import { useDrawerStore } from '@/store/useDrawerStore'
 import logo from "../../public/navbarLogo.png"
 import wishlistIcon from "../assets/icons/wishlist.svg"
 import cartIcon from "../assets/icons/cart.png"
 import { RiUser3Line } from 'react-icons/ri'
 import { useCartStore } from '@/store/useCartStore'
 import { useWishlistStore } from '@/store/useWishlistStore'
-import { FiUser, FiLogOut, FiHeart } from "react-icons/fi" 
+import { FiUser, FiLogOut, FiHeart } from "react-icons/fi"
 import { toast } from 'react-toastify'
 import { Spinner } from '@heroui/react';
 import { BiLaptop } from "react-icons/bi";
@@ -22,12 +22,14 @@ import {
     FaCar, FaClock, FaHome, FaMobileAlt, FaMotorcycle,
     FaRedhat, FaRunning, FaShoppingBag, FaTshirt
 } from "react-icons/fa";
-import { FaUserTie } from "react-icons/fa6"; 
+import { FaUserTie } from "react-icons/fa6";
 import {
     GiBigDiamondRing, GiDelicatePerfume, GiFootprint,
-    Gi3dGlasses, GiLipstick, GiTable 
-} from "react-icons/gi"; 
+    Gi3dGlasses, GiLipstick, GiTable
+} from "react-icons/gi";
 import { MdChair, MdOutlineFastfood } from "react-icons/md";
+import { CiDeliveryTruck } from 'react-icons/ci';
+import { TbTruckDelivery } from 'react-icons/tb';
 
 const categoryIcons = {
     "beauty": <GiLipstick size={18} />,
@@ -45,7 +47,7 @@ const categoryIcons = {
     "skin-care": <GiLipstick size={18} />,
     "smartphones": <FaMobileAlt size={18} />,
     "sports-accessories": <FaRunning size={18} />,
-    "sunglasses": <Gi3dGlasses size={18} />, 
+    "sunglasses": <Gi3dGlasses size={18} />,
     "tops": <FaTshirt size={18} />,
     "vehicle": <FaCar size={18} />,
     "womens-bags": <FaShoppingBag size={18} />,
@@ -60,8 +62,6 @@ const MenuBar = () => {
     const isHomePage = pathname === '/';
     const cart = useCartStore((state) => state.cart);
     const wishlist = useWishlistStore((state) => state.wishlist);
-    
-    // Zustand ড্রয়ার স্টেট ব্যবহার
     const { isDrawerOpen, closeDrawer, toggleDrawer } = useDrawerStore();
 
     const [isMounted, setIsMounted] = useState(false);
@@ -77,7 +77,7 @@ const MenuBar = () => {
             try {
                 const res = await fetch('https://dummyjson.com/products/categories');
                 const data = await res.json();
-                setCategories(data.slice(0, 11)); // সাইডবারে একটু বেশি ক্যাটাগরি দেখানোর জন্য ১১টা নিলাম
+                setCategories(data.slice(0, 11));
             } catch (error) {
                 console.error("Failed to fetch categories:", error);
             } finally {
@@ -98,7 +98,6 @@ const MenuBar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // ড্রয়ারের বাইরে ক্লিক করলে ড্রয়ার বন্ধ হওয়ার লজিক
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (drawerRef.current && !drawerRef.current.contains(event.target)) {
@@ -111,7 +110,6 @@ const MenuBar = () => {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [isDrawerOpen, closeDrawer]);
 
-    // পেজ চেঞ্জ হলে ড্রয়ার ক্লোজ হবে
     useEffect(() => {
         closeDrawer();
     }, [pathname, closeDrawer]);
@@ -144,7 +142,6 @@ const MenuBar = () => {
                                         </span>
                                     </h2>
 
-                                    {/* ক্যাটাগরি ড্রপডাউন */}
                                     <ul className={`w-[270px] bg-white border border-gray-200 shadow-lg p-2 flex flex-col transition-all duration-200 rounded-b-md absolute left-0 top-[52px] z-[999] max-h-[450px] overflow-y-auto scrollbar-none ${isHomePage ? 'block' : 'hidden group-hover:flex'}`}>
                                         {loading ? (
                                             <div className="flex flex-col items-center py-5 gap-2">
@@ -177,7 +174,7 @@ const MenuBar = () => {
 
                         <div className="flex-shrink-0 min-w-[120px] flex justify-end">
                             {!isScrolled ? (
-                                <Link href={"/user/profile?tab=Order Track"}>
+                                <Link href={"/ordertrack"}>
                                     <button className="text-white font-bold text-sm hover:bg-black transition-colors cursor-pointer py-2.5 px-5 bg-[#eb6e1b] rounded-md animate-fadeIn font-poppins">
                                         Order Track
                                     </button>
@@ -219,16 +216,16 @@ const MenuBar = () => {
                     </div>
                 </div>
             </section>
-            
+
             {/* drwaer */}
             <div className={`fixed inset-0 bg-black/60 z-[99999] transition-opacity duration-300 lg:hidden ${isDrawerOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
                 <div ref={drawerRef} className={`fixed top-0 left-0 bottom-0 w-[290px] bg-[#F7F7F7] z-[999999] shadow-2xl flex flex-col transition-transform duration-300 ease-out ${isDrawerOpen ? "translate-x-0" : "-translate-x-full"}`}>
-                    
+
                     <div className="p-4 bg-white relative">
                         <button onClick={closeDrawer} className="absolute right-4 top-4 text-gray-500 hover:text-black p-1 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors">
                             <RxCross2 size={20} />
                         </button>
-                        
+
                         <div className="mt-6 bg-[#eb6e1b] rounded-2xl p-4 text-white flex items-center gap-4 shadow-md">
                             <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-white border border-white/30">
                                 <RiUser3Line size={26} />
@@ -239,7 +236,7 @@ const MenuBar = () => {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="flex-1 overflow-y-auto px-4 py-2">
                         <div className="bg-white rounded-2xl p-2 shadow-sm border border-gray-100">
                             <ul className="flex flex-col divide-y divide-gray-50">
@@ -262,8 +259,6 @@ const MenuBar = () => {
                                 )}
                             </ul>
                         </div>
-
-                        {/* Quick Links সেকশন (ইমেজ ২ এর মতো ড্রয়ারের নিচে) */}
                         <div className="mt-5 mb-4">
                             <h4 className="text-xs font-bold text-gray-400 px-2 mb-2 tracking-wider">QUICK LINKS</h4>
                             <div className="bg-white rounded-2xl p-2 shadow-sm border border-gray-100 flex flex-col gap-1">
@@ -284,45 +279,43 @@ const MenuBar = () => {
                     </div>
                 </div>
             </div>
-            
+
             {/* মোবাইল বটম বার */}
-            <div className="lg:hidden fixed bottom-0 left-0 right-0 h-14 bg-[#eb6e1b] text-white flex items-center justify-around z-[9999] shadow-[0_-2px_10px_rgba(0,0,0,0.1)] font-poppins">
-                <Link href="/" className={`flex flex-col items-center gap-0.5 text-[10px] ${pathname === '/' ? "text-black font-semibold" : ""}`}>
-                    <AiOutlineHome size={22} />
-                    <span>HOME</span>
-                </Link>
+           <div className="lg:hidden fixed bottom-0 left-0 right-0 h-14 bg-[#eb6e1b] text-white grid grid-cols-5 items-center justify-items-center z-[9999] shadow-[0_-2px_10px_rgba(0,0,0,0.1)] font-poppins px-1">
+    <Link href="/" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] ${pathname === '/' ? "text-black font-semibold" : ""}`}>
+        <AiOutlineHome size={22} />
+        <span>HOME</span>
+    </Link>
 
-                {/* সংশোধিত WISHLIST বাটন */}
-                <Link href="/wishlist" className={`flex flex-col items-center gap-0.5 text-[10px] relative ${pathname === '/wishlist' ? "text-black font-semibold" : ""}`}>
-                    <div className="relative flex items-center justify-center">
-                        <FiHeart size={22} className={pathname === '/wishlist' ? "text-black" : "text-white"} />
-                        <span className="absolute -top-1.5 -right-2 bg-white text-[#eb6e1b] font-bold rounded-full text-[9px] w-4.5 h-4.5 flex items-center justify-center">
-                            {wishlistCount}
-                        </span>
-                    </div>
-                    <span>WISHLIST</span>
-                </Link>
+    {/* সংশোধিত WISHLIST বাটন */}
+    <Link href="/wishlist" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] relative ${pathname === '/wishlist' ? "text-black font-semibold" : ""}`}>
+        <div className="relative flex items-center justify-center">
+            <FiHeart size={22} className={pathname === '/wishlist' ? "text-black" : "text-white"} />
+            <span className="absolute -top-1.5 -right-2 bg-white text-[#eb6e1b] font-bold rounded-full text-[9px] w-4.5 h-4.5 flex items-center justify-center">
+                {wishlistCount}
+            </span>
+        </div>
+        <span>WISHLIST</span>
+    </Link>
 
-                <button onClick={toggleDrawer} className="flex flex-col items-center gap-0.5 text-[10px]">
-                    <AiOutlineAppstore size={22} />
-                    <span>CATEGORIES</span>
-                </button>
+    <button onClick={toggleDrawer} className="flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px]">
+        <AiOutlineAppstore size={22} />
+        <span>CATEGORIES</span>
+    </button>
 
-                <Link href="/cart" className={`flex flex-col items-center gap-0.5 text-[10px] relative ${pathname === '/cart' ? "text-black font-semibold" : ""}`}>
-                    <div className="relative">
-                        <Image src={cartIcon} height={22} width={22} alt="cart" className="invert" />
-                        <span className="absolute -top-1.5 -right-2 bg-white text-[#eb6e1b] font-bold rounded-full text-[9px] w-4.5 h-4.5 flex items-center justify-center">
-                            {cartCount}
-                        </span>
-                    </div>
-                    <span>CART</span>
-                </Link>
+    {/* সংশোধিত ORDER TRACK বাটন */}
+    <Link href="/ordertrack" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] relative ${pathname === '/ordertrack' ? "text-black font-semibold" : ""}`}>
+        <div className="relative flex items-center justify-center">
+            <TbTruckDelivery size={22} className={pathname === '/ordertrack' ? "text-black" : "text-white"} />
+        </div>
+        <span className="whitespace-nowrap">ORDER TRACK</span>
+    </Link>
 
-                <Link href="/user/profile" className={`flex flex-col items-center gap-0.5 text-[10px] ${pathname.startsWith('/user') ? "text-black font-semibold" : ""}`}>
-                    <AiOutlineUser size={22} />
-                    <span>ACCOUNT</span>
-                </Link>
-            </div>
+    <Link href="/user/profile" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] ${pathname.startsWith('/user') ? "text-black font-semibold" : ""}`}>
+        <AiOutlineUser size={22} />
+        <span>ACCOUNT</span>
+    </Link>
+</div>
         </>
     )
 }

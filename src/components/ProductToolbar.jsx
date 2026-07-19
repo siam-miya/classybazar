@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useRef, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { SlidersHorizontal, X } from "lucide-react";
@@ -48,8 +47,6 @@ const ProductToolbar = ({ totalProducts, currentShowing }) => {
 
   return (
     <div className="bg-black px-4 md:px-6 py-4 rounded-md flex flex-col md:flex-row md:items-center justify-between gap-4 font-poppins text-white mb-6 relative">
-      
-      {/* বাম পাশের অংশ: Filter Button এবং Grid View (মোবাইলে গ্রিড ভিউ হাইড থাকবে) */}
       <div className="flex items-center justify-between md:justify-start gap-4 w-full md:w-auto border-b border-gray-800 md:border-b-0 pb-3 md:pb-0">
         <div className="relative" ref={popupRef}>
           <button 
@@ -132,7 +129,6 @@ const ProductToolbar = ({ totalProducts, currentShowing }) => {
           )}
         </div>
         
-        {/* মোবাইলে ডিভাইডার এবং গ্রিড চেঞ্জার হাইড থাকবে কারণ মোবাইলে সবসময় ২-কলাম গ্রিড থাকবে */}
         <div className="hidden md:block h-5 w-[1px] bg-gray-700 mx-4"></div>
 
         <div className="hidden md:flex items-center gap-4">
@@ -166,21 +162,17 @@ const ProductToolbar = ({ totalProducts, currentShowing }) => {
           </button>
         </div>
 
-        {/* মোবাইলে Showing রেজাল্ট কাউন্ট ফিল্টারের পাশে দেখাবে */}
         <div className="md:hidden text-xs text-[#eb6e1b] select-none font-medium">
           Showing 1–{currentShowing} of {totalProducts}
         </div>
       </div>
 
-      {/* মাঝের অংশ: পিসি স্ক্রিনের জন্য Showing রেজাল্ট */}
       <div className="hidden md:block text-sm text-[#eb6e1b] select-none font-medium">
-        Showing 1–{currentShowing} of {totalProducts} results
+        Showing 1–{currentShowing} of {totalProducts} products
       </div>
 
-      {/* ডান পাশের অংশ: Show এবং Sort ড্রপডাউনসমূহ (মোবাইলে চমৎকার রেসপন্সিভ গ্রিড) */}
       <div className="grid grid-cols-2 gap-3 w-full md:w-auto md:flex md:items-center md:gap-6">
-        
-        {/* Show Limit Dropdown */}
+
         <div className="flex items-center justify-between md:justify-start gap-1.5 text-xs md:text-sm">
           <span className="text-gray-300">Show:</span>
           <select
@@ -194,7 +186,6 @@ const ProductToolbar = ({ totalProducts, currentShowing }) => {
           </select>
         </div>
 
-        {/* Sort Dropdown */}
         <div className="flex items-center justify-between md:justify-start gap-1.5 text-xs md:text-sm">
           <span className="text-gray-300 whitespace-nowrap">Sort by:</span>
           <select

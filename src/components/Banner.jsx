@@ -16,7 +16,7 @@ const Banner = () => {
     return (
         <section className="ml-0 lg:ml-67 px-1 md:px-3 lg:px-0">
             <div className='container mx-auto'>
-                <div className='rounded-xl md:rounded-none overflow-hidden custom-swiper relative w-full md:w-[720px] lg:w-[1050px] mx-auto'>
+                <div className='overflow-hidden custom-swiper relative w-full md:w-[720px] lg:w-[1050px] mx-auto'>
                     <Swiper
                         spaceBetween={20}
                         slidesPerView={1}
