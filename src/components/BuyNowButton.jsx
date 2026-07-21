@@ -14,9 +14,10 @@ const BuyNowButton = ({ product }) => {
     addToCart(product);
     toast.success(`Fill up the form and click the 'Order Now' button to buy the ${product.title} product.`, {
       position: "top-center",
-      autoClose: 7000,
+      autoClose: 5000,
     });
-    router.push("/checkout"); 
+    // Query param parameter `buyNow=true` add kora holo
+    router.push("/checkout?buyNow=true"); 
   };
 
   return (
