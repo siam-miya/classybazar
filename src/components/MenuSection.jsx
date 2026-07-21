@@ -5,49 +5,38 @@ import { usePathname } from 'next/navigation'
 
 const MenuSection = () => {
     const pathname = usePathname();
+
+    const navLinks = [
+        { name: 'Home', href: '/' },
+        { name: 'All Products', href: '/products' },
+        { name: 'Contact', href: '/contact' },
+        { name: 'About', href: '/about' },
+        { name: 'Sign Up', href: '/signup' },
+    ];
+
     return (
         <ul className='hidden lg:flex items-center gap-10 font-poppins'>
-            <li className='text-base leading-6 text-black hover:text-[#DB4444]'>
-                <Link
-                    href="/"
-                    className={`pb-1 transition-all ${pathname === '/' ? 'border-b-2 border-black font-medium' : ''}`}
-                >
-                    Home
-                </Link>
-            </li>
-            <li className='text-base leading-6 text-black hover:text-[#DB4444]'>
-                <Link
-                    href="/products"
-                    className={`pb-1 transition-all ${pathname === '/products' ? 'border-b-2 border-black font-medium' : ''}`}
-                >
-                    All Products
-                </Link>
-            </li>
-            <li className='text-base leading-6 text-black hover:text-[#DB4444]'>
-                <Link
-                    href="/contact"
-                    className={`pb-1 transition-all ${pathname === '/contact' ? 'border-b-2 border-black font-medium' : ''}`}
-                >
-                    Contact
-                </Link>
-            </li>
-            <li className='text-base leading-6 text-black hover:text-[#DB4444]'>
-                <Link
-                    href="/about"
-                    className={`pb-1 transition-all ${pathname === '/about' ? 'border-b-2 border-black font-medium' : ''}`}
-                >
-                    About
-                </Link>
-            </li>
-            <li className='text-base leading-6 text-black hover:text-[#DB4444]'>
-                <Link
-                    href="/signup"
-                    className={`pb-1 transition-all ${pathname === '/signup' ? 'border-b-2 border-black font-medium' : ''}`}
-                >
-                    Sign Up
-                </Link>
-            </li>
+            {navLinks.map((item) => {
+                const isActive = pathname === item.href;
+
+                return (
+                    <li key={item.href} className='text-base leading-6 text-black hover:text-[#DB4444] relative py-1'>
+                        <Link
+                            href={item.href}
+                            className={`transition-all block ${isActive ? 'font-semibold text-black' : ''}`}
+                        >
+                            {item.name}
+
+                            {/* স্ক্রোল করলেও এই আন্ডারলাইনটি ১০০% একই জায়গায় পারফেক্ট থাকবে */}
+                            {isActive && (
+                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-black rounded-full" />
+                            )}
+                        </Link>
+                    </li>
+                );
+            })}
         </ul>
-    )
+    );
 }
-export default MenuSection
+
+export default MenuSection;

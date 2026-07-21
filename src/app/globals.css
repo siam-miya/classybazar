@@ -28,14 +28,14 @@
   overflow: visible !important;
 }
 
-@keyframes fadeIn {
+/* @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-in-out forwards;
-}
+} */
 
 /* Swiper Custom Dash Pagination Triggers */
 .custom-swiper .swiper-pagination {

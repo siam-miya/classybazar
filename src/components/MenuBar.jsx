@@ -28,7 +28,6 @@ import {
     Gi3dGlasses, GiLipstick, GiTable
 } from "react-icons/gi";
 import { MdChair, MdOutlineFastfood } from "react-icons/md";
-import { CiDeliveryTruck } from 'react-icons/ci';
 import { TbTruckDelivery } from 'react-icons/tb';
 
 const categoryIcons = {
@@ -124,12 +123,12 @@ const MenuBar = () => {
     return (
         <>
             <section className="hidden lg:block bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm transition-all duration-300">
-                <div className="container mx-auto">
-                    <div className={`flex items-center justify-between relative transition-all duration-300 ${isScrolled ? "py-4" : ""}`}>
-                        <div className="w-[270px] flex-shrink-0">
+                <div className="container mx-auto px-4 md:px-0">
+                    <div className={`flex items-center justify-between relative transition-all duration-300 ${isScrolled ? "py-2.5" : ""}`}>
+                        <div className="w-[220px] lg:w-[270px] flex-shrink-0 flex items-center">
                             {!isScrolled ? (
-                                <div className="max-w-[270px] z-20 group relative self-start">
-                                    <h2 className="bg-[#eb6e1b] text-white py-4 px-4 flex items-center justify-between gap-2 font-bold text-sm select-none cursor-pointer rounded-t-md">
+                                <div className="w-full z-20 group relative self-start">
+                                    <h2 className="bg-[#eb6e1b] text-white py-3.5 px-4 flex items-center justify-between gap-2 font-bold text-sm select-none cursor-pointer rounded-t-md">
                                         <span className="flex items-center gap-2 font-poppins">
                                             <RxHamburgerMenu size={18} />
                                             Browse Categories
@@ -142,7 +141,7 @@ const MenuBar = () => {
                                         </span>
                                     </h2>
 
-                                    <ul className={`w-[270px] bg-white border border-gray-200 shadow-lg p-2 flex flex-col transition-all duration-200 rounded-b-md absolute left-0 top-[52px] z-[999] max-h-[450px] overflow-y-auto scrollbar-none ${isHomePage ? 'block' : 'hidden group-hover:flex'}`}>
+                                    <ul className={`w-full bg-white border border-gray-200 shadow-lg p-2 flex flex-col transition-all duration-200 rounded-b-md absolute left-0 top-[48px] z-[999] max-h-[450px] overflow-y-auto scrollbar-none ${isHomePage ? 'block' : 'hidden group-hover:flex'}`}>
                                         {loading ? (
                                             <div className="flex flex-col items-center py-5 gap-2">
                                                 <Spinner size="md" color="danger" />
@@ -163,16 +162,16 @@ const MenuBar = () => {
                                 </div>
                             ) : (
                                 <Link href={"/"} className="flex items-center gap-2 animate-fadeIn">
-                                    <Image className='rounded-full' src={logo} height={40} width={120} alt='logo' />
+                                    <Image className='object-contain h-[38px] w-auto' src={logo} height={40} width={150} alt='logo' priority />
                                 </Link>
                             )}
                         </div>
-
-                        <div className="flex-1 flex justify-center mr-20">
+                        <div className="flex-1 flex justify-center">
                             <MenuSection />
                         </div>
 
-                        <div className="flex-shrink-0 min-w-[120px] flex justify-end">
+                        {/* Right Side: Order Track Button OR User Action Icons when Scrolled */}
+                        <div className="flex-shrink-0 min-w-[120px] flex justify-end items-center">
                             {!isScrolled ? (
                                 <Link href={"/ordertrack"}>
                                     <button className="text-white font-bold text-sm hover:bg-black transition-colors cursor-pointer py-2.5 px-5 bg-[#eb6e1b] rounded-md animate-fadeIn font-poppins">
@@ -213,11 +212,12 @@ const MenuBar = () => {
                                 </div>
                             )}
                         </div>
+
                     </div>
                 </div>
             </section>
 
-            {/* drwaer */}
+            {/* Drawer Section */}
             <div className={`fixed inset-0 bg-black/60 z-[99999] transition-opacity duration-300 lg:hidden ${isDrawerOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
                 <div ref={drawerRef} className={`fixed top-0 left-0 bottom-0 w-[290px] bg-[#F7F7F7] z-[999999] shadow-2xl flex flex-col transition-transform duration-300 ease-out ${isDrawerOpen ? "translate-x-0" : "-translate-x-full"}`}>
 
@@ -280,42 +280,40 @@ const MenuBar = () => {
                 </div>
             </div>
 
-            {/* মোবাইল বটম বার */}
-           <div className="lg:hidden fixed bottom-0 left-0 right-0 h-14 bg-[#eb6e1b] text-white grid grid-cols-5 items-center justify-items-center z-[9999] shadow-[0_-2px_10px_rgba(0,0,0,0.1)] font-poppins px-1">
-    <Link href="/" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] ${pathname === '/' ? "text-black font-semibold" : ""}`}>
-        <AiOutlineHome size={22} />
-        <span>HOME</span>
-    </Link>
+            {/* Mobile Bottom Bar */}
+            <div className="lg:hidden fixed bottom-0 left-0 right-0 h-14 bg-[#eb6e1b] text-white grid grid-cols-5 items-center justify-items-center z-[9999] shadow-[0_-2px_10px_rgba(0,0,0,0.1)] font-poppins px-1">
+                <Link href="/" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] ${pathname === '/' ? "text-black font-semibold" : ""}`}>
+                    <AiOutlineHome size={22} />
+                    <span>HOME</span>
+                </Link>
 
-    {/* সংশোধিত WISHLIST বাটন */}
-    <Link href="/wishlist" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] relative ${pathname === '/wishlist' ? "text-black font-semibold" : ""}`}>
-        <div className="relative flex items-center justify-center">
-            <FiHeart size={22} className={pathname === '/wishlist' ? "text-black" : "text-white"} />
-            <span className="absolute -top-1.5 -right-2 bg-white text-[#eb6e1b] font-bold rounded-full text-[9px] w-4.5 h-4.5 flex items-center justify-center">
-                {wishlistCount}
-            </span>
-        </div>
-        <span>WISHLIST</span>
-    </Link>
+                <Link href="/wishlist" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] relative ${pathname === '/wishlist' ? "text-black font-semibold" : ""}`}>
+                    <div className="relative flex items-center justify-center">
+                        <FiHeart size={22} className={pathname === '/wishlist' ? "text-black" : "text-white"} />
+                        <span className="absolute -top-1.5 -right-2 bg-white text-[#eb6e1b] font-bold rounded-full text-[9px] w-4.5 h-4.5 flex items-center justify-center">
+                            {wishlistCount}
+                        </span>
+                    </div>
+                    <span>WISHLIST</span>
+                </Link>
 
-    <button onClick={toggleDrawer} className="flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px]">
-        <AiOutlineAppstore size={22} />
-        <span>CATEGORIES</span>
-    </button>
+                <button onClick={toggleDrawer} className="flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px]">
+                    <AiOutlineAppstore size={22} />
+                    <span>CATEGORIES</span>
+                </button>
 
-    {/* সংশোধিত ORDER TRACK বাটন */}
-    <Link href="/ordertrack" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] relative ${pathname === '/ordertrack' ? "text-black font-semibold" : ""}`}>
-        <div className="relative flex items-center justify-center">
-            <TbTruckDelivery size={22} className={pathname === '/ordertrack' ? "text-black" : "text-white"} />
-        </div>
-        <span className="whitespace-nowrap">ORDER TRACK</span>
-    </Link>
+                <Link href="/ordertrack" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] relative ${pathname === '/ordertrack' ? "text-black font-semibold" : ""}`}>
+                    <div className="relative flex items-center justify-center">
+                        <TbTruckDelivery size={22} className={pathname === '/ordertrack' ? "text-black" : "text-white"} />
+                    </div>
+                    <span className="whitespace-nowrap">ORDER TRACK</span>
+                </Link>
 
-    <Link href="/user/profile" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] ${pathname.startsWith('/user') ? "text-black font-semibold" : ""}`}>
-        <AiOutlineUser size={22} />
-        <span>ACCOUNT</span>
-    </Link>
-</div>
+                <Link href="/user/profile" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] ${pathname.startsWith('/user') ? "text-black font-semibold" : ""}`}>
+                    <AiOutlineUser size={22} />
+                    <span>ACCOUNT</span>
+                </Link>
+            </div>
         </>
     )
 }

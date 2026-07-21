@@ -1,19 +1,20 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useCartStore } from '@/store/useCartStore'
-import { useWishlistStore } from '@/store/useWishlistStore'
-import { useDrawerStore } from '@/store/useDrawerStore'
-import logo from "../../public/navbarLogo.png"
-import wishlistIcon from "../assets/icons/wishlist.svg"
-import cartIcon from "../assets/icons/cart.png"
+import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useCartStore } from '@/store/useCartStore';
+import { useWishlistStore } from '@/store/useWishlistStore';
+import { useDrawerStore } from '@/store/useDrawerStore';
+import logo from "../../public/navbarLogo.png";
+import wishlistIcon from "../assets/icons/wishlist.svg";
+import cartIcon from "../assets/icons/cart.png";
 import { FiUser, FiLogOut } from "react-icons/fi";
 import { toast } from 'react-toastify';
 import { RiUser3Line } from 'react-icons/ri';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import MenuSection from './MenuSection'; 
 
 const Navbar = () => {
     const router = useRouter();
@@ -86,15 +87,15 @@ const Navbar = () => {
     const wishlistCount = isMounted ? wishlist.length : 0;
 
     const handleLogOut = () => {
-        toast.success("successfully Logout your account")
-    }
+        toast.success("successfully Logout your account");
+    };
 
     return (
-        <nav className={`sticky top-0 w-full border-b border-b-[rgba(0,0,0,0.1)] bg-white/95 backdrop-blur-md z-[99] shadow-sm transition-all duration-300 ${isScrolled ? 'py-1.5 md:py-2.5' : 'py-3 md:py-5'
-            }`}>
+        <nav className={`sticky top-0 w-full border-b border-b-[rgba(0,0,0,0.1)] bg-white/95 backdrop-blur-md z-[99] shadow-sm transition-all duration-300 ${isScrolled ? 'py-1.5 md:py-2' : 'py-3 md:py-5'}`}>
             <div className='container mx-auto px-4 md:px-0'>
                 <div className={`flex flex-col md:flex-row items-center justify-between transition-all duration-300 ${isScrolled ? 'gap-0' : 'gap-4'} md:gap-8`}>
 
+                    {/* Logo Section */}
                     <div className="relative flex items-center justify-between w-full px-1 mr-1 md:w-auto min-h-[45px] md:min-h-0">
                         <button
                             onClick={openDrawer}
@@ -117,6 +118,7 @@ const Navbar = () => {
                                 />
                             </div>
                         </Link>
+                        {/* Mobile Cart Icon */}
                         <div className="flex items-center gap-4 md:hidden z-10">
                             <Link href={"/cart"} className='relative p-1'>
                                 <Image src={cartIcon} height={22} width={22} alt="cart" />
@@ -127,10 +129,10 @@ const Navbar = () => {
                         </div>
                     </div>
 
+                    {/* Search Bar (স্ক্রোল না থাকলে ডেস্কটপে দেখাবে) */}
                     <div
                         ref={dropdownRef}
-                        className={`relative w-full md:flex-1 px-1 md:max-w-[650px] transition-all duration-300 ${isScrolled ? 'hidden md:block' : 'block'
-                            }`}
+                        className={`relative w-full md:flex-1 px-1 md:max-w-[650px] transition-all duration-300 ${isScrolled ? 'block md:hidden' : 'block'}`}
                     >
                         <form onSubmit={handleSearchSubmit}>
                             <input
@@ -193,6 +195,14 @@ const Navbar = () => {
                         )}
                     </div>
 
+                    {/* Desktop Navigation Menu (স্ক্রোল হলে MenuSection রেন্ডার করবে) */}
+                    {isScrolled && (
+                        <div className="hidden md:flex items-center justify-center flex-1">
+                            <MenuSection />
+                        </div>
+                    )}
+
+                    {/* Desktop Right Action Icons (Wishlist, Cart, Profile) */}
                     <div className='hidden md:flex items-center gap-6 lg:gap-8 text-black flex-shrink-0'>
                         <Link href={"/wishlist"} className='cursor-pointer relative group'>
                             <Image src={wishlistIcon} height={24} width={24} alt="wishlist" />
@@ -228,6 +238,7 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
-    )
-}
+    );
+};
+
 export default Navbar;

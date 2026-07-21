@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'; // সিএসএস ইমপোর্ট করা না থাকলে এটি যুক্ত করে নিন
 import MenuBar from "@/components/MenuBar";
+import MultiChatFAB from "@/components/MultiChatFAB";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
         <Navbar/>
         <MenuBar/>
         {children}
+        <MultiChatFAB />
         <Footer/>
         <ToastContainer 
   position="top-center" 
