@@ -44,7 +44,6 @@ const MultiChatFAB = () => {
       target: "_blank",
     },
   ];
-
   return (
     <div className="fixed bottom-18 right-10 md:bottom-15 md:right-30  z-[9999] flex flex-col items-center">
       <div className="flex flex-col-reverse items-center gap-3 mb-3 pointer-events-none">
