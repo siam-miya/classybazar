@@ -18,7 +18,7 @@ const OurSupport = () => {
         {
             icon: img_3,
             text: "MONEY BACK GUARANTEE",
-            description: "We return money within 30 days" 
+            description: "We return money within 30 days"
         }
     ]
 
@@ -31,13 +31,12 @@ const OurSupport = () => {
                             return (
                                 <div key={index} className="flex flex-col items-center justify-center">
                                     <div className="flex justify-center">
-                                        {/* আইকনের সাইজ মোবাইলে সামান্য ছোট (width/height 80) এবং ডেস্কটপে আপনার ডিজাইনে (90) রাখা হয়েছে */}
-                                        <Image 
-                                            src={support.icon} 
-                                            width={90} 
-                                            height={90} 
-                                            alt="support icon" 
-                                            className="w-[75px] h-[75px] md:w-[90px] md:h-[90px] bg-black rounded-full p-4 md:p-5 border-[8px] md:border-[10px] border-[#C1C1C1]/30 mx-auto" 
+                                        <Image
+                                            src={support.icon}
+                                            width={90}
+                                            height={90}
+                                            alt="support icon"
+                                            className="w-[75px] h-[75px] md:w-[90px] md:h-[90px] bg-black rounded-full p-4 md:p-5 border-[8px] md:border-[10px] border-[#C1C1C1]/30 mx-auto"
                                         />
                                     </div>
                                     <div className="text-center">

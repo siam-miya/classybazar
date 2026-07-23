@@ -4,7 +4,7 @@ import Topbar from "@/components/Topbar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'; // সিএসএস ইমপোর্ট করা না থাকলে এটি যুক্ত করে নিন
+import 'react-toastify/dist/ReactToastify.css';
 import MenuBar from "@/components/MenuBar";
 import MultiChatFAB from "@/components/MultiChatFAB";
 

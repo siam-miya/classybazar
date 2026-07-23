@@ -7,20 +7,20 @@ import Link from 'next/link';
 
 const BestSelling = () => {
   const [products, setProducts] = useState([]);
-  
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await fetch("https://dummyjson.com/products");
         const data = await res.json();
-        setProducts(data.products); 
+        setProducts(data.products);
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchProducts();
-  }, []); 
+  }, []);
 
   return (
     <section className="w-full py-8 md:py-12">
@@ -38,9 +38,9 @@ const BestSelling = () => {
             <div key={product.id} className="w-full">
               <ProductCard product={product} />
             </div>
-          ))} 
+          ))}
         </div>
-        
+
       </div>
     </section>
   )

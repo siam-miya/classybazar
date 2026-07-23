@@ -7,8 +7,8 @@ import { IoClose } from "react-icons/io5";
 
 const MultiChatFAB = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const whatsappNumber = "8801793293600"; 
-  const messengerUsername = "amarClassyBazar"; 
+  const whatsappNumber = "8801793293600";
+  const messengerUsername = "amarClassyBazar";
   const phoneNumber = "+8801793293600";
   const emailAddress = "siammiya2024@gmail.com";
 
@@ -45,7 +45,7 @@ const MultiChatFAB = () => {
     },
   ];
   return (
-    <div className="fixed bottom-18 right-10 md:bottom-15 md:right-30  z-[9999] flex flex-col items-center">
+    <div className="fixed bottom-18 right-5 md:bottom-15 md:right-30  z-[9999] flex flex-col items-center">
       <div className="flex flex-col-reverse items-center gap-3 mb-3 pointer-events-none">
         {actions.map((action, index) => {
           const delayClass = isOpen
@@ -53,7 +53,7 @@ const MultiChatFAB = () => {
             : `transition-all duration-200 ease-in`;
 
           return (
-            <a 
+            <a
               key={action.id}
               href={action.href}
               target={action.target || "_self"}
@@ -67,10 +67,9 @@ const MultiChatFAB = () => {
                 flex items-center justify-center cursor-pointer 
                 hover:scale-110 active:scale-95
                 ${delayClass}
-                ${
-                  isOpen
-                    ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
-                    : "opacity-0 translate-y-12 scale-50 pointer-events-none"
+                ${isOpen
+                  ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
+                  : "opacity-0 translate-y-12 scale-50 pointer-events-none"
                 }
               `}
             >
@@ -91,16 +90,14 @@ const MultiChatFAB = () => {
         `}
       >
         <span
-          className={`absolute transition-all duration-300 ${
-            isOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"
-          }`}
+          className={`absolute transition-all duration-300 ${isOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"
+            }`}
         >
           <IoClose size={30} />
         </span>
         <span
-          className={`absolute transition-all duration-300 ${
-            isOpen ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"
-          }`}
+          className={`absolute transition-all duration-300 ${isOpen ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"
+            }`}
         >
           <BiCommentDetail size={28} />
         </span>

@@ -7,7 +7,7 @@ export const metadata = {
   title: "Login || classyBazar",
   description: "classybazar Login page",
   icons: {
-    icon: "/favLogin.svg", 
+    icon: "/favLogin.svg",
   },
 };
 
@@ -17,10 +17,10 @@ const Login = () => {
       <div className="container mx-auto">
         <div className='flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-[50px]'>
           <div className='w-full lg:w-[950px] flex justify-center'>
-            <Image 
-              src={main_logo} 
-              height={781} 
-              width={950} 
+            <Image
+              src={main_logo}
+              height={781}
+              width={950}
               alt='logo'
               className="w-full max-w-[300px] md:max-w-[500px] lg:max-w-[950px] h-auto object-contain"
             />
@@ -32,7 +32,7 @@ const Login = () => {
             <p className="mt-2 md:mt-4 text-[14px] md:text-[16px] text-black font-poppins">
               Enter your details below
             </p>
-            
+
             <form className="mt-6 md:mt-10 space-y-5 md:space-y-8">
               <div>
                 <input
@@ -61,10 +61,10 @@ const Login = () => {
                 type="button"
                 className="cursor-pointer text-[14px] md:text-[16px] w-full border border-gray-300 py-3 md:py-4 rounded flex items-center justify-center gap-3 hover:bg-gray-50 transition"
               >
-                <FcGoogle size={22}/>
+                <FcGoogle size={22} />
                 Sign In with Google
               </button>
-              
+
               <p className="text-center text-[14px] text-gray-600">
                 <Link href={"/"} className="font-semibold text-[#eb6e1b] hover:text-black underline">
                   Forget Password ?

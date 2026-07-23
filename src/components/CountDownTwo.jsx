@@ -44,7 +44,6 @@ export default function CountdownTwo() {
 
   return (
     <div className="flex items-center justify-center md:justify-start bg-transparent">
-      {/* মোবাইলে gap-3 এবং বড় স্ক্রিনে gap-4 বা 6 */}
       <div className="flex gap-3 sm:gap-4 md:gap-5">
         {timerItems.map((item, index) => (
           <div
@@ -59,11 +58,9 @@ export default function CountdownTwo() {
               shadow-lg transition-all duration-300
             "
           >
-            {/* সংখ্যা */}
             <span className="text-sm sm:text-base md:text-lg font-bold leading-none text-black">
               {item.value}
             </span>
-            {/* লেবেল */}
             <span className="text-[8px] sm:text-[9px] md:text-[10px] text-gray-500 font-medium uppercase mt-0.5 tracking-wider">
               {item.label}
             </span>

@@ -14,7 +14,7 @@ import { FiUser, FiLogOut } from "react-icons/fi";
 import { toast } from 'react-toastify';
 import { RiUser3Line } from 'react-icons/ri';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import MenuSection from './MenuSection'; 
+import MenuSection from './MenuSection';
 
 const Navbar = () => {
     const router = useRouter();
@@ -33,7 +33,7 @@ const Navbar = () => {
     useEffect(() => {
         setIsMounted(true);
         const handleScroll = () => {
-            if (window.scrollY > 30) { 
+            if (window.scrollY > 30) {
                 setIsScrolled(true);
             } else {
                 setIsScrolled(false);
@@ -95,7 +95,6 @@ const Navbar = () => {
             <div className='container mx-auto px-4 md:px-0'>
                 <div className={`flex flex-col md:flex-row items-center justify-between transition-all duration-300 ${isScrolled ? 'gap-0' : 'gap-4'} md:gap-8`}>
 
-                    {/* Logo Section */}
                     <div className="relative flex items-center justify-between w-full px-1 mr-1 md:w-auto min-h-[45px] md:min-h-0">
                         <button
                             onClick={openDrawer}
@@ -118,7 +117,6 @@ const Navbar = () => {
                                 />
                             </div>
                         </Link>
-                        {/* Mobile Cart Icon */}
                         <div className="flex items-center gap-4 md:hidden z-10">
                             <Link href={"/cart"} className='relative p-1'>
                                 <Image src={cartIcon} height={22} width={22} alt="cart" />
@@ -128,8 +126,6 @@ const Navbar = () => {
                             </Link>
                         </div>
                     </div>
-
-                    {/* Search Bar (স্ক্রোল না থাকলে ডেস্কটপে দেখাবে) */}
                     <div
                         ref={dropdownRef}
                         className={`relative w-full md:flex-1 px-1 md:max-w-[650px] transition-all duration-300 ${isScrolled ? 'block md:hidden' : 'block'}`}
@@ -194,15 +190,11 @@ const Navbar = () => {
                             </div>
                         )}
                     </div>
-
-                    {/* Desktop Navigation Menu (স্ক্রোল হলে MenuSection রেন্ডার করবে) */}
                     {isScrolled && (
                         <div className="hidden md:flex items-center justify-center flex-1">
                             <MenuSection />
                         </div>
                     )}
-
-                    {/* Desktop Right Action Icons (Wishlist, Cart, Profile) */}
                     <div className='hidden md:flex items-center gap-6 lg:gap-8 text-black flex-shrink-0'>
                         <Link href={"/wishlist"} className='cursor-pointer relative group'>
                             <Image src={wishlistIcon} height={24} width={24} alt="wishlist" />

@@ -15,19 +15,19 @@ const AboutDetailsSection = () => {
           </h1>
           <div className="space-y-4 text-gray-600 text-base leading-relaxed">
             <p>
-              Welcome to <strong>Classy Bazar</strong>! We are a trusted online shopping platform in Bangladesh, 
-              bringing essential and trendy products together under one roof with budget-friendly prices 
+              Welcome to <strong>Classy Bazar</strong>! We are a trusted online shopping platform in Bangladesh,
+              bringing essential and trendy products together under one roof with budget-friendly prices
               and reliable customer service.
             </p>
             <p>
-              Our goal is not just selling products; we believe in building long-term relationships 
+              Our goal is not just selling products; we believe in building long-term relationships
               with every single customer by maintaining proper quality, correct pricing, and on-time delivery.
             </p>
           </div>
         </div>
 
         <div className="w-full max-h-[400px] md:max-h-[500px] rounded-tl-[300px] rounded-br-[200px] relative overflow-hidden bg-pink-100 flex items-center justify-center">
-          <Image className="" src={aboutImage} height={609} width={705} alt="aboutImage"/>
+          <Image className="" src={aboutImage} height={609} width={705} alt="aboutImage" />
         </div>
       </div>
 

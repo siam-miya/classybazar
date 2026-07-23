@@ -8,7 +8,6 @@ const CategoryCard = ({ icon: Icon, text }) => {
       border border-gray-300 rounded-[4px] 
       cursor-pointer select-none 
       transition-all duration-300 ease-in-out 
-      /* মোবাইলে প্যাডিং এবং হাইট একটু কম, ডেস্কটপে আপনার আগের ডিজাইন (h-[145px] ও p-6) ঠিক থাকবে */
       p-4 md:p-6 
       w-full 
       h-[110px] md:h-[145px] 
@@ -17,11 +16,7 @@ const CategoryCard = ({ icon: Icon, text }) => {
     ">
       <div className="flex items-center justify-center text-black group-hover:text-white transition-colors duration-300 mb-2 md:mb-4">
         {Icon && (
-          <Icon className="
-            /* আইকন মোবাইলে একটু ছোট এবং ডেস্কটপে বড় হবে */
-            w-10 h-10 
-            md:w-14 md:h-14 
-          " />
+          <Icon className="w-10 h-10 md:w-14 md:h-14" />
         )}
       </div>
       <p className="

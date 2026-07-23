@@ -32,14 +32,11 @@ const ProductDetailsPage = async ({ params }) => {
           <div className="mb-10">
             <ProductDetailsSection product={findData} />
           </div>
-          
-          {/* রিলেটেড প্রডাক্ট সেকশন */}
           {relatedProducts.length > 0 && (
             <div className="pb-16 w-full overflow-hidden">
               <div className="mb-8">
                 <SectionHeading subHeading={"Related Item"} countDown={false}/>
               </div>
-
               <RelatedProductsSlider relatedProducts={relatedProducts} />
             </div>
           )}

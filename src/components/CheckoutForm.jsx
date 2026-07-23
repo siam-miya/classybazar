@@ -14,7 +14,6 @@ const CheckoutForm = () => {
   const { cart, shippingMethod, setShippingMethod, removeFromCart, updateQuantity } = useCartStore();
   const [isMounted, setIsMounted] = useState(false);
 
-  // Search Params detection
   const searchParams = useSearchParams();
   const isBuyNow = searchParams.get('buyNow') === 'true';
 
@@ -37,7 +36,7 @@ const CheckoutForm = () => {
   );
 
   const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  const shippingCharge = shippingMethod === 'inside' ? 60 : 120;
+  const shippingCharge = shippingMethod === 'inside' ? 70 : 130;
   const totalCost = subtotal + shippingCharge;
 
   const handleInputChange = (e) => {
@@ -70,7 +69,6 @@ const CheckoutForm = () => {
 
   return (
     <form onSubmit={handlePlaceOrder} className="flex flex-col lg:grid lg:grid-cols-[1fr_450px] gap-8 lg:gap-16 items-start">
-      {/* Customer Information Fields */}
       <div className="space-y-6 w-full">
         <div>
           <label className="block text-gray-400 text-sm mb-2">Your Full Name<span className="text-[#DB4444]">*</span></label>
@@ -90,10 +88,7 @@ const CheckoutForm = () => {
         </label>
       </div>
 
-      {/* Cart Items & Order Summary */}
       <div className="space-y-6 w-full">
-        
-        {/* Scrollable Product List */}
         <div className="max-h-[300px] overflow-y-auto pr-2 pl-2 pt-2 space-y-4">
           {cart.length === 0 ? (
             <p className="text-sm text-gray-500 py-4">Your cart is empty.</p>
@@ -101,19 +96,16 @@ const CheckoutForm = () => {
             cart.map((item) => (
               <div key={item.id} className="flex items-center justify-between gap-3 py-2 border-b border-gray-100 last:border-none">
                 <div className="flex items-center gap-3 min-w-0">
-                  
-                  {/* Image Thumbnail & Close Button */}
                   <div className="relative pt-1 pl-1 flex-shrink-0">
                     <div className="w-12 h-12 bg-white border border-gray-200 rounded-lg p-1 flex items-center justify-center">
-                      <Image 
-                        src={item.thumbnail} 
-                        alt={item.title} 
-                        width={40} 
-                        height={40} 
-                        className="object-contain w-full h-full" 
+                      <Image
+                        src={item.thumbnail}
+                        alt={item.title}
+                        width={40}
+                        height={40}
+                        className="object-contain w-full h-full"
                       />
                     </div>
-
                     <button
                       type="button"
                       onClick={() => removeFromCart && removeFromCart(item.id)}
@@ -123,14 +115,11 @@ const CheckoutForm = () => {
                       <IoClose className="text-xs" />
                     </button>
                   </div>
-
-                  {/* Title & Conditional Quantity Selector */}
                   <div className="flex flex-col min-w-0">
                     <span className="text-sm font-medium truncate text-gray-800 max-w-[150px] sm:max-w-[200px]">
                       {item.title} {!isBuyNow && `(x${item.quantity})`}
                     </span>
 
-                    {/* ONLY SHOW QUANTITY CONTROLS IF CAME FROM 'BUY NOW' */}
                     {isBuyNow && (
                       <div className="flex items-center border border-gray-300 rounded w-fit mt-1 bg-white">
                         <button
@@ -155,13 +144,11 @@ const CheckoutForm = () => {
                   </div>
                 </div>
 
-                <span className="font-semibold text-gray-900 flex-shrink-0">${(item.price * item.quantity).toFixed(2)}</span>
+                <span className="font-semibold text-gray-900 flex-shrink-0">৳{(item.price * item.quantity).toFixed(2)}</span>
               </div>
             ))
           )}
         </div>
-
-        {/* Shipping Selection */}
         <div className="space-y-3 bg-gray-50 p-4 rounded-lg border border-gray-200">
           <p className="text-sm font-semibold text-gray-700">Select Shipping Area:</p>
           <div className="flex flex-col gap-2">
@@ -176,11 +163,10 @@ const CheckoutForm = () => {
           </div>
         </div>
 
-        {/* Total Cost */}
         <div className="border-b pb-3 space-y-3 text-sm">
           <div className="flex justify-between">
             <span className="text-gray-600">Subtotal:</span>
-            <span className="font-medium">${subtotal.toFixed(2)}</span>
+            <span className="font-medium">৳{subtotal.toFixed(2)}</span>
           </div>
           <div className="flex justify-between border-t pt-3">
             <span className="text-gray-600">Shipping:</span>
@@ -189,7 +175,7 @@ const CheckoutForm = () => {
         </div>
         <div className="flex justify-between font-bold text-base">
           <span>Total:</span>
-          <span>${totalCost.toFixed(2)}</span>
+          <span>৳{totalCost.toFixed(2)}</span>
         </div>
 
         <button

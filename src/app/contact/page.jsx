@@ -1,7 +1,5 @@
 import ContactFormSection from "@/components/ContacFormSection";
 import SubBanner from "@/components/SubBanner";
-import Link from "next/link";
-import { BiSolidRightArrow } from "react-icons/bi";
 
 export const metadata = {
   title: "Contact || ClassyBazar",

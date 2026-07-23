@@ -170,10 +170,9 @@ const MenuBar = () => {
                             <MenuSection />
                         </div>
 
-                        {/* Right Side: Order Track Button OR User Action Icons when Scrolled */}
                         <div className="flex-shrink-0 min-w-[120px] flex justify-end items-center">
                             {!isScrolled ? (
-                                <Link href={"/ordertrack"}>
+                                <Link href={"/order/ordertrack"}>
                                     <button className="text-white font-bold text-sm hover:bg-black transition-colors cursor-pointer py-2.5 px-5 bg-[#eb6e1b] rounded-md animate-fadeIn font-poppins">
                                         Order Track
                                     </button>
@@ -217,7 +216,6 @@ const MenuBar = () => {
                 </div>
             </section>
 
-            {/* Drawer Section */}
             <div className={`fixed inset-0 bg-black/60 z-[99999] transition-opacity duration-300 lg:hidden ${isDrawerOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
                 <div ref={drawerRef} className={`fixed top-0 left-0 bottom-0 w-[290px] bg-[#F7F7F7] z-[999999] shadow-2xl flex flex-col transition-transform duration-300 ease-out ${isDrawerOpen ? "translate-x-0" : "-translate-x-full"}`}>
 
@@ -280,7 +278,6 @@ const MenuBar = () => {
                 </div>
             </div>
 
-            {/* Mobile Bottom Bar */}
             <div className="lg:hidden fixed bottom-0 left-0 right-0 h-14 bg-[#eb6e1b] text-white grid grid-cols-5 items-center justify-items-center z-[9999] shadow-[0_-2px_10px_rgba(0,0,0,0.1)] font-poppins px-1">
                 <Link href="/" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] ${pathname === '/' ? "text-black font-semibold" : ""}`}>
                     <AiOutlineHome size={22} />
@@ -302,7 +299,7 @@ const MenuBar = () => {
                     <span>CATEGORIES</span>
                 </button>
 
-                <Link href="/ordertrack" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] relative ${pathname === '/ordertrack' ? "text-black font-semibold" : ""}`}>
+                <Link href="/order/ordertrack" className={`flex flex-col items-center justify-center w-full text-center gap-0.5 text-[10px] relative ${pathname === '/ordertrack' ? "text-black font-semibold" : ""}`}>
                     <div className="relative flex items-center justify-center">
                         <TbTruckDelivery size={22} className={pathname === '/ordertrack' ? "text-black" : "text-white"} />
                     </div>

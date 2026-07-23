@@ -54,13 +54,13 @@ const Category = () => {
               <Swiper
                 modules={[Navigation]}
                 spaceBetween={32}
-                slidesPerView={6} 
+                slidesPerView={6}
                 navigation={{
                   prevEl: prevEl,
                   nextEl: nextEl,
                 }}
                 breakpoints={{
-                  320: { slidesPerView: 2.2, spaceBetween: 12 }, 
+                  320: { slidesPerView: 2.2, spaceBetween: 12 },
                   480: { slidesPerView: 3, spaceBetween: 16 },
                   768: { slidesPerView: 4, spaceBetween: 24 },
                   1024: { slidesPerView: 6, spaceBetween: 32 },
@@ -74,7 +74,7 @@ const Category = () => {
                 ))}
               </Swiper>
             )}
-          </div>    
+          </div>
         </div>
       </div>
     </section>

@@ -2,10 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-
 const MenuSection = () => {
     const pathname = usePathname();
-
     const navLinks = [
         { name: 'Home', href: '/' },
         { name: 'All Products', href: '/products' },
@@ -26,8 +24,6 @@ const MenuSection = () => {
                             className={`transition-all block ${isActive ? 'font-semibold text-black' : ''}`}
                         >
                             {item.name}
-
-                            {/* স্ক্রোল করলেও এই আন্ডারলাইনটি ১০০% একই জায়গায় পারফেক্ট থাকবে */}
                             {isActive && (
                                 <span className="absolute bottom-0 left-0 w-full h-[2px] bg-black rounded-full" />
                             )}

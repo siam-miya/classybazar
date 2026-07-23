@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { useCartStore } from "@/store/useCartStore"; 
+import { useCartStore } from "@/store/useCartStore";
 import { toast } from "react-toastify";
 
 const BuyNowButton = ({ product }) => {
@@ -16,8 +16,7 @@ const BuyNowButton = ({ product }) => {
       position: "top-center",
       autoClose: 5000,
     });
-    // Query param parameter `buyNow=true` add kora holo
-    router.push("/checkout?buyNow=true"); 
+    router.push("/checkout?buyNow=true");
   };
 
   return (

@@ -20,7 +20,6 @@ const SectionHeading = ({ subHeading, heading, countDown = false, navigationButt
           <div className="flex-1 flex justify-start">
             <CountdownTimer />
           </div>
-          {/* FlashSales থেকে পাঠানো Swiper বাটনগুলো এখানে রেন্ডার হবে */}
           {navigationButtons && (
             <div className="shrink-0">
               {navigationButtons}

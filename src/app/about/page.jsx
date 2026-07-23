@@ -1,31 +1,29 @@
 import AboutDetailsSection from "@/components/AboutDetailsSection";
 import OurSupport from "@/components/OurSupport";
 import SubBanner from "@/components/SubBanner";
-import Link from "next/link";
-import { BiSolidRightArrow } from "react-icons/bi";
 
 export const metadata = {
   title: "About || ClassyBazar",
   description: "classyBazar about page",
-    icons: {
-    icon: "/favAbout.svg", 
+  icons: {
+    icon: "/favAbout.svg",
   },
 };
 const About = () => {
   return (
-   <section>
+    <section>
       <div>
-          <SubBanner title={"About Us"} pageName={"About"}/>
-           <div className="container">
+        <SubBanner title={"About Us"} pageName={"About"} />
+        <div className="container">
           <div>
-            <AboutDetailsSection/>
+            <AboutDetailsSection />
           </div>
           <div>
-            <OurSupport/>
+            <OurSupport />
           </div>
+        </div>
       </div>
-    </div>
-   </section>
+    </section>
   )
 }
 

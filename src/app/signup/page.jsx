@@ -13,23 +13,18 @@ export const metadata = {
 
 const SignUp = () => {
   return (
-    <section className="px-5"> {/* এখানে px-5 যোগ করেছি যাতে একদম লেগে না যায় */}
+    <section className="px-5">
       <div className="container mx-auto">
-        {/* lg:gap-[50px] ডেস্কটপে বড় গ্যাপ রাখবে, ছোট স্ক্রিনে gap-10 কাজ করবে */}
         <div className='flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-[50px] py-10'>
-          
-          {/* ইমেজ সেকশন */}
           <div className='w-full lg:w-[950px] flex justify-center'>
-            <Image 
-              src={main_logo} 
-              height={781} 
-              width={950} 
-              alt='logo' 
-              className="w-full h-auto object-contain" 
+            <Image
+              src={main_logo}
+              height={781}
+              width={950}
+              alt='logo'
+              className="w-full h-auto object-contain"
             />
           </div>
-
-          {/* ফর্ম সেকশন */}
           <div className='w-full max-w-[500px]'>
             <h2 className="text-[36px] font-medium text-black font-inter leading-7">
               Create an account

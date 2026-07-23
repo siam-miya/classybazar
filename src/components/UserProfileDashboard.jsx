@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation"; 
+import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
-import { FiLogOut } from "react-icons/fi"; 
+import { FiLogOut } from "react-icons/fi";
 
 const UserProfileDashboard = () => {
   const searchParams = useSearchParams();
@@ -37,10 +37,10 @@ const UserProfileDashboard = () => {
     toast.success("Changes saved successfully!");
   };
 
-  
+
   const handleLogout = () => {
     toast.info("Logged out successfully!");
-   
+
   };
 
   return (
@@ -51,55 +51,48 @@ const UserProfileDashboard = () => {
             <div>
               <h3 className="font-semibold text-black mb-2">Manage My Account</h3>
               <ul className="pl-4 space-y-2 text-sm text-gray-500">
-                <li 
+                <li
                   onClick={() => setActiveMenu("My Profile")}
-                  className={`cursor-pointer transition-colors ${
-                    activeMenu === "My Profile" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
-                  }`}
+                  className={`cursor-pointer transition-colors ${activeMenu === "My Profile" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
+                    }`}
                 >
                   My Profile
                 </li>
               </ul>
             </div>
 
-            {/* My Orders */}
             <div>
               <h3 className="font-semibold text-black mb-2">My Orders</h3>
               <ul className="pl-4 space-y-2 text-sm text-gray-500">
-                <li 
+                <li
                   onClick={() => setActiveMenu("My Returns")}
-                  className={`cursor-pointer transition-colors ${
-                    activeMenu === "My Returns" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
-                  }`}
+                  className={`cursor-pointer transition-colors ${activeMenu === "My Returns" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
+                    }`}
                 >
                   My Returns
                 </li>
-                <li 
+                <li
                   onClick={() => setActiveMenu("My Cancellations")}
-                  className={`cursor-pointer transition-colors ${
-                    activeMenu === "My Cancellations" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
-                  }`}
+                  className={`cursor-pointer transition-colors ${activeMenu === "My Cancellations" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
+                    }`}
                 >
                   My Cancellations
                 </li>
-                <li 
+                <li
                   onClick={() => setActiveMenu("Order Track")}
-                  className={`cursor-pointer transition-colors ${
-                    activeMenu === "Order Track" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
-                  }`}
+                  className={`cursor-pointer transition-colors ${activeMenu === "Order Track" ? "text-[#eb6e1b] font-medium" : "hover:text-black"
+                    }`}
                 >
                   Order Track
                 </li>
               </ul>
             </div>
 
-            {/* My WishList */}
             <div>
-              <h3 
+              <h3
                 onClick={() => setActiveMenu("My WishList")}
-                className={`font-semibold cursor-pointer transition-colors ${
-                  activeMenu === "My WishList" ? "text-[#eb6e1b]" : "text-black hover:text-[#eb6e1b]"
-                }`}
+                className={`font-semibold cursor-pointer transition-colors ${activeMenu === "My WishList" ? "text-[#eb6e1b]" : "text-black hover:text-[#eb6e1b]"
+                  }`}
               >
                 My WishList
               </h3>
@@ -118,7 +111,7 @@ const UserProfileDashboard = () => {
         </div>
 
         <div className="md:col-span-3 bg-white p-6 md:p-10 rounded shadow-sm border border-gray-50 flex flex-col justify-center min-h-[400px]">
-          
+
           {activeMenu === "My Profile" && (
             <>
               <h2 className="text-xl font-medium text-black mb-6">Edit Your Profile</h2>
@@ -195,7 +188,6 @@ const UserProfileDashboard = () => {
                   />
                 </div>
 
-                {/* Buttons */}
                 <div className="flex justify-end items-center space-x-6 pt-4">
                   <button
                     type="button"
@@ -218,11 +210,11 @@ const UserProfileDashboard = () => {
           {activeMenu !== "My Profile" && (
             <div className="text-center py-12">
               <h2 className="text-xl font-medium text-black mb-2">{activeMenu}</h2>
- 
+
               {activeMenu === "Order Track" ? (
                 <div className="bg-gray-50 py-8 rounded-lg border border-dashed border-gray-200">
                   <p className="text-gray-600 text-sm font-poppins">
-                     No active orders tracking in your profile dashboard.
+                    No active orders tracking in your profile dashboard.
                   </p>
                 </div>
               ) : (

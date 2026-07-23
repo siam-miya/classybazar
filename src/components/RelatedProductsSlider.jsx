@@ -15,7 +15,7 @@ export default function RelatedProductsSlider({ relatedProducts }) {
         observeParents={true}
         watchOverflow={true}
         autoplay={{
-          delay: 1000, 
+          delay: 1000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}

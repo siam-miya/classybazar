@@ -6,22 +6,16 @@ import Link from 'next/link'
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    // মোবাইলে ফিক্সড বটম মেনুবারের জন্য pb-24 এবং ডেস্কটপে pb-6 দেওয়া হয়েছে
     <footer className='bg-black pt-12 md:pt-20 pb-24 md:pb-6'>
-      {/* মোবাইলে দুই পাশে সুন্দর স্পেসিং এর জন্য px-4 ব্যবহার করা হয়েছে */}
       <div className="container px-4 sm:px-6 md:px-0">
-        
-        {/* রেসপন্সিভ গ্রিড: মোবাইলে ১ কলাম, ট্যাবলেটে ২ কলাম, এবং ডেস্কটপে ৪ কলাম */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 xl:gap-20'>
-          
-          {/* Section 1: Brand & Subscribe */}
           <div className="flex flex-col">
             <div>
-              <Image 
-                src={footer_icon} 
-                height={120} 
-                width={240} 
-                alt='logo' 
+              <Image
+                src={footer_icon}
+                height={120}
+                width={240}
+                alt='logo'
                 className="max-w-[200px] md:max-w-[240px] h-auto"
               />
             </div>
@@ -30,10 +24,10 @@ const Footer = () => {
             <div className='py-4 max-w-[280px] sm:max-w-full'>
               <form action="">
                 <div className='flex items-center gap-3 border border-white rounded-md py-3 px-4'>
-                  <input 
-                    className='focus:outline-none placeholder:text-white text-white bg-transparent w-full' 
-                    type="email" 
-                    placeholder='enter your email' 
+                  <input
+                    className='focus:outline-none placeholder:text-white text-white bg-transparent w-full'
+                    type="email"
+                    placeholder='enter your email'
                   />
                   <span className="shrink-0">
                     <Image src={arrow_right} height={24} width={24} alt='icon' />
@@ -41,7 +35,6 @@ const Footer = () => {
                 </div>
               </form>
             </div>
-            {/* Social Icons */}
             <div className='flex items-center justify-start gap-6 pt-2'>
               <svg
                 width="24"
@@ -94,8 +87,6 @@ const Footer = () => {
               </svg>
             </div>
           </div>
-
-          {/* Section 2: Support */}
           <div>
             <h2 className='text-white font-medium font-poppins text-[20px] leading-7 border-b border-gray-800 pb-2 md:border-b-0 md:pb-0'>Support</h2>
             <div className="pt-4 md:pt-6">
@@ -104,8 +95,6 @@ const Footer = () => {
               <p className='text-[16px] leading-6 text-white font-poppins pt-4 hover:text-[#eb6e1b] hover:font-semibold transition-all cursor-pointer'>01925909902</p>
             </div>
           </div>
-
-          {/* Section 3: Account */}
           <div>
             <h2 className='text-white font-medium font-poppins text-[20px] leading-7 border-b border-gray-800 pb-2 md:border-b-0 md:pb-0'>Account</h2>
             <ul className="pt-4 md:pt-6">
@@ -132,8 +121,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-          {/* Section 4: Quick Links */}
           <div>
             <h2 className='text-white font-medium font-poppins text-[20px] leading-7 border-b border-gray-800 pb-2 md:border-b-0 md:pb-0'>Quick Link</h2>
             <ul className="pt-4 md:pt-6">
@@ -151,11 +138,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
         </div>
-
-        {/* Bottom Copyright Section */}
-        {/* মোবাইলের জন্য মার্জিন mt-12 থেকে কমিয়ে mt-8 করা হয়েছে */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-1 mt-8 md:mt-20 pt-6 border-t border-gray-900 text-center font-poppins">
           <span className='text-gray-500 hidden sm:inline'>&copy;</span>
           <span className='text-gray-500 text-[14px] sm:text-[16px] leading-6'>

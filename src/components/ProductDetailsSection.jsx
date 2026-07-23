@@ -7,14 +7,14 @@ import { GoPlus } from 'react-icons/go';
 import { useCartStore } from '@/store/useCartStore';
 import { useWishlistStore } from '@/store/useWishlistStore';
 import { FaBangladeshiTakaSign, FaWhatsapp } from 'react-icons/fa6';
-import { FiPhoneCall, FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi'; // FiX ইম্পোর্ট করা হয়েছে
+import { FiPhoneCall, FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi';
 import AddToCartButton from './AddToCartButton';
 
 const ProductDetailsSection = ({ product }) => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [isMounted, setIsMounted] = useState(false);
-  const [isOpenPopup, setIsOpenPopup] = useState(false); 
+  const [isOpenPopup, setIsOpenPopup] = useState(false);
   const [siteSettings, setSiteSettings] = useState({
     whatsappNumber: "+8801793-293600",
     phoneNumber: "+8801793-293600"
@@ -83,13 +83,13 @@ const ProductDetailsSection = ({ product }) => {
               </button>
             ))}
           </div>
-          <div 
-            onClick={() => setIsOpenPopup(true)} 
+          <div
+            onClick={() => setIsOpenPopup(true)}
             className="flex-1 bg-white border border-gray-100 rounded-lg flex items-center justify-center p-4 relative group h-full overflow-hidden shadow-sm cursor-zoom-in"
           >
             <button
               onClick={(e) => {
-                e.stopPropagation(); 
+                e.stopPropagation();
                 handlePrevImage();
               }}
               className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white/80 hover:bg-white text-gray-600 rounded-full flex items-center justify-center shadow-md transition-all cursor-pointer border border-gray-100 opacity-0 group-hover:opacity-100"
@@ -196,15 +196,15 @@ const ProductDetailsSection = ({ product }) => {
         <p className="text-gray-600 leading-relaxed text-sm max-w-4xl">{product?.description}</p>
       </div>
       {isOpenPopup && (
-        <div 
-          onClick={() => setIsOpenPopup(false)} 
+        <div
+          onClick={() => setIsOpenPopup(false)}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-fadeIn"
         >
-          <div 
-            onClick={(e) => e.stopPropagation()} 
+          <div
+            onClick={(e) => e.stopPropagation()}
             className="relative bg-white rounded-xl p-6 w-full max-w-xl md:max-w-2xl aspect-square flex items-center justify-center shadow-2xl overflow-hidden"
           >
-            <button 
+            <button
               onClick={() => setIsOpenPopup(false)}
               className="absolute top-4 right-4 z-50 p-2 bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-black rounded-full transition-all cursor-pointer shadow-sm"
             >

@@ -10,7 +10,7 @@ export default function CountdownTimer() {
 
   const calculateTimeLeft = () => {
     const difference = +targetDate - +new Date();
-    let timeLeft = { days: "03", hours: "23", minutes: "19", seconds: "56" }; 
+    let timeLeft = { days: "03", hours: "23", minutes: "19", seconds: "56" };
 
     if (difference > 0) {
       const d = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -44,34 +44,21 @@ export default function CountdownTimer() {
           <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-800 mb-0.5 sm:mb-1 uppercase tracking-wider">Days</span>
           <span className="text-xl sm:text-2xl md:text-[32px] font-bold text-black tracking-tight leading-none">{timeLeft.days}</span>
         </div>
-
-        {/* Separator */}
         <div className="text-lg sm:text-xl md:text-3xl font-bold text-[#FFAD33] self-center pt-3 sm:pt-4">:</div>
-
-        {/* Hours */}
         <div className="flex flex-col items-center">
           <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-800 mb-0.5 sm:mb-1 uppercase tracking-wider">Hours</span>
           <span className="text-xl sm:text-2xl md:text-[32px] font-bold text-black tracking-tight leading-none">{timeLeft.hours}</span>
         </div>
-
-        {/* Separator */}
         <div className="text-lg sm:text-xl md:text-3xl font-bold text-[#FFAD33] self-center pt-3 sm:pt-4">:</div>
-
-        {/* Minutes */}
         <div className="flex flex-col items-center">
           <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-800 mb-0.5 sm:mb-1 uppercase tracking-wider">Minutes</span>
           <span className="text-xl sm:text-2xl md:text-[32px] font-bold text-black tracking-tight leading-none">{timeLeft.minutes}</span>
         </div>
-
-        {/* Separator */}
         <div className="text-lg sm:text-xl md:text-3xl font-bold text-[#FFAD33] self-center pt-3 sm:pt-4">:</div>
-
-        {/* Seconds */}
         <div className="flex flex-col items-center">
           <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-800 mb-0.5 sm:mb-1 uppercase tracking-wider">Seconds</span>
           <span className="text-xl sm:text-2xl md:text-[32px] font-bold text-[#eb6e1b] tracking-tight leading-none">{timeLeft.seconds}</span>
         </div>
-
       </div>
     </div>
   );

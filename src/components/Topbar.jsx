@@ -7,9 +7,9 @@ const Topbar = () => {
   const [lang, setLang] = useState("English")
   const [open, setOpen] = useState(false)
   const dropdownRef = useRef(null)
- 
+
   const languages = ["English", "বাংলা"]
- 
+
   const handleSelect = (selected) => {
     setLang(selected)
     setOpen(false)
@@ -28,10 +28,10 @@ const Topbar = () => {
     <section className="w-full bg-black text-[#FAFAFA] p-1 px-2 md:py-3 font-poppins md:px-8">
       <div className="container flex items-center justify-between">
         <div className="hidden md:block w-20"></div>
-        
+
         <div className="flex-1 text-center text-xs md:text-sm tracking-wide leading-5">
           <span>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</span>
-          <Link 
+          <Link
             href="/products"
             className="font-semibold underline ml-2 transition-colors duration-200 hover:text-blue-400"
           >
@@ -50,16 +50,15 @@ const Topbar = () => {
               className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
             />
           </button>
- 
+
           {open && (
             <div className="absolute right-0 top-full mt-2 bg-white text-black rounded-md shadow-lg overflow-hidden min-w-[110px] z-50">
               {languages.map((item) => (
                 <button
                   key={item}
                   onClick={() => handleSelect(item)}
-                  className={`w-full text-left px-4 py-2 text-xs md:text-sm hover:bg-gray-100 cursor-pointer ${
-                    lang === item ? "font-semibold bg-gray-50" : ""
-                  }`}
+                  className={`w-full text-left px-4 py-2 text-xs md:text-sm hover:bg-gray-100 cursor-pointer ${lang === item ? "font-semibold bg-gray-50" : ""
+                    }`}
                 >
                   {item}
                 </button>
@@ -71,5 +70,5 @@ const Topbar = () => {
     </section>
   )
 }
- 
+
 export default Topbar

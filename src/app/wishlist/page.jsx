@@ -2,16 +2,15 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { useWishlistStore } from "@/store/useWishlistStore"; 
-import { useCartStore } from "@/store/useCartStore"; 
-import ProductCard from "@/components/ProductCard"; 
+import { useWishlistStore } from "@/store/useWishlistStore";
+import { useCartStore } from "@/store/useCartStore";
+import ProductCard from "@/components/ProductCard";
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
-import { HeartCrack, Link } from 'lucide-react';
-import Button from '@/components/Button';
+import 'react-toastify/dist/ReactToastify.css';
+import { HeartCrack } from 'lucide-react';
 
 const WishList = () => {
-  const router = useRouter(); 
+  const router = useRouter();
   const { wishlist, clearWishlist } = useWishlistStore();
   const addToCart = useCartStore((state) => state.addToCart);
 
@@ -28,7 +27,7 @@ const WishList = () => {
       position: "top-center",
       autoClose: 2000,
     });
-    router.push('/cart'); 
+    router.push('/cart');
   };
 
   return (

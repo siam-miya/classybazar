@@ -5,8 +5,8 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md"
 import { Swiper, SwiperSlide } from "swiper/react"
 import 'swiper/css'
 import 'swiper/css/pagination'
-import 'swiper/css/autoplay' 
-import { Pagination, Autoplay } from 'swiper/modules' 
+import 'swiper/css/autoplay'
+import { Pagination, Autoplay } from 'swiper/modules'
 import banner_1 from "../assets/images/banner.jpg"
 import banner_2 from "../assets/images/banner_2.jpg"
 import banner_3 from "../assets/images/banner_3.jpg"
@@ -23,7 +23,7 @@ const Banner = () => {
                         loop={true}
                         pagination={{ clickable: true }}
                         autoplay={{
-                            delay: 2000, 
+                            delay: 2000,
                             disableOnInteraction: false,
                         }}
                         modules={[Pagination, Autoplay]}
